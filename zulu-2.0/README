@@ -1,0 +1,35 @@
+-- REQUIREMENTS --
+At least Qt 3.3 (no gurantees for prior releases)
+libexif-0.6.12 (http://sourceforge.net/projects/libexif)
+xmlrpc-c-1.2 (http://xmlrpc-c.sourceforge.net)
+
+-- BUILDING --
+Unpack the source tree:
+# tar -xvzf zoto-uploader-x.x.x.tar.gz (where x.x.x is the current zoto uploader version).
+
+Change to the top level source directory:
+# cd zoto-uploader-x.x.x
+
+Build the necessary makefiles:
+# qmake zulu.pro
+
+Start the build process:
+# make
+
+Once the build is complete (successfully), there should be a zulu executable in the zulu-gui subfolder.  If something went wrong, double-check that you have the required libraries installed and that the include files live in a standard location (eg. /usr/include).  If all else fails, you can post a question in the forums at http://www.zoto.com and we'll see what we can do.
+
+-- SOURCE ORGANIZATION --
+zulu-lib
+Contains all the logic required to connect to the zoto server and upload files.  If you wish to see documentation (and have doxygen installed), you can generate the docs by typing:
+# doxygen .doxy-config
+
+The documentation will be generated in the 'docs' directory.
+
+zulu-gui
+All the code used to build the beautiful user interface.  No documentation here, although the source should be fairly well commented.
+
+common
+Include files common to all client projects/libraries.
+
+zulu-cli
+Beta command line client being developed.  Currently only supports uploading (tagging to be added later).

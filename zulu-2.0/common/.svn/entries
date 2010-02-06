@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1426"
+   name=""
+   committed-date="2005-11-14T05:48:04.515832Z"
+   url="http://192.168.2.77:81/repos/zoto/trunk/zulu-2.0/common"
+   last-author="josh"
+   kind="dir"
+   uuid="0437d5cd-7ee2-0310-b2b9-f5f6a1136d40"
+   repos="http://192.168.2.77:81/repos"
+   revision="2300"/>
+<entry
+   committed-rev="899"
+   name="ZGlobals.h"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-07-11T19:17:00.342646Z"
+   checksum="8beeb7a591e3c37ec4ec596ab4236a48"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="1426"
+   name="global_qmake_config"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-11-14T05:48:04.515832Z"
+   checksum="ea0dbf3633d3adafc7223f03379ca954"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZPlatform.h"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="4ea9ca4b3f09e0f33cfee2b0f35d3071"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="882"
+   name="ZTypes.h"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-07-06T23:29:03.483082Z"
+   checksum="130ca2402759d5dbc172d770f51d0bc4"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+</wc-entries>

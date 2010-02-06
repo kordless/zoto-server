@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1172"
+   name=""
+   committed-date="2005-09-14T18:16:40.000179Z"
+   url="http://192.168.2.77:81/repos/zoto/trunk/zulu-2.0/zulu-gui/resources"
+   last-author="josh"
+   kind="dir"
+   uuid="0437d5cd-7ee2-0310-b2b9-f5f6a1136d40"
+   repos="http://192.168.2.77:81/repos"
+   revision="2300"/>
+<entry
+   committed-rev="610"
+   name="zulu.rc"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-06-07T14:48:57.131835Z"
+   checksum="37e45006a08b319a6b596661ee99fc1f"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   name="images"
+   kind="dir"/>
+<entry
+   committed-rev="610"
+   name="Info.plist"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-06-07T14:48:57.131835Z"
+   checksum="607b96904ea21f66a340f1149f2fe118"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   committed-rev="610"
+   name="weed.ico"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-06-07T14:48:57.131835Z"
+   checksum="94108576626c61cc0b80cbf3a4628e28"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="613"
+   name="application.icns"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-06-07T16:43:12.312229Z"
+   checksum="2142d55448a4c4d62322133d4ca14715"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+</wc-entries>

@@ -1,0 +1,130 @@
+#=============================================================================#
+#                                                                             #
+#  This file is part of the Zoto Software Suite.                              #
+#                                                                             #
+#  Copyright (C) 2004, 2005 Zoto, Inc.  123 South Hudson, OKC, OK  73102      #
+#                                                                             #
+#  This program is free software; you can redistribute it and/or modify       #
+#  it under the terms of the GNU General Public License as published by       #
+#  the Free Software Foundation; either version 2 of the License, or          #
+#  (at your option) any later version.                                        #
+#                                                                             #
+#  This program is distributed in the hope that it will be useful,            #
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of             #
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the              #
+#  GNU General Public License for more details.                               #
+#                                                                             #
+#  You should have received a copy of the GNU General Public License          #
+#  along with this program; if not, write to the Free Software                #
+#  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA  #
+#                                                                             #
+#=============================================================================#
+#                                  CHANGELOG                                  #
+#   Date       Description                                    Author          #
+# -----------  ---------------------------------------------  --------------  #
+#                                                                             #
+#=============================================================================#
+LANGUAGE		= C++
+CONFIG += qt warn_on release exceptions tagging tracing thread exif
+
+INCLUDEPATH		+= ./include ../common
+
+#============================================================
+# Third-party library paths (update these for Windows/Mac)
+#============================================================
+XMLRPC_PATH		= ../../xmlrpc-c-1.03
+LIBEXIF_PATH	= ../../libexif-0.6.12
+
+#============================================================
+# Conditionals
+#============================================================
+tracing:DEFINES += TRACE_ENABLE
+thread:DEFINES	+= QT_THREAD_SUPPORT
+tagging:DEFINES	+= ZULU_TAGGING
+exif:DEFINES	+= ZULU_EXIF
+
+# WINDOWS
+win32 {
+	LIBS		+= ..\zulu-lib\Release\zulu_lib.lib
+	DEFINES		+= WIN32_LEAN_AND_MEAN
+	tagging {
+		INCLUDEPATH	+= $$XMLRPC_PATH\src
+		LIBS		+= $$XMLRPC_PATH\lib\xmlrpc.lib -lwininet
+	}
+	exif {
+		INCLUDEPATH	+= $$LIBEXIF_PATH
+		LIBS		+= $$LIBEXIF_PATH\Release\libexif.lib
+	}
+}
+
+# LINUX
+unix:!macx {
+	LIBS		+= -L../zulu-lib -lzulu
+	tagging {
+		LIBS		+= `xmlrpc-c-config c++2 client --libs` -lxmlrpc -lxmlrpc++
+	}
+	exif {
+		LIBS		+= -lexif
+	}
+}
+
+# OSX
+macx {
+	LIBS		+= -L/sw/lib -L../zulu-lib -lzulu -lobjc
+	tagging {
+		INCLUDEPATH	+= $$XMLRPC_PATH
+		LIBS		+= -L$$XMLRPC_PATH/src -lxmlrpc_cpp -lxmlrpc_server -lxmlrpc_client -lxmlrpc `/sw/bin/libwww-config --libs`
+	}
+	exif {
+		INCLUDEPATH += $$LIBEXIF_PATH
+		LIBS		+= $$LIBEXIF_PATH/libexif/.libs/libexif.a
+	}
+}
+
+#============================================================
+# Temp file locations (Linux/OSX)
+#============================================================
+unix {
+  UI_DIR = .ui
+  MOC_DIR = .moc
+  OBJECTS_DIR = .obj
+}
+
+#============================================================
+# Config information
+#============================================================
+message('Compilation options:')
+message('--------------------')
+win32 {
+	message('Platform........... Win32')
+}
+unix:!macx {
+	message('Platform........... Unix')
+}
+macx {
+	message('Platform........... Mac OSX')
+}
+
+contains(CONFIG, debug) {
+	message('Debugging symbols.. yes')
+} else {
+	message('Debugging symbols.. no')
+}
+contains(CONFIG, tracing) {
+	message('Tracing............ yes')
+} else {
+	message('Tracing............ no')
+}
+contains(CONFIG, tagging) {
+	message('Image tagging...... yes')
+} else {
+	message('Image tagging...... no')
+}
+
+contains(CONFIG, exif) {
+	message('Exif parsing....... yes')
+} else {
+	message('Exif parsing....... no')
+}
+
+

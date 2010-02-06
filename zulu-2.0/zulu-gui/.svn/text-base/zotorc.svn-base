@@ -1,0 +1,19 @@
+[Zulu]
+AppTitle=Zoto Uploader
+AutoLogin=true
+AutoPrivate=false
+LastBrowse=
+PswdHash=
+Tagging=true
+Tracing=1
+UserHash=
+UserName=
+VersBuild=4
+VersMaj=2
+VersMin=5
+ZAPI/ZapiHost=www.zoto.biz
+ZAPI/ZapiPath=/RPC2/
+ZAPI/ZapiPort=80
+ZSP/ZspHost=www.zoto.biz
+ZSP/ZspPort=35001
+

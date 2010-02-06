@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist SYSTEM "file://localhost/System/Library/DTDs/PropertyList.dtd">
+<plist version="0.9">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>zulu</string>
+        <key>CFBundleGetInfoString</key>
+	<string>Zoto Uploader 2.2, Copyright 2005 Zoto.com, Inc.</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.2</string>
+	<key>CFBundleIconFile</key>
+	<string>application.icns</string>
+	<key>CFBundleName</key>
+	<string>Zoto Uploader</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>ttxt</string>
+</dict>
+</plist>

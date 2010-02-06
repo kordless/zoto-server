@@ -1,0 +1,14 @@
+ VARIABLE NAMES
+----------------
+Function parameters - Prefix with p (eg. pMyParm)
+Class data members  - Prefix with m (eg. mMyDataVariable)
+Local variables     - Prefix with v (eg. vTempBuffer)
+Global/static vars  - Prefix with g (eg. gReallyGlobal)
+
+
+ FUNCTION NAMES
+----------------
+Always begin with a capital letter.
+Member variable accessors should always begin with Get/Set.
+
+

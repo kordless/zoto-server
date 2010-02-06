@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1171"
+   name=""
+   committed-date="2005-09-13T15:46:18.508881Z"
+   url="http://192.168.2.77:81/repos/zoto/trunk/zulu-2.0/zshell"
+   last-author="josh"
+   kind="dir"
+   uuid="0437d5cd-7ee2-0310-b2b9-f5f6a1136d40"
+   repos="http://192.168.2.77:81/repos"
+   prop-time="2006-09-05T21:42:39.000000Z"
+   revision="2300"/>
+<entry
+   committed-rev="501"
+   name="StdAfx.h"
+   text-time="2006-09-05T21:42:39.000000Z"
+   committed-date="2005-05-25T22:30:32.880861Z"
+   checksum="4e31bfec903830879562e2bba6fe9878"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+<entry
+   committed-rev="1171"
+   name="zshell.cpp"
+   text-time="2006-09-05T21:42:39.000000Z"
+   committed-date="2005-09-13T15:46:18.508881Z"
+   checksum="ddf84e812ae71cc58d7291be0e36374e"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+<entry
+   committed-rev="501"
+   name="zshell.dsp"
+   text-time="2006-09-05T21:42:39.000000Z"
+   committed-date="2005-05-25T22:30:32.880861Z"
+   checksum="50738996a3fbd0a06259016ac01df99f"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+<entry
+   committed-rev="501"
+   name="StdAfx.cpp"
+   text-time="2006-09-05T21:42:39.000000Z"
+   committed-date="2005-05-25T22:30:32.880861Z"
+   checksum="b7d6cd0d55a6941dfa475c7e1d3e2b15"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+<entry
+   committed-rev="501"
+   name="ReadMe.txt"
+   text-time="2006-09-05T21:42:39.000000Z"
+   committed-date="2005-05-25T22:30:32.880861Z"
+   checksum="cfee65b898a2c1b10f6fc0e736cef129"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+</wc-entries>

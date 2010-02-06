@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="610"
+   name=""
+   committed-date="2005-06-07T14:48:57.131835Z"
+   url="http://192.168.2.77:81/repos/zoto/trunk/zulu-2.0/zulu-gui/resources/images/blue_buttons"
+   last-author="josh"
+   kind="dir"
+   uuid="0437d5cd-7ee2-0310-b2b9-f5f6a1136d40"
+   repos="http://192.168.2.77:81/repos"
+   revision="2300"/>
+<entry
+   committed-rev="610"
+   name="blue_disabled.png"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-06-07T14:48:57.131835Z"
+   checksum="a100284ba8958aaf14009b4e068fec0b"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   committed-rev="610"
+   name="blue_down.png"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-06-07T14:48:57.131835Z"
+   checksum="db6b2baacfc186df3cbc40c967abfb91"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   committed-rev="610"
+   name="blue_up.png"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-06-07T14:48:57.131835Z"
+   checksum="df19682d110e149f16766a6e30aaee53"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+</wc-entries>

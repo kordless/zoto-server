@@ -1,0 +1,22 @@
+K 10
+svn:ignore
+V 143
+.moc
+.obj
+.ui
+Makefile
+zulu
+*.log
+Debug
+Release
+zulu.opt
+zulu.plg
+images.tmp
+Makefile
+qmake_image_collection.cpp
+zulu.dsp
+zulu.ncb
+temp
+*.lock
+
+END

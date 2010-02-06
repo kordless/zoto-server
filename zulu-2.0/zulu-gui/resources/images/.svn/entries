@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1172"
+   name=""
+   committed-date="2005-09-14T18:16:40.000179Z"
+   url="http://192.168.2.77:81/repos/zoto/trunk/zulu-2.0/zulu-gui/resources/images"
+   last-author="josh"
+   kind="dir"
+   uuid="0437d5cd-7ee2-0310-b2b9-f5f6a1136d40"
+   repos="http://192.168.2.77:81/repos"
+   revision="2300"/>
+<entry
+   committed-rev="610"
+   name="zotologo.png"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-06-07T14:48:57.131835Z"
+   checksum="bc2bd566f85a0c47952a9405374099ad"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   name="top_buttons"
+   kind="dir"/>
+<entry
+   committed-rev="1172"
+   name="loading.png"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-09-14T18:16:40.000179Z"
+   checksum="ad14ab0a0ab8a99cf5190789da3f3b39"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   name="blue_buttons"
+   kind="dir"/>
+<entry
+   committed-rev="1171"
+   name="zotologo_blue.png"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-09-13T15:46:18.508881Z"
+   checksum="fce3df30fe336c653007042b5afafb30"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   committed-rev="1171"
+   name="tile_blue.png"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-09-13T15:46:18.508881Z"
+   checksum="25e2bc90ba2b86fc9ec9b6b8326a3bae"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   committed-rev="610"
+   name="zotologin.png"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-06-07T14:48:57.131835Z"
+   checksum="670ded46cf1cd95dced480b2feed51de"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   name="green_buttons"
+   kind="dir"/>
+</wc-entries>

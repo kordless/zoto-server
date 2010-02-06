@@ -1,0 +1,5 @@
+- AZTK - Zoto's Twisted powered image management server.  AZTK stands for Async Zoto Tool Kit.
+- apache_web - files needed for serving up extra content for a Zoto install, including the photo directory structure
+- zulu-2.0 - deprecated client, needed by AZTK for the zsp_packet.so (Zoto Server Protocol packet lib) for supporting the newer client via AZTK
+
+Note: Version 3.0 of uploader client is stored as a tar.gz file in AZTK/web/download.  Instructions for building it are in the tarball.

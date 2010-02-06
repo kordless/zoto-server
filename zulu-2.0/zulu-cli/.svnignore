@@ -1,0 +1,7 @@
+*.log
+.ui
+.obj
+.moc
+Makefile
+zulu-cli
+temp

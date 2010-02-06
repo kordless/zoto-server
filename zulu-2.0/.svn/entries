@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1445"
+   name=""
+   committed-date="2005-11-16T21:13:49.340059Z"
+   url="http://192.168.2.77:81/repos/zoto/trunk/zulu-2.0"
+   last-author="josh"
+   kind="dir"
+   uuid="0437d5cd-7ee2-0310-b2b9-f5f6a1136d40"
+   repos="http://192.168.2.77:81/repos"
+   prop-time="2006-09-05T21:42:41.000000Z"
+   revision="2300"/>
+<entry
+   name="zulu-gui"
+   kind="dir"/>
+<entry
+   committed-rev="841"
+   name="LICENSE"
+   text-time="2006-09-05T21:42:41.000000Z"
+   committed-date="2005-06-30T19:48:19.293215Z"
+   checksum="8823169159736e1fb85dead26a5379bb"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="891"
+   name="TODO.txt"
+   text-time="2006-09-05T21:42:41.000000Z"
+   committed-date="2005-07-11T15:35:34.937507Z"
+   checksum="f578c26a5e1f47bd52f6ed6b9f10799f"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="403"
+   name="codingConvention.txt"
+   text-time="2006-09-05T21:42:41.000000Z"
+   committed-date="2005-04-19T16:55:09.024827Z"
+   checksum="288c216d0282ce1d9a80bec77002ef52"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   name="python_module"
+   kind="dir"/>
+<entry
+   name="common"
+   kind="dir"/>
+<entry
+   committed-rev="1292"
+   name="zulu.dsw"
+   text-time="2006-09-05T21:42:41.000000Z"
+   committed-date="2005-10-17T18:58:00.952143Z"
+   checksum="d56b7e2181d9246fc8da1c0bd875e6af"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="840"
+   name="template.cpp"
+   text-time="2006-09-05T21:42:41.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="ed30a5816cdebbe981dd5cbba220f8fc"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="1182"
+   name="README"
+   text-time="2006-09-05T21:42:41.000000Z"
+   committed-date="2005-09-19T16:04:38.973760Z"
+   checksum="a2154e8805d7853b187ad882d5b77760"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+<entry
+   name="zulu-setup"
+   kind="dir"/>
+<entry
+   committed-rev="842"
+   name="zulu.pro"
+   text-time="2006-09-05T21:42:41.000000Z"
+   committed-date="2005-06-30T19:55:37.155454Z"
+   checksum="25727fdfddc9af796aa02829eddc72c2"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+<entry
+   name="zshell"
+   kind="dir"/>
+<entry
+   committed-rev="840"
+   name="template.h"
+   text-time="2006-09-05T21:42:41.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="2b0117248668a3f73304a426991b3a33"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+<entry
+   name="zulu-lib"
+   kind="dir"/>
+<entry
+   name="zulu-server"
+   kind="dir"/>
+<entry
+   name="zulu-cli"
+   kind="dir"/>
+</wc-entries>

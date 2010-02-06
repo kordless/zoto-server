@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1445"
+   name=""
+   committed-date="2005-11-16T21:13:49.340059Z"
+   url="http://192.168.2.77:81/repos/zoto/trunk/zulu-2.0/zulu-lib/src"
+   last-author="josh"
+   kind="dir"
+   uuid="0437d5cd-7ee2-0310-b2b9-f5f6a1136d40"
+   repos="http://192.168.2.77:81/repos"
+   revision="2300"/>
+<entry
+   committed-rev="840"
+   name="ZErrorBlock.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="5d5e09a4c9aaaa2c7b1234554fbc23b0"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="882"
+   name="ZObject.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-07-06T23:29:03.483082Z"
+   checksum="7e1917532d1549521398be6675f85598"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZVersPacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="b8a96f04bbe088523e0fe0545138b0a3"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZPacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="00379816450d5a105833747707d97e0c"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZDoneRespPacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="eae6457a29d0ec7d5dab6d0f870b1924"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZFilePacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="4c8dee2267f490ed7c9d0c8d38fb9369"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZDonePacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="375cd4b24330ff9374bee6cd5785ea9b"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="1445"
+   name="ZClient.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-11-16T21:13:49.340059Z"
+   checksum="9c886c49f6fe66dbc07f737cd02e1a39"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="1445"
+   name="ZApp.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-11-16T21:13:49.340059Z"
+   checksum="e40d9c7c6f68127c3a05f4b5ebe18252"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZMD5Hasher.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="30a68478a7294472acc3c6cba0d95e0c"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZErrorPacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="dbb29525cf31b88c860f10878b9a756b"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="1179"
+   name="ZLog.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-09-16T21:24:44.305602Z"
+   checksum="26fec392fc2e82657901e014fbd6ce47"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZAuthRespPacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="4a2c0b57872d4643d49f62ddbd5c88b8"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="866"
+   name="ZSocket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-07-06T19:17:46.134183Z"
+   checksum="ace2d1844ccb42f6c056a9c7c3f95128"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZHeader.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="496efbebc88fd9ca4291b6b4bfdb5786"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZAuthPacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="64546871d475604571c13070513bf296"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZFlagRespPacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="a97333139bd2d6cd24c4716f1304d7f3"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="1173"
+   name="ZUtils.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-09-14T21:42:05.332474Z"
+   checksum="fbe412c8dab0c59cdef97276365a289a"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZFlagPacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="848a9b18a3190fdefe46b4efd2a7f5bc"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZFileRespPacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="3881acdbe21447cb6f18d06cea6da8dd"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZVersRespPacket.cpp"
+   text-time="2006-09-05T21:42:40.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="7e10d35ad054a1c174d73d97978866bc"
+   kind="file"
+   prop-time="2006-09-05T21:42:40.000000Z"/>
+</wc-entries>

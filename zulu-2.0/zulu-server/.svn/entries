@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="891"
+   name=""
+   committed-date="2005-07-11T15:35:34.937507Z"
+   url="http://192.168.2.77:81/repos/zoto/trunk/zulu-2.0/zulu-server"
+   kind="dir"
+   uuid="0437d5cd-7ee2-0310-b2b9-f5f6a1136d40"
+   repos="http://192.168.2.77:81/repos"
+   prop-time="2006-09-05T21:42:39.000000Z"
+   revision="2300"/>
+<entry
+   committed-rev="512"
+   name="zulu-server.pro"
+   text-time="2006-09-05T21:42:39.000000Z"
+   committed-date="2005-05-26T17:21:17.749181Z"
+   checksum="2841330ddcf5be1b34f7753d0cef0300"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+<entry
+   committed-rev="512"
+   name="zsp_server.cpp"
+   text-time="2006-09-05T21:42:39.000000Z"
+   committed-date="2005-05-26T17:21:17.749181Z"
+   checksum="e13b05b45f71b568c13e64ff8ada23e0"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+<entry
+   committed-rev="512"
+   name="zsp_server.h"
+   text-time="2006-09-05T21:42:39.000000Z"
+   committed-date="2005-05-26T17:21:17.749181Z"
+   checksum="9b2321e867637a3e73ef00a435452695"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+<entry
+   committed-rev="403"
+   name="zsp_server.py"
+   text-time="2006-09-05T21:42:39.000000Z"
+   committed-date="2005-04-19T16:55:09.024827Z"
+   checksum="d6fc3db9c1b673e076712b60d3bfd317"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:39.000000Z"/>
+</wc-entries>

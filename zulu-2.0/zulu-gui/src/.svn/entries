@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1445"
+   name=""
+   committed-date="2005-11-16T21:13:49.340059Z"
+   url="http://192.168.2.77:81/repos/zoto/trunk/zulu-2.0/zulu-gui/src"
+   last-author="josh"
+   kind="dir"
+   uuid="0437d5cd-7ee2-0310-b2b9-f5f6a1136d40"
+   repos="http://192.168.2.77:81/repos"
+   revision="2300"/>
+<entry
+   committed-rev="1173"
+   name="ZUpdater.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-09-14T21:42:05.332474Z"
+   checksum="93b4d59b5a07835eafce169d09937e4f"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+<entry
+   committed-rev="1445"
+   name="ZCategoryView.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-11-16T21:13:49.340059Z"
+   checksum="c842de19275387a1984c30708f58d5f7"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+<entry
+   committed-rev="1173"
+   name="ZPrefWin.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-09-14T21:42:05.332474Z"
+   checksum="4ee689da5ed8d9cc181a53cf20a91150"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+<entry
+   committed-rev="1173"
+   name="ZImageThread.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-09-14T21:42:05.332474Z"
+   checksum="a058099caaaf40580e348172e8642fa8"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+<entry
+   committed-rev="840"
+   name="ZPushButton.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-06-30T19:47:02.095226Z"
+   checksum="e86fb9aa056521614e87f10991cd4225"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+<entry
+   committed-rev="1445"
+   name="ZImageView.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-11-16T21:13:49.340059Z"
+   checksum="8aabdd7c8dea750b6f6df3e745d36faa"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   committed-rev="1173"
+   name="ZUploadView.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-09-14T21:42:05.332474Z"
+   checksum="4a844d7446310692d382c8d1fff2961a"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   committed-rev="1445"
+   name="ZGuiApp.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-11-16T21:13:49.340059Z"
+   checksum="a4d3013027a4ac1f38a90678015e8e47"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+<entry
+   committed-rev="1172"
+   name="ZLoginWin.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-09-14T18:16:40.000179Z"
+   checksum="8cc99a11ee20abdc2af8c994169297d6"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+<entry
+   committed-rev="1426"
+   name="ZProgressBar.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-11-14T05:48:04.515832Z"
+   checksum="701f56199d1c103de836ff0da0fe3996"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+<entry
+   committed-rev="1173"
+   name="main.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-09-14T21:42:05.332474Z"
+   checksum="789203dbfb185a4543a1ac1b851a3df9"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+<entry
+   committed-rev="1445"
+   name="ZImageViewItem.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-11-16T21:13:49.340059Z"
+   checksum="2401d88ca1299c3084cf11a5e33a39f2"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+<entry
+   committed-rev="1173"
+   name="ZCategoryItem.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-09-14T21:42:05.332474Z"
+   checksum="d2608f1266ca4238e569223fc12466e4"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+<entry
+   committed-rev="1445"
+   name="ZURLLabel.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-11-16T21:13:49.340059Z"
+   checksum="9b3adc4ccce744605d43ba08a3395f5f"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+<entry
+   committed-rev="1445"
+   name="ZMainWin.cpp"
+   text-time="2006-09-05T21:42:37.000000Z"
+   committed-date="2005-11-16T21:13:49.340059Z"
+   checksum="dc346e3a149e93ce649b3a489c919262"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:37.000000Z"/>
+</wc-entries>

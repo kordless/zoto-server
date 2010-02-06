@@ -1,0 +1,27 @@
+ PRIORITY 1
+ + COM object for file handling
+ + increase size of thumbnails
+ + lose the filename on image view
+ + fix border & stretching on upload window
+ + make all windows smaller
+ + "Drag Images Here" inside image view
+ + lose splash screen
+ + dNd of lots of images seems to lock the machine up - no updates in drag window
+ + bad password should give a better error, or just take you to the login window
+ + dragging a lot of images over to window, plus some wrong file types gives "dumbass" error only after you click "upload' (this was after it lost focus)
+ + warning for wrong file types should be cleaned up
+ + thumnails in upload preview should not be stretched to square size
+ + thumbnailing images still seems to have locking issues (try moving window around)
+ + you can click on upload when there aren’t any photos
+ + some weird blue highlighting around some images
+ 
+ PRIORITY 2 
+ + Add other image support
+ + add overall progress bar to upload window
+ + swap out windows (main, upload, categories)
+ + return to image view on upload completion
+ - system tray minimize with tooltip progress status
+ + settings window working
+ + help button to website
+ + seperate tags window from image window
+ + button for settings should show password window

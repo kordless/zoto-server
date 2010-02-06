@@ -1,0 +1,10 @@
+K 10
+svn:ignore
+V 47
+Debug
+Release
+zshell.ncb
+zshell.opt
+zshell.plg
+
+END

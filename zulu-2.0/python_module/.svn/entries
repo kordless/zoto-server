@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="1171"
+   name=""
+   committed-date="2005-09-13T15:46:18.508881Z"
+   url="http://192.168.2.77:81/repos/zoto/trunk/zulu-2.0/python_module"
+   last-author="josh"
+   kind="dir"
+   uuid="0437d5cd-7ee2-0310-b2b9-f5f6a1136d40"
+   repos="http://192.168.2.77:81/repos"
+   revision="2300"/>
+<entry
+   committed-rev="466"
+   name="zsp_flag_resp.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T22:01:28.632752Z"
+   checksum="a725552338e485796e3df75db6269fa3"
+   last-author="trey"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="466"
+   name="zsp_done.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T22:01:28.632752Z"
+   checksum="2bceb438d1200c8518cb903bd946e749"
+   last-author="trey"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="466"
+   name="zsp_version.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T22:01:28.632752Z"
+   checksum="d6219d20797751103232884b2417a892"
+   last-author="trey"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="466"
+   name="zsp_file_resp.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T22:01:28.632752Z"
+   checksum="e4036383db7372c5ed656c1b922621d9"
+   last-author="trey"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="466"
+   name="zsp_header.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T22:01:28.632752Z"
+   checksum="f844293dda5dfdb74a127029e50dd71d"
+   last-author="trey"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="466"
+   name="zsp_error.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T22:01:28.632752Z"
+   checksum="4967ba1905bf4695b3e2d1231b134169"
+   last-author="trey"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="466"
+   name="zsp_flag.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T22:01:28.632752Z"
+   checksum="2f33ab1a3ed56f63344a676a92a04b07"
+   last-author="trey"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="465"
+   name="setup.py"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T21:16:44.136326Z"
+   checksum="d84717cde22c339be82827bbf8b305f6"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="466"
+   name="zsp_auth_resp.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T22:01:28.632752Z"
+   checksum="4798743fead70ecad5da0c10dfa0df45"
+   last-author="trey"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="832"
+   name="zsp_packets.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-06-30T17:00:50.052304Z"
+   checksum="7172e6ba8dfcf6e3538946212c6a6b57"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="1171"
+   name="zsp_done_resp.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-09-13T15:46:18.508881Z"
+   checksum="b33c3c0be20612ae876eb3960039292b"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="466"
+   name="zsp_version_resp.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T22:01:28.632752Z"
+   checksum="1e80e54da2a5c9d770c9bc8ae612a0e8"
+   last-author="trey"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="466"
+   name="zsp_file.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T22:01:28.632752Z"
+   checksum="38c99d7dd535d42cb11bd3d294b1701f"
+   last-author="trey"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+<entry
+   committed-rev="466"
+   name="zsp_auth.c"
+   text-time="2006-09-05T21:42:38.000000Z"
+   committed-date="2005-05-21T22:01:28.632752Z"
+   checksum="11378e20ec9c328ffa55a581e3d1ac30"
+   last-author="trey"
+   kind="file"
+   prop-time="2006-09-05T21:42:38.000000Z"/>
+</wc-entries>

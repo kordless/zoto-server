@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wc-entries
+   xmlns="svn:">
+<entry
+   committed-rev="403"
+   name=""
+   committed-date="2005-04-19T16:55:09.024827Z"
+   url="http://192.168.2.77:81/repos/zoto/trunk/zulu-2.0/zulu-gui/designer_plugins"
+   last-author="josh"
+   kind="dir"
+   uuid="0437d5cd-7ee2-0310-b2b9-f5f6a1136d40"
+   repos="http://192.168.2.77:81/repos"
+   revision="2300"/>
+<entry
+   name="zpushbutton"
+   kind="dir"/>
+<entry
+   committed-rev="403"
+   name="main.cpp"
+   text-time="2006-09-05T21:42:36.000000Z"
+   committed-date="2005-04-19T16:55:09.024827Z"
+   checksum="61b3d9a52e0c3c07c5c92277ab704ef5"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:35.000000Z"/>
+<entry
+   committed-rev="403"
+   name="zimageview.pro"
+   text-time="2006-09-05T21:42:36.000000Z"
+   committed-date="2005-04-19T16:55:09.024827Z"
+   checksum="b2857f7e288c55857d9408115a3ac6ae"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:35.000000Z"/>
+<entry
+   name="zimageview"
+   kind="dir"/>
+<entry
+   committed-rev="403"
+   name="Makefile"
+   text-time="2006-09-05T21:42:36.000000Z"
+   committed-date="2005-04-19T16:55:09.024827Z"
+   checksum="ab4db9c5e8d615ff9aa0241926ca1b23"
+   last-author="josh"
+   kind="file"
+   prop-time="2006-09-05T21:42:36.000000Z"/>
+</wc-entries>
