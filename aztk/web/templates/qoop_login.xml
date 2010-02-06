@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+
+<head n:render="head_tag">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title n:render="title"/>
+<meta name="keywords" content="photography, digital photography, cameraphones, camera, hobby photography, photo, photos, digital camera, compactflash, smartmedia, cameras, canon, nikon, olympus"/>
+<meta name="description" content="Zoto is the best way to share and organize your photos.  Zoto's site works like a desktop photo sharing application, letting you quickly share your favorite photos with friends and family, and making sure they are all securely stored."/>
+<meta name="verify-v1" content="WbVDgDcEMWi8rnyWLeTwD2uLHhlH8Tu4ysIeKjbXBzo=" />
+
+<n:slot name="css_includes"/>
+<n:slot name="feed_includes"/>
+<link rel="shortcut icon" href="/image/favicon.ico" />
+<script type="text/javascript">
+	var zoto_domain = '<n:invisible n:render="domain_name"/>';
+	var zapi_key = '<n:invisible n:render="js_zapi_key"/>';
+	var browse_username = '<n:invisible n:render="js_browse_username"/>';
+	var zoto_color = '<n:invisible n:render="js_color_option"/>';
+</script>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-232010-1";
+urchinTracker();
+</script>
+<n:slot name="js_includes"/>
+<n:slot name="meta_tags"/>
+<style>
+div#top_bar {
+	min-height: 0px;
+	height: auto;
+}
+</style>
+<script type="text/javascript">
+<!--
+function page_load() {
+	currentDocument().user_bar = new zoto_user_bar();
+	currentDocument().search_box = new zoto_search_box();
+	var search_holder = DIV({'id': "main_search_box"}, currentDocument().search_box.el);
+	currentDocument().user_bar.set_path([{'name': "home", 'url': "/"}], "login");
+	currentDocument().search_box.initialize();
+	replaceChildNodes($('top_bar'), currentDocument().user_bar.el, search_holder, BR({'clear': "left"}));
+	enable_qoop_form();
+}
+
+function enable_qoop_form() {
+	var login_form = currentDocument()['forms']['qoop_login_form'];
+	login_form['qoop_username'].disabled = null;
+	login_form['qoop_password'].disabled = null;
+	connect(login_form, 'onsubmit', handle_qoop_login);
+	connect(login_form, 'onkeyup', function(e) {
+		if (e.key().string == "KEY_ENTER") {
+			return handle_qoop_login();
+		}
+	});
+	connect($("qoop_login_button"), 'onclick', handle_qoop_login);
+	swapElementClass($("qoop_login_button"), "form_button_disabled", "form_button");
+}
+
+function disable_form() {
+	var login_form = currentDocument()['forms']['qoop_login_form'];
+	disconnectAll(login_form);
+	login_form['qoop_username'].disabled = true;
+	login_form['qoop_password'].disabled = true;
+	disconnectAll($("qoop_login_button"));
+	swapElementClass($("qoop_login_button"), "form_button", "form_button_disabled");
+}
+
+function handle_qoop_login() {
+	disable_form();
+	var username = currentDocument()['forms']['qoop_login_form']['qoop_username'].value;
+	var password = currentDocument()['forms']['qoop_login_form']['qoop_password'].value;
+	logDebug("username: " + username);
+	logDebug("password: " + password);
+	if (!is_match(username, 'username')) {
+		show_qoop_error("Invalid username!");
+		enable_qoop_form();
+		return false;
+	}
+	if (password.length < 6) {
+		show_qoop_error("Invalid password!");
+		enable_qoop_form();
+		return false;
+	}
+
+	//
+	// Everything appears to check out...try and validate.
+	//
+	var d = authinator.check_auth(username, password, false, "");
+	d.addCallback(handle_qoop_auth_response);
+	d.addErrback(d_handle_error, "qoop authentication");
+	return d;
+}
+
+function handle_qoop_auth_response(result) {
+	if (result) {
+		logDebug("Yay, we logged in successfully!");
+		var d = zapi_call("users.get_user_token", []);
+		d.addCallback(handle_qoop_token);
+		d.addErrback(d_handle_error, "qoop get_token");
+		return d;
+	} else {
+		show_qoop_error("Invalid username/password");
+	}
+	return false;
+}
+
+function handle_qoop_token(result) {
+	if (result[0] == 0) {
+		var token_info = result[1];
+		var user_token = token_info['user_token'];
+		// This is where we would redirect
+		var current_location = currentWindow().location;
+		currentWindow().location = current_location + "&user_token=" + user_token;
+	} else {
+		show_qoop_error(result[1]);
+	}
+	return false;
+}
+
+function show_qoop_error(text) {
+	replaceChildNodes($("qoop_message_box"), text);
+	if (hasElementClass($("qoop_message_box"), "invisible")) {
+		appear($("qoop_message_box"), {'duration': .4});
+	} else {
+		shake($("qoop_message_box"), {'duration': .4});
+	}
+}
+
+function hide_qoop_error() {
+	set_visible(false, $("qoop_message_box"));
+}
+-->
+</script>
+</head>
+
+<body n:render="content">
+<div id="width_constraint">
+<n:slot name="header_bar"/>
+<div id="body_indent">
+<n:slot name="top_bar"/>
+	<div id="manager_hook">
+		<form id="qoop_login_form">
+			<fieldset>
+				<div id="qoop_message_box" class="error_message invisible"></div>
+				<br clear="both" />
+				<div style="float: left">
+					<label for="qoop_username">username</label>
+					<input type="text" name="qoop_username" class="text" />
+				</div>
+				<br clear="both" />
+				<div style="float: left; margin-top: 15px">
+					<label for="qoop_password">password</label>
+					<input type="password" name="qoop_password" class="text" />
+				</div>
+				<br clear="both" />
+				<a href="javascript: void(0)" id="qoop_login_button" class="form_button">login</a>
+			</fieldset>
+		</form>
+	</div>
+<br clear="left" />
+<div class="footer_bar">
+	<a href="/" n:render="i18n">home</a> |
+	<a href="javascript:currentWindow().show_help_modal('HELP_OVERVIEW_TERMS')" n:render="i18n">terms</a> |
+	<a href="javascript:currentWindow().show_help_modal('HELP_OVERVIEW_PRIVACY')" n:render="i18n">privacy</a> |
+	<a href="/downloads/" n:render="i18n">download</a> |
+	<span id="forum_link_hook"></span> 
+	<span id="blog_link_hook"></span> 
+	<a href="javascript:draw_contact_form()">contact</a>
+<!--
+	<br />
+	<div id="language_selection"></div>
+-->
+</div>
+<div class="boilerplate" n:render="copyright"></div>
+<br />
+<br />
+</div>
+</div>
+</body>
+</html>

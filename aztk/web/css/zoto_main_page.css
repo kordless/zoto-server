@@ -1,0 +1,12 @@
+.boilerplate, .footer_bar {
+	width: 845px;
+	margin: 0 auto;
+}
+.footer_bar {
+	margin-top: 20px;
+}
+
+div#color_switcher {
+	top:85px;
+	left:50.5%;
+}

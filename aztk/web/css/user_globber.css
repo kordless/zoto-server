@@ -1,0 +1,63 @@
+div#edit_switch_holder {
+	margin-left:-2px ;
+}
+div#editing_bar {
+	color: #989898;
+	padding: 0; 
+	margin: 0;
+	margin-bottom: 6px;
+}
+div#editing_bar td {
+	padding: 0;
+}
+div#editing_bar img {
+	border: 0;
+}
+.modal_text_input {
+	border: 1px solid #c2c2c2;
+	width: 560px;
+	color: #666;
+}
+.modal_textarea {
+	border: 1px solid #c2c2c2;
+	width: 560px;
+	height: 150px;
+}
+.advanced_search_option {
+	vertical-align: middle;
+	border-bottom: 1px solid #989898;
+}
+.advanced_search_option .right {}
+
+
+/**********************  EDIT DATE MODAL    ********************/
+.date_picker {
+	line-height:1.2em;
+}
+.date_picker .text {
+	width:85px;
+	margin:8px 0px 12px 0px;
+}
+
+.date_picker .calendar_page a{
+	color:#989898;
+	padding:1px 3px;
+}
+
+.date_picker .calendar_page .today a{
+	background-color:#989898;
+	color:#fff;
+}
+.date_picker .calendar_page .otherday a:hover{
+	background:#cdcdcd;
+}
+
+.date_picker .lbl_date {
+	float:left;
+	margin-right:16px;
+}
+.date_picker .submit_btns {
+	position:absolute; 
+	top:255px; 
+	left:16px;
+}

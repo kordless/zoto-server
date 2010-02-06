@@ -1,0 +1,75 @@
+h3 {
+	margin-top: 0;
+	margin-bottom: 2px;
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size: 25px;
+	letter-spacing: -1px;
+}
+div#main_page_container {
+		text-align:left; /* for ie */
+        width: 855px;
+        margin: 0 auto;
+        margin-top: 20px;
+}
+div#main_page_container img {
+	border: none;
+}
+body {
+	margin: 0;
+	text-align: center; /* for ie */
+	background: white;
+	color:#666666;
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:14px;
+}
+div#main_photo_container {
+	margin-top: 10px;
+        float: left;
+        width: 481px;
+        height: 422px;
+        background: white url('page_down_stack.png') left top no-repeat;
+}
+div#main_photo {
+	background: white url('staff1.jpg') left top no-repeat;
+	float: left;
+	margin-top: 23px;
+	margin-left: 23px;
+	width: 430px;
+	height: 330px;
+}
+div#well_be_back {
+	float: right;
+	margin-right: 40px;
+	margin-top: 10px;
+}
+div#main_happy_talk {
+        width: 355px;
+        float: right;
+        padding-top: 2px;
+}
+
+div#copyright{
+        color: #989898;
+        width: 845px;
+        margin: 0 auto;
+	float: left
+	font-size: 12px;
+	text-align: left;
+}
+
+div#caption {
+	width: 100px;
+	height: 50px;
+	margin-left: 220px;
+	margin-top: 45px;
+}
+a { /* remove annoying dashed border that browsers apply to links */
+	outline: none;
+	text-decoration: none;
+	color: #f57096;
+}
+a:hover {
+	color: #cbcbcb;
+
+}

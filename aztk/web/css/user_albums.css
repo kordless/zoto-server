@@ -1,0 +1,432 @@
+/****************** ALBUM SETS LIST *******************/
+li#return_to_albums{
+	margin-bottom:10px;
+}
+
+
+/****************** ALBUM TOOL BAR ***************/
+
+.album_edit_bar {
+	display:block;
+	float:left;
+	margin-bottom:8px;
+	width:100%;
+}
+.album_edit_bar .instr {
+	background-color:#fbfdbb;
+}
+.album_edit_bar div {
+	margin-bottom:6px;
+}
+.album_edit_bar span{
+	padding: 2px 0px;
+}
+.album_edit_bar a{
+	margin-right:2px;
+}
+.album_toolstrip{
+	height:33px;
+}
+
+/****************** ALBUM VIEW *******************/
+.album_view {
+	float:left;
+	min-width:750px;
+}
+
+
+/****************** ALBUM ITEM *******************/
+
+
+.album_item {
+	line-height:1.2em;
+	width:95px; 
+	height:250px;
+	padding:2px;
+	margin:0px 5px 10px 0px; 
+	text-align:center; 
+	float:left;	
+}
+.album_item h5 {
+	display:block;
+	float:none;
+	left:0px;
+	top:0px;
+}
+.album_frame {
+	background-image:url(/image/albumframe.png);
+	background-repeat:no-repeat;
+}
+.set_frame {
+	background-image:url(/image/set_frame.png);
+	background-repeat:no-repeat;
+}
+
+.album_item img {
+	border:none;
+	height:75px; 
+	width:75px;
+	overflow:hidden;
+}
+.album_item .album_title {
+	white-space:normal !important;
+	text-align:center !important;
+	display:block;
+	max-height:100px;
+	overflow:hidden;
+}
+.album_item .album_icon {
+	margin:8px 12px 15px 8px;
+	height:75px;
+	width:75px;
+}
+.album_selected .album_icon{
+	margin:6px 10px 13px 6px;
+	border: 2px solid #fc0;
+}
+
+
+/****************** EDIT SET MODAL *******************/
+.edit_set_modal .dual_list_holder{
+	clear:both;
+}
+.edit_set_modal .epaper_input_box {
+	border:1px solid #cdcdcd;
+	width:530px;
+	font-size:22px;
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	letter-spacing:-0.05em;
+}
+.edit_set_modal .button_box {
+	position:absolute;
+	top:390px;
+	left:18px;
+}
+.edit_set_modal div.error_message {
+	float:left;
+	width:545px;
+	padding-bottom:5px;
+	margin-bottom:10px;
+	clear:both;
+}
+
+
+/****************** CREATE ALBUM MODAL *******************/
+.create_album_modal textarea{
+	width:400px;
+	height:100px;
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:12px;
+	float:left;
+}
+.create_album_modal fieldset {
+	float:left;
+	width:410px;
+}
+.create_album_modal h3 {
+	margin-top:15px;
+	float:left;
+}
+.create_album_modal .button_box {
+	float:left;
+	margin-top:10px;
+}
+
+.create_album_modal .epaper_input_box {
+	border:1px solid #cdcdcd;
+	width:300px;
+	font-size:22px;
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	letter-spacing:-0.05em;
+}
+.create_album_modal .error_message {
+	width:400px;
+	overflow:hidden;
+	margin-bottom:5px;
+}
+
+/****************** ADD PHOTOS MODAL *******************/
+.album_add_photos_modal .selection_links{
+	position:relative;
+	top:3px;
+}
+.album_add_photos_modal h3{
+	margin-bottom: 12px;
+}
+
+.album_add_photos_modal .select_box{
+	margin-right:5px;
+}
+
+.album_add_photos_modal h5 {
+	position:relative;
+	left:-10px;
+	top:2px;
+	float:right;
+	text-align:right;
+	white-space:pre;
+	display:inline;
+}
+.album_add_photos_modal .close_x_link {
+	float:right;
+}
+.album_add_photos_modal fieldset{
+	display:block;
+	width:100%;
+	height:30px;
+	margin-bottom:10px;
+}
+.album_add_photos_modal .bottom_buttons {
+	float:right;
+}
+
+.album_add_photos_modal .glob_container{
+	width: 808px;
+	height: 420px;
+}
+
+
+
+
+
+/****************** ALBUM TEMPLATE MODAL *******************/
+.album_template_modal {
+	line-height:1.2em;
+}
+.album_template_modal .swatch {
+	display:block;
+	float:left;
+	height:18px;
+	width:18px;
+	border:1px solid #cdcdcd;
+	margin:0px 0px 0px 4px;
+	background-color:#fff;
+}
+.album_template_modal .template_opts div {
+	float:left;
+	margin-bottom:10px;
+}
+.album_template_modal .opts_container {
+	width:100%;
+}
+
+.album_template_modal .left_col {
+	float:left;
+	margin-right:20px;
+	width:155px;
+}
+.album_template_modal .left_col input {
+	width:80px;
+	border:1px solid #cdcdcd;
+	padding:2px;
+}
+.album_template_modal .right_col {
+	width:400px;
+	height:330px;
+	float:left;
+}
+.album_template_modal .option_container {
+	height:60px;
+}
+.album_template_modal .setting_box {
+	width:110px;
+	margin-right:10px;
+}
+.album_template_modal .setting_box img{
+	margin:10px 0px 10px 20px;
+}
+.album_template_modal .color_picker {
+	width:120px;
+	height:20px;
+}
+.album_template_modal .info {
+	margin:10px 0px 15px 0px;
+}
+.album_template_modal .label {
+	margin-bottom:5px;
+	display:block;
+}
+.album_template_modal .img_box {
+	display:block;
+	height:300px;
+	width:400px;
+	border:1px solid #cdcdcd;
+}
+.album_template_modal .bottom_buttons {
+	margin-top:15px;
+	float:right;
+}
+.album_template_modal select {
+	border:1px solid #cdcdcd;
+	width:145px;
+	height:300px;
+}
+
+
+
+/****************** ADD EDIT ALUBM MODAL *******************/
+.add_edit_album_modal h3{
+	margin-bottom: 12px;
+}
+.add_edit_album_modal .lower_buttons{
+	float:left;
+}
+.add_edit_album_modal .instr{
+	float:left;
+	padding-bottom:12px;
+	width:100%;
+}
+.add_edit_album_modal fieldset div{
+	float:left;
+}
+
+/****************** EDIT SET MODAL *******************/
+
+.sets_for_album_modal h3{
+	margin-bottom: 12px;
+}
+.sets_for_album_modal .input_holder {
+	float:left;
+	margin-bottom:10px;
+}
+.sets_for_album_modal .input_holder .text {
+	margin-right:4px;
+}
+.sets_for_album_modal .lower_buttons {
+	float:left;
+	margin-top:10px;
+}
+.sets_for_album_modal div.error_message {
+	float:left;
+	width:545px;
+	padding-bottom:5px;
+	margin-bottom:10px;
+	clear:both;
+}
+
+
+/****************** ALBUM PERMS MODAL *******************/
+.album_perms_modal .footer {
+	display:block;
+	clear:both;
+	margin:10px 0px;
+}
+.album_perms_modal .radio_box {
+	margin-top:12px;
+}
+.album_perms_modal .contact_box {
+	width:550px;
+	padding:0px;
+	float:left;
+	margin:10px 0px;
+}
+.album_perms_modal .contact_list {
+	margin:0px;
+	float:left;
+	height:130px;
+	width:270px;
+	overflow:hidden;
+}
+.album_perms_modal label {
+	display:block;
+	font-style:normal !important;
+}
+.album_perms_modal li {
+	margin-bottom:5px;
+}
+.album_perms_modal li label {
+	display:inline;
+}
+.album_perms_modal input.radio {
+	margin-right:10px;
+}
+.album_perms_modal input.check {
+	margin-right:10px;
+}
+
+
+/****************** ALBUM EDIT SETS TABLE MODAL *******************/
+.edit_set_tbl_modal label{
+	clear:both;
+	display:block;
+	padding:15px 0px 0px 0px;
+}
+.edit_set_tbl_modal fieldset .form_button{
+	margin-left:4px;
+}
+.edit_set_tbl_modal .controls {
+	width:585px;
+	position:absolute;
+	top:385px;
+	left:15px;
+}
+.edit_set_tbl_modal .controls .float_right{
+	float:right;
+	margin-right:20px;
+}
+.album_table {
+	width:100%;
+	border-collapse: collapse;
+	line-height: 1.4em;
+	background: #fff;
+	margin:5px 0px 15px 0px;
+}
+.album_table tr {
+	vertical-align: bottom;
+}
+.album_table td {
+	margin:0px;
+	padding:3px 0px;
+	border-top: 1px solid #cdcdcd;
+	border-bottom: 1px solid #cdcdcd;
+	background: inherit;
+	white-space:pre;
+}
+.album_table .span_epaper {
+	display:block;
+	width:300px;
+}
+
+.album_table .span_epaper div {
+	float:left;
+	margin-right:5px;
+}
+.album_table .epaper_input_box{
+	font-size:12px;
+	border:1px solid #cdcdcd;
+	font-weight: normal;
+	letter-spacing:-0.05em;
+}
+
+/***************** ORDER PHOTOS MODAL ***************/
+.album_order_photos_modal h3 {
+	margin-bottom:10px;
+}
+.album_order_photos_modal .sort_box {
+	margin:10px 0px;
+}
+.album_order_photos_modal #sortable_view {
+	margin:10px 0px;
+	float:left;
+	width:818px;
+	height:420px;
+	overflow:auto;
+	position:relative;
+}
+.album_order_photos_modal #sortable_view span{
+	margin:0px 5px 5px 0px;
+	height:75px;
+	width:75px;
+	display:block;
+	float:left;
+}
+.album_order_photos_modal #sortable_view img{
+	height:75px;
+	width:75px;
+}
+.album_order_photos_modal .bottom_buttons {
+	float:right;
+}
+

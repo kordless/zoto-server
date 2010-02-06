@@ -1,0 +1,631 @@
+#!/usr/bin/env python
+"""
+aztk_db.py -- AZTK Database Utility
+
+Ken Kinder
+2004-09-24
+"""
+
+import sys, array
+sys.path += ['/zoto/aztk', '/zoto/aztk/lib', '/zoto/aztk/sql', '/zoto/aztk/upgrade-scripts/py']
+#from subprocess import *
+import aztk_config
+import md5, validation, os, threading, time, MySQLdb, MySQLdb.cursors, socket, traceback, tempfile, re, marshal, sqlcompare
+from optparse import OptionParser, OptionGroup
+import cStringIO as StringIO
+
+cluster_host = aztk_config.setup.get('db_cluster', 'cluster_db_server')
+if cluster_host == socket.gethostname():
+	CLUSTER_HOST = "localhost"
+else:
+	CLUSTER_HOST = cluster_host
+CLUSTER_DB = aztk_config.setup.get('db_cluster', 'cluster_db_name')
+DATABASE_USER = 'root'
+DATABASE_PASSWD = 'z0t0123'
+STATUS_FORMAT = '| %(server_name)-11s | %(totals)-13s | %(percentage)-5s | %(time)-8s | %(errors)-7s | %(op_type)-7s |'
+VERIFY_LOG = '/tmp/verify-out'
+
+error_log_file = tempfile.mktemp('aztk_db')
+error_log = open(error_log_file, 'wa')
+wait_value = None
+
+class OperationSet(object):
+	"""
+	This singleton keeps track of each operation and what it's up to.
+	"""
+	_operations = []
+	
+	def add_operation(cls, operation):
+		"""
+		This method is automatically called when you create a new operation.
+		"""
+		if not isinstance(operation, BatchOperation):
+			raise ValueError, 'operation must be an instance of BatchOperation'
+		cls._operations.append(operation)
+	add_operation = classmethod(add_operation)
+	
+	def run(cls):
+		"""
+		Runs all the operations we que up.
+		"""
+		cls._newline_count = 0
+		def print_status():
+			if cls._newline_count:
+				sys.stdout.write(chr(27) + '[%sA' % cls._newline_count)
+				cls._newline_count = 0
+			
+			print '-'*70
+			print STATUS_FORMAT % {'server_name': 'SERVER', 'totals': 'TOTALS', 'percentage': '%', 'time': 'TIME', 'op_type': 'OPER', 'errors': 'ERRORS'}
+			print '-'*70
+			cls._newline_count += 3
+			
+			for operation in cls._operations:
+				print operation.status()
+				cls._newline_count += 1
+				
+			print '-'*70
+			cls._newline_count += 1
+		
+		#
+		# Start everything up
+		for operation in cls._operations:
+			operation.start()
+			
+		try:
+			while 1:
+				print_status()
+				
+				still_working = False
+				for operation in cls._operations:
+					if operation.isAlive():
+						still_working = True
+				if not still_working:
+					break
+				time.sleep(1)
+		except KeyboardInterrupt:
+			print 'User aborted process'
+			for operation in cls._operations:
+				operation.stop()
+	run = classmethod(run)
+
+class BatchOperation(threading.Thread):
+	"""
+	For each big operation we do, there will be an instance of a subclass of
+	BatchOperation.
+	"""
+	op_type = ''
+	def __init__(self, todo_list, *args, **kwargs):
+		threading.Thread.__init__(self, *args, **kwargs)
+		self.todo_list = todo_list
+		self.completed_list = []
+		self.abort = False
+		OperationSet.add_operation(self)
+		self.name = 'Batch Operation'
+		self.errors = 0
+	
+	def start(self, *args, **kwargs):
+		self.start_time = time.time()
+		threading.Thread.start(self, *args, **kwargs)
+	
+	def stop(self):
+		self.abort = True
+	
+	def status(self):
+		"""
+		Get a nicely formatted report as to how the operation is doing.
+		"""
+		#
+		# Figure out % done
+		start = len(self.todo_list)
+		now = len(self.completed_list)
+		totals = '%s/%s' % (str(now).zfill(6), str(start).zfill(6))
+		if now and start:
+			percentage = '%3s' % ('%s%%' % str(int((float(now)/float(start))*100)).zfill(2))
+		else:
+			percentage = '-'
+		
+		#
+		# Figure out time estimate
+		elapsed = time.time() - self.start_time
+		items_per_second = now / elapsed
+		if items_per_second:
+			total_seconds = start / items_per_second
+			seconds_remaining = total_seconds - elapsed
+			minutes = seconds_remaining / 60
+			seconds = seconds_remaining % 60
+			estimate = '%s:%s' % (int(minutes), str(int(seconds)).zfill(2))
+		else:
+			estimate = ''
+		
+		return STATUS_FORMAT % {'server_name': self.name, 'totals': totals, 'percentage': percentage, 'time': estimate, 'op_type': self.op_type, 'errors': self.errors}
+
+	def run(self):
+		if self.server == socket.gethostname():
+			host = ''
+		else:
+			host = self.server
+		cnx = MySQLdb.connect(
+			host=host,
+			user=DATABASE_USER,
+			passwd=DATABASE_PASSWD,
+			cursorclass=MySQLdb.cursors.Cursor,
+			use_unicode=True
+			)
+		self.connection = cnx
+		for item in self.todo_list:
+			if not self.abort:
+				try:
+					cursor = cnx.cursor()
+					cursor.execute('use bucket_%s' % item)
+					self.handle_item(cursor, item)
+					if wait_value:
+						time.sleep(wait_value)
+				except:
+					t, v, tb = sys.exc_info()
+					error_log_entry = StringIO.StringIO()
+					error_log_entry.write('--- %s.%s ---\n' % (self.server, item))
+					traceback.print_exception(t, v, tb, file=error_log_entry)
+					error_log.write(error_log_entry.getvalue())
+					error_log.flush()
+					self.errors += 1
+				self.completed_list.append(item)
+
+class BatchFilter(BatchOperation):
+	op_type = 'Filter'
+	def __init__(self, server, buckets, method, *args, **kwargs):
+		BatchOperation.__init__(self, buckets, *args, **kwargs)
+		self.server = server
+		self.method = method
+		self.name = server
+		self.hostmap = get_hostmap()
+	
+	def handle_item(self, cursor, item):
+		self.method(self, cursor, self.server, item)
+	
+	def get_bucket_server(self, bucket_id):
+		return get_server(bucket_id)
+
+class BatchVerify(BatchOperation):
+	op_type = 'Verify'
+	def __init__(self, server, buckets, *args, **kwargs):
+		BatchOperation.__init__(self, buckets, *args, **kwargs)
+		self.server = server
+		self.name = server
+		self._template_schema = {}
+		self.changes = open('/tmp/fix-%s' % server, 'w')
+		self.dry_run = True
+		print 'Logging fixes to /tmp/fix-%s' % server
+		
+	def get_template_schema(self, cursor, item):
+		if self._template_schema:
+			return self._template_schema
+		
+		template_schema = {}
+		cursor.execute('drop database if exists bucket_template')
+		cursor.execute('drop database if exists template')
+		cursor.execute('create database template')
+		cursor.execute('use template')
+		for statement in open('/zoto/aztk/sql/bucket.sql').read().split(';'):
+			statement = statement.strip()
+			if statement:
+				cursor.execute(statement)
+		cursor.execute('show tables')
+		
+		for (table,) in cursor.fetchall():
+			cursor.execute('show create table %s' % table)
+			(void, create) = cursor.fetchone()
+			if isinstance(create, array.array):
+				schema = create.tostring()
+			else:
+				schema = create
+			template_schema[table] = sqlcompare.MySQLTable(table, schema)
+		self._template_schema = template_schema
+		cursor.execute('use bucket_%s' % item)
+		return self._template_schema
+	
+	def handle_item(self, cursor, item):
+		fixes = []
+		
+		#
+		# If this bucket doesn't belong on this server, drop it.
+		if item not in get_hostmap()[self.server]:
+			fixes.append('drop database bucket_%s' % item)
+		else:
+			template_schema = self.get_template_schema(cursor, item)
+			cursor.execute('show tables')
+			bucket_tables = []
+			for (table,) in cursor.fetchall():
+				bucket_tables.append(table)
+				if table not in template_schema.keys():
+					fixes.append('drop table %s;' % table)
+					continue
+				cursor.execute('show create table %s' % table)
+				(void, create) = cursor.fetchone()
+				if isinstance(create, array.array):
+					schema = create.tostring()
+				else:
+					schema = create
+				tabledef = sqlcompare.MySQLTable(table, schema)
+				for statement in tabledef.diff(template_schema[table]):
+					fixes.append('%s;' % statement)
+			for table, tabledef in template_schema.items():
+				if table not in bucket_tables:
+					fixes.append('%s;' % tabledef.create_statement)
+		if fixes:
+			self.changes.write('\n\nuse bucket_%s;\n' % item)
+			self.changes.write('\n'.join(fixes))
+			self.changes.flush()
+			if not self.dry_run:
+				for fix in fixes:
+					cursor.execute(fix)
+
+class BatchQuery(BatchOperation):
+	op_type = 'Query'
+	def __init__(self, server, buckets, queries, *args, **kwargs):
+		BatchOperation.__init__(self, buckets, *args, **kwargs)
+		self.server = server
+		self.name = server
+		self.queries = queries
+	
+	def handle_item(self, cursor, item):
+		for query in self.queries:
+			cursor.execute(query)
+
+class BatchExternalReferences(BatchOperation):
+	op_type = 'E-Audit'
+	images = []
+	images_filtered = []
+	users = []
+	users_inactive = []
+	def __init__(self, server, buckets, *args, **kwargs):
+		BatchOperation.__init__(self, buckets, *args, **kwargs)
+		self.server = server
+		self.name = server
+		self.changes = open('/tmp/fix-%s' % server, 'w')
+		self.dry_run = True
+		print 'Logging fixes to /tmp/fix-%s' % server
+	
+	def handle_item_buildrefs(self, cursor, item):
+		cursor.execute('select username from user')
+		for (username,) in cursor.fetchall():
+			self.users.append(username)
+		cursor.execute('select image_id from image_original')
+		for (image_id,) in cursor.fetchall():
+			self.images.append(image_id)
+		cursor.execute("select concat(image_id, '-', filter_hash) from image_filtered")
+		for (image_id,) in cursor.fetchall():
+			self.images_filtered.append(image_id)
+	
+	def handle_item_checkrefs(self, cursor, item):
+		fixes = []
+		
+		# Check user_image map
+		cursor.execute('select image_id, filter_hash from user_image')
+		for image_id, filter_hash in cursor.fetchall():
+			if '%s-%s' % (image_id, filter_hash) in self.images_filtered:
+				pass
+			elif image_id in self.images:
+				if filter_hash:
+					fixes.append("update user_image set filter_hash = '' where image_id = '%s'" % (image_id))
+			else:
+				fixes.append("delete from user_image where image_id = '%s' and filter_hash = '%s'" % (image_id, filter_hash))
+		
+		# Check image_user map
+		if fixes:
+			self.changes.write('\n\nuse bucket_%s;\n' % item)
+			self.changes.write('\n'.join(fixes))
+			self.changes.flush()
+			if not self.dry_run:
+				for fix in fixes:
+					cursor.execute(fix)
+
+class BatchInternalReferences(BatchOperation):
+	op_type = 'I-Audit'
+	def __init__(self, server, buckets, *args, **kwargs):
+		BatchOperation.__init__(self, buckets, *args, **kwargs)
+		self.server = server
+		self.name = server
+	
+	def handle_item(self, cursor, item):
+		pass
+
+def get_hostmap():
+	import hostsmap
+	return hostsmap.hosts
+
+def get_bucketmap_all():
+	return get_bucketmap_all_new()
+
+def get_bucketmap_all_new():
+	"""
+	New way, requires ssh keys on all the nodes, just runs this script on each box to build the list way faster than
+	screwing with the db
+
+	Trey - Oct 13 2005
+	"""
+	import hostsmap
+	
+	if hasattr(get_bucketmap_all, '_bucketmap_cache'):
+		return get_bucketmap_all._bucketmap_cache
+	else:
+		bucket_map = {}
+		print 'Loading bucketmap... '
+		for server in hostsmap.hosts.keys():
+			bucket_map[server] = []
+			if server == socket.gethostname():
+				host = 'localhost'
+			else:
+				host = server
+			cmd = 'ssh %s /zoto/aztk/bin/aztk_db -m' % host
+			## 2.4 version
+			## p = Popen(cmd, shell=True, bufsize=1024, stdin=PIPE, stdout=PIPE, stderr=STDOUT, close_fds=True)
+			## (child_stdin, child_stdout_and_stderr) = (p.stdin, p.stdout)
+
+			## 2.3 version
+			(stdin, stdout) = os.popen4(cmd)
+
+			for db in stdout.readlines():
+				if db.strip().startswith('bucket_'):
+					bucket_map[server].append(db.strip()[7:])
+			print "%30s => %10s buckets" % (server, len(bucket_map[server]))
+
+		get_bucketmap_all._bucketmap_cache = bucket_map
+		print 'Done'
+		return get_bucketmap_all._bucketmap_cache
+
+def get_bucketmap_all_old():
+	"""
+	A bucket map is like the hostmap, but only includes buckets that actually
+	have databases.
+
+	OLDWAY - Trey
+	"""
+	import hostsmap
+	
+	if hasattr(get_bucketmap_all, '_bucketmap_cache'):
+		return get_bucketmap_all._bucketmap_cache
+	else:
+		bucket_map = {}
+		print 'Loading bucketmap... ',
+		for server in hostsmap.hosts.keys():
+			bucket_map[server] = []
+			if server == socket.gethostname():
+				host = ''
+			else:
+				host = server
+			cnx = MySQLdb.connect(
+				host=host,
+				user=DATABASE_USER,
+				passwd=DATABASE_PASSWD,
+				cursorclass=MySQLdb.cursors.Cursor,
+				use_unicode=True)
+			c = cnx.cursor()
+			print "getting all DBs for %s" % server
+			c.execute('show databases')
+			rows = c.fetchall()
+			print "found %s rows" % len(rows)
+			for (db,) in rows:
+				if db.startswith('bucket_'):
+					bucket_map[server].append(db[7:])
+
+		get_bucketmap_all._bucketmap_cache = bucket_map
+		print 'Done'
+		return get_bucketmap_all._bucketmap_cache
+	
+def get_bucketmap_users():
+	con = MySQLdb.connect(
+		host=CLUSTER_HOST,
+		user=DATABASE_USER,
+		passwd=DATABASE_PASSWD,
+		use_unicode=True)
+	c = con.cursor()
+	c.execute("USE %s" % CLUSTER_DB)
+	c.execute("select substring(md5(username), -5, 5) as bucket_id from user")
+	buckets_ok = {}
+	new_map = {}
+	for (bucket_id,) in c.fetchall():
+		buckets_ok[bucket_id] = None
+	bucketmap = get_bucketmap_all()
+	print "Intersecting for Users Only Flag...",
+	for server, buckets in bucketmap.items():
+		new_map[server] = []
+		for bucket in buckets:
+			if buckets_ok.has_key(bucket):
+				new_map[server].append(bucket)
+	c.close()
+	con.close()
+	print "OK"
+	return new_map
+
+def get_bucketmap_custom():
+	import xmlrpclib
+	global custom_buckets
+	
+	bucketmap = get_bucketmap_all()
+	buckets_we_want = []
+	for bucket in open(custom_buckets).read().split():
+		bucket = bucket.split('/')[-1].strip()
+		if bucket:
+			if len(bucket) == 12:
+				buckets_we_want.append(bucket[7:])
+			elif len(bucket) == 5:
+				buckets_we_want.append(bucket)
+			else:
+				raise ValueError, 'Bad bucket format: %s' % bucket
+	
+	new_bucketmap = {}
+	for server, buckets in bucketmap.items():
+		new_buckets = []
+		for bucket in buckets:
+			if bucket in buckets_we_want:
+				new_buckets.append(bucket)
+		new_bucketmap[server] = new_buckets
+	
+	return new_bucketmap
+
+get_bucketmap = get_bucketmap_all
+
+def get_server(bucket_id):
+	"""
+	Get the server that stores a bucket
+	"""
+	hostmap = get_hostmap()
+	for server, buckets in hostmap.items():
+		if bucket_id in buckets:
+			return server
+
+def findbucket(option, opt, bucket_id, parser):
+	server = get_server(bucket_id)
+	print '%s.bucket_%s' % (server, bucket_id)
+	if socket.gethostname() == server:
+		os.execvp('mysql', ('mysql', '-A', '-u', 'root', '-pz0t0123', 'bucket_%s' % bucket_id))
+	else:
+		os.execvp('mysql', ('mysql', '-A', '-u', 'root', '-pz0t0123', '-h', server, 'bucket_%s' % bucket_id))
+		
+def finduser(option, opt, value, parser):
+	username = value.lower()
+	bucket_id = md5.md5(username).hexdigest()[-5:]
+	return findbucket(option, opt, bucket_id, parser)
+
+def findimage(option, opt, value, parser):
+	image_id = value
+	validation.image_id(image_id)
+	if '-' in image_id:
+		image_id, filter_hash = image_id.split('-')
+	bucket_id = image_id[-5:]	
+	return findbucket(option, opt, bucket_id, parser)
+
+def findgallery(option, opt, value, parser):
+	gallery_name = value.lower()
+	bucket_id = md5.md5(gallery_name).hexdigest()[-5:]
+	return findbucket(option, opt, bucket_id, parser)
+
+def use_cluster(option, opt, value, parser):
+	print "using %s on %s" % (CLUSTER_DB, CLUSTER_HOST)
+	os.execvp('mysql', ('mysql', '-A', '-u', 'root', '-pz0t0123', '-h', CLUSTER_HOST, CLUSTER_DB))
+	return CLUSTER_HOST, CLUSTER_DB
+
+
+def filter(option, opt, value, parser):
+	filter_method = value
+	try:
+		module, method = filter_method.split('.')
+	except ValueError:
+		print 'Usage: aztk_db -f <module>.<method>'
+		print
+		return
+	try:
+		exec('import %s as mod' % module)
+	except Exception, val:
+		print 'Cannot import %s: %s' % (module, val)
+		return
+	try:
+		methodobj = getattr(mod, method)
+	except AttributeError:
+		print 'Cannot find method %s.%s' % (module, method)
+	
+	bucketmap = get_bucketmap()
+	for (server, buckets) in bucketmap.items():
+		BatchFilter(server, buckets, methodobj)
+
+def verify(option, opt, value, parser):
+	bucketmap = get_bucketmap()
+	for (server, buckets) in bucketmap.items():
+		BatchVerify(server, buckets)
+
+def full_update(option, opt, value, parser):
+	bucketmap = get_bucketmap()
+	for (server, buckets) in bucketmap.items():
+		x = BatchVerify(server, buckets)
+		x.dry_run = False
+
+def audit_internal_references(option, opt, value, parser):
+	bucketmap = get_bucketmap()
+	for (server, buckets) in bucketmap.items():
+		BatchInternalReferences(server, buckets)
+
+def audit_external_references(option, opt, value, parser):
+	bucketmap = get_bucketmap()
+	BatchExternalReferences.handle_item = BatchExternalReferences.handle_item_buildrefs
+	for (server, buckets) in bucketmap.items():
+		BatchExternalReferences(server, buckets)
+	OperationSet.run()
+	print 'Images: %s %s' % (len(BatchExternalReferences.images), str(BatchExternalReferences.images[0:3]))
+	print 'Images Filtered: %s %s' % (len(BatchExternalReferences.images_filtered), str(BatchExternalReferences.images_filtered[0:3]))
+	print 'Users: %s %s' % (len(BatchExternalReferences.users), str(BatchExternalReferences.users[0:3]))
+	OperationSet._operations = []
+	BatchExternalReferences.handle_item = BatchExternalReferences.handle_item_checkrefs
+	for (server, buckets) in bucketmap.items():
+		x = BatchExternalReferences(server, buckets)
+		x.dry_run = False
+
+def map_only(option, opt, value, parser):
+	import os
+	out = []
+	for d in os.listdir("/huge/mysql"):
+		if d.startswith("bucket_"):
+			print d
+			#out.append(d)
+
+def query(option, opt, value, parser):
+	sqlfile = value
+	sql = open(sqlfile).read()
+	queries = []
+	for query in sql.split(';'):
+		if query.strip():
+			queries.append(query)
+	bucketmap = get_bucketmap()
+	for (server, buckets) in bucketmap.items():
+		BatchQuery(server, buckets, queries)
+
+def set_onlyusers(option, opt, value, parser):
+	global get_bucketmap
+	get_bucketmap = get_bucketmap_users
+	
+def set_custom(option, opt, value, parser):
+	global get_bucketmap, custom_buckets
+	custom_buckets = value
+	get_bucketmap = get_bucketmap_custom
+	
+def set_wait(option, opt, value, parser):
+	global wait_value
+	wait_value = float(value)
+
+def main(args):
+	parser = OptionParser(usage="usage: %prog [commands]")
+	
+	group = OptionGroup(parser, 'Bucket Finder')
+	group.add_option('-u', '--user',           action='callback', callback=finduser,    help='Find User Bucket/Server',             dest="user",     type="string")
+	group.add_option('-i', '--image',          action='callback', callback=findimage,   help='Find Image Bucket/Server',            dest="image_id", type="string")
+	group.add_option('-g', '--gallery',        action='callback', callback=findgallery,   help='Find Gallery Bucket/Server',        dest="gallery_name", type="string")
+	group.add_option('-c', '--cluster',        action='callback', callback=use_cluster,   help='Use the zoto_cluster DB')
+	parser.add_option_group(group)
+	
+	group = OptionGroup(parser, 'Data Integrity and Modification')
+	group.add_option('-v', '--verify', action='callback', callback=verify, help="Verifies that all bucket schemas are up to date, but DOES NOT apply fixes")
+	group.add_option('', '--full-update', action='callback', callback=full_update, help="Verifies that all bucket schemas are up to date, but DOES apply fixes")
+	group.add_option('', '--audit-external-references', action='callback', callback=audit_external_references,
+					 help="Makes sure mapping from users to images (and back again) is good.")
+	group.add_option('', '--audit-internal-references', action='callback', callback=audit_internal_references,
+					 help="Makes sure mappings inside of buckets are okay.")
+	group.add_option('-o', '--only-users', action='callback', callback=set_onlyusers, help='Apply operation only to User Buckets')
+	group.add_option('-w', '--wait', action='callback', callback=set_wait, help='Sets the number of seconds (default None) to wait between buckets.', dest="wait_delay", type="string")
+	group.add_option('', '--custom_buckets', action='callback', callback=set_custom, help='Apply operation only to buckets specified in file', dest="custom_buckets", type="string")
+	group.add_option('-f', '--filter', action='callback', callback=filter, help='Run python method on each bucket', dest="filter_value", type="string")
+	group.add_option('-q', '--query', action='callback', callback=query, help='Run query on each bucket', dest="queryfile", type="string")
+	group.add_option('-m', '--map_only', action='callback', callback=map_only, help='Just get the bucketmap only')
+	parser.add_option_group(group)
+	
+	(options, args) = parser.parse_args(args)
+	if OperationSet._operations:
+		OperationSet.run()
+	
+	error_log.close()
+	if os.stat(error_log_file)[6]:
+		print 'NOTE: Errors occured and were logged to %s' % error_log_file
+	else:
+		os.remove(error_log_file)
+
+if __name__ == '__main__':
+	main(sys.argv[1:])
+

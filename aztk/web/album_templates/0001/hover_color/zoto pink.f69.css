@@ -1,0 +1,6 @@
+.album_container a:hover , .album_color a:hover {
+	color:#f69 !important;
+}
+.album_container a.selected:hover {
+	border:1px solid #f69 !important;
+}

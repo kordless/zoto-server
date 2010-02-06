@@ -1,0 +1,1486 @@
+/*
+
+hot pink:#f69;
+hot pink:#f57096
+light pink:#f89cb5
+dark grey:#424242
+lighter grey:#e5e5e5
+yellow : #fbfdbb
+*/
+
+/***************** STUFF THAT NEEDS TO GO IN A NEW GLOBAL CSS FILE **************/
+.light_grey{
+	color: #989898;
+}
+/* lala lalallallal */
+
+
+.current_page {
+	font-weight:bold;
+}
+
+a { /* remove annoying dashed border that browsers apply to links */
+	outline: none;
+	text-decoration: none;
+	color: #f69;
+}
+a:hover {
+	color: #cbcbcb;
+}
+a.big_link {
+	font-size: 22px; 
+	font-weight: bold;
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	letter-spacing: -1px;
+}
+a.close_x_link {
+	display: block;
+	background: url('/image/close_x.png') center center no-repeat;
+	height: 18px;
+	width: 18px;
+	float: right;
+	margin-top: 4px;
+	margin-right: 5px;
+}
+h1,h2,h3 {
+	margin-top: 0;
+	margin-bottom: 2px;
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+h4,h5 {
+	margin-top: 0;
+	margin-bottom: 2px;
+	font-weight: normal;
+}
+h1 {font-size: 40px;
+	line-height:42px;
+}
+h2 {font-size: 30px;
+	line-height:32px;
+}
+h3 {font-size: 22px;
+	line-height:24px;
+}
+h4 {font-size: 20px;
+	line-height:22px;
+}
+h5 {font-size: 16px;
+	line-height:18px;
+}
+
+html,body {height: 100%;}
+body {
+	margin: 0;
+	text-align: left;
+	background: white;
+	color:#666666;
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:12px;
+}
+div#left_col {
+	float: left;
+	width: 210px;
+	overflow:hidden;
+	padding: 0px;
+	min-height: 300px;
+}
+div#left_col h3 {
+	padding-bottom:5px;
+}
+div#right_col {
+	margin: 0px;
+	padding: 0px;
+	margin-left: 230px;
+}
+h3.empty_widget {
+	color: #989898;
+}
+div#width_constraint {
+	min-width:1008px;
+	width:expression(this.parentNode.offsetWidth<=1008? 1008+'px':'auto');
+}
+div#global_spinner {
+	position: absolute;
+	top:0px;
+	left: 50%;
+	margin-left: -120px;
+	margin-top: 12px;
+	width: 200px;
+	height: 30px;
+	background: #fff url('/image/spinner.gif') 4px 4px no-repeat;
+	color: grey;
+	font-weight: normal;
+	color: #989898;
+	font-size: 16px;
+	padding: 4px;
+	padding-left: 40px;
+	padding-top: 6px;
+	z-index: 3;
+}
+div#header_bar { /* encapsulates the entire top of the page */
+	overflow:hidden;
+	position: relative;
+	color: #989898;
+	margin: 0px;
+	height: 78px;
+	padding: 2px 12px 0px 8px;
+	background: url('/image/header_bg.gif') top left repeat;
+}
+
+div#body_indent{ /* encapsulates the entire lower page body */
+	margin: 0px 12px;
+}
+a#logo {
+	float: left;
+	text-decoration: none;
+}
+a#logo img {border: 0;}
+div#main_links { /* the top-right links for login/logout etc... */
+	margin-top: 4px;
+	float: right;
+	text-align: right;
+	font-size: 12px;
+}
+div#main_links .messages_link {
+	border:0 !important;
+	position:relative;
+	top:5px;
+}
+div#language_selection {
+	font-style: italic;
+}
+div#language_selection a {
+	font-style: normal;
+}
+.footer_bar {
+	margin-top: 35px;
+	color: #989898;
+}
+.boilerplate {
+	color: #989898;
+}
+
+
+
+
+
+
+
+/*********************** COMMENTS **********************/
+div#comments {
+	line-height:1.2em;
+}
+
+
+
+
+
+/******************************* TAB BAR **************************************/
+ul.tab_bar {
+	list-style: none;
+	display: block;
+	position: absolute;
+	right: 8px;
+	bottom: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+ul.tab_bar li {
+	list-style: none;
+	float: left;
+	margin-left: 5px;
+}
+ul.tab_bar li a {
+	display: block;
+	text-decoration: none;
+	padding-left: 7px;
+}
+ul.tab_bar li a div.tab_right_corner {
+	padding-right: 7px;
+}
+ul.tab_bar li a div.tab_center {
+	cursor:pointer;
+	color: #666;
+	font-size: 14px;
+	min-height: 25px;
+	line-height: 25px;
+	padding: 0px 12px;
+}
+/******************************/
+ul.tab_bar li.tab_active {
+	border-bottom: 1px solid #ffffff;
+}
+ul.tab_bar li.tab_active a {
+	background: #ffffff url(/image/top_tab_active_left.png) left top no-repeat;
+}
+ul.tab_bar li.tab_active a div.tab_right_corner {
+	background: url(/image/top_tab_active_right.png) right top no-repeat;
+}
+ul.tab_bar li.tab_active a div.tab_center {
+	background: url(/image/top_tab_active.png) top left repeat;
+}
+/*****************************/
+ul.tab_bar li.tab_inactive {
+	border-bottom: 1px solid #cccccc;
+}
+ul.tab_bar li.tab_inactive a {
+	background: #e0e0e0 url(/image/top_tab_inactive_left_light.png) left top no-repeat;
+}
+ul.tab_bar li.tab_inactive a div.tab_right_corner {
+	background: url(/image/top_tab_inactive_right_light.png) right top no-repeat;
+}
+ul.tab_bar li.tab_inactive a div.tab_center {
+	background: url(/image/top_tab_inactive_light.png) top left repeat;
+}
+/****************************/
+ul.tab_bar li.tab_inactive a:hover {
+	background: #e0e0e0 url(/image/top_tab_inactive_left.png) left top no-repeat;
+}
+ul.tab_bar li.tab_inactive a:hover div.tab_right_corner {
+	background: url(/image/top_tab_inactive_right.png) right top no-repeat;
+}
+ul.tab_bar li.tab_inactive a:hover div.tab_center {
+	background: url(/image/top_tab_inactive.png) top left repeat;
+	color: #989898;
+}
+
+/**************************** MAIN SEARCH FORM ********************************/
+div#main_search_box {
+	float: right;
+	width: 320px;
+}
+div#main_search_box form {
+	display: inline;
+}
+div#main_search_box input {
+	display: inline;
+}
+
+/********** NO IDEA ****************/
+
+div#pagination_bar {}
+div#pagination_bar div {
+	float: left;
+	margin-right: 4px;
+}
+div#globber_view {
+	padding-bottom: 20px;
+}
+
+#overlay img{ border: none; }
+#overlay { background-image: url('/image/overlay.png'); }
+* html #overlay {
+	background-color: #EEE;
+	background-color: transparent;
+	background-image: url('/image/clear.gif');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/image/overlay.png", sizingMethod="scale");
+}
+div.modal_form_padding {
+	padding: 20px 16px;
+}
+div.modal_form_padding input {
+	color: #666;
+}
+div.modal_form_padding label {
+	font-style: italic;
+}
+
+div#authinator_form_container {
+	position: absolute;
+	display: none;
+	border: 1px solid #c2c2c2;
+	background: white;
+	width: 400px;
+	padding: 10px;
+	z-index: 40;
+	line-height:1.2em;
+}
+div#authinator_form_container div.message_box {
+	display: none;
+	text-align: left;
+	background: #FFFFCC url('/image/error.png') 5px 15px no-repeat;
+	padding: 14px 26px;;
+	margin: 8px 0;
+}
+div#authinator_form_container fieldset {
+	padding: 8px;
+	padding-top: 0;
+}
+
+div#helper_buddy_box {
+	/* the little '?' links that popup a help box */
+	background: #F6FBFF url('/image/icon_help.png') 5px 5px no-repeat;
+	border: 1px solid #DADBDD;
+	padding: 6px;
+	position: absolute;
+	display: none;
+	width: 380px;
+	line-height:1.2em;
+}
+div#helper_buddy_box span.title {
+	text-transform: capitalize;
+	font-weight: bold;
+	font-size: 12px;
+	margin-left: 20px;
+}
+div#helper_buddy_box div.body {
+	margin-left: 20px;
+	font-size: 12px;
+}
+
+/***************** GLOBAL FORM STYLES ***************/
+input.fake_submit {
+	display: none;
+}
+input.submit, button.submit {
+	border: 1px solid #a9a9a9;
+	background: white;
+	padding: 0 2px;
+	font-weight: bold;
+	color: #a9a9a9;
+	font-size: 11px;
+	margin-right: 2px;
+}
+form div.container {
+	padding: 4px;
+	margin-bottom: 4px;
+}
+form {
+	padding: 0;
+	margin: 0;
+}
+form fieldset {
+	border: 0;
+	padding: 0;
+	margin: 0;
+}
+form label {
+	font-style: italic;
+}
+form input.text, form textarea{
+	float: left;
+	width: 300px;
+	border: 1px solid #c2c2c2;
+	padding: 1px;
+	padding-bottom: 0;
+	color: #666;
+}
+/****BEG used in contact modal*******/
+form input#contact_email, #contact_subject {
+	width: 400px;
+}
+form textarea#contact_body {
+	width: 400px;
+}
+form div.field_container {
+	margin-top: 10px;
+	display: block;
+	clear: both;
+}
+form#contact_form {
+	margin-top: 10px;
+}
+/****END used in contact modal*******/
+input.text:focus {
+	border: 1px solid #989898;
+}
+/****BEG used in api request modal ****/
+form#zapi_form input {
+	float: left;
+	width: 200px;
+	margin-left: 10px;
+}
+form#zapi_form input#area_code {
+	width: 30px;
+}
+form#zapi_form label {
+	float: left;
+}
+form#zapi_form input.check {
+	float: none;
+	width: 30px;
+	margin-left: 0px;
+}
+form#zapi_form textarea {
+	float: none;
+	width: 500px;
+}
+form#zapi_form div#err {
+	margin-bottom: 10px;
+}
+/****END used in api request modal ****/
+
+/*TODO find out where this is used/notused and consolidate*/
+div.error_message {
+	background: #fbfdbb url('/image/icon_error.gif') 4px 4px no-repeat;
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+	color: #6e6e6e;
+	float: left;
+	margin-top: -2px;
+	margin-left: 4px;
+	width: 400px;
+	padding: 4px;
+	padding-left: 25px;
+	display: none;
+}
+div#error_email {
+	width: 40%;
+}
+#confirm_email {
+
+	width: 40%;
+	margin-top: 4px;
+	margin-left: 0px;
+
+}
+div#update_success {
+
+	width: 40%;
+	margin-top: 4px;
+	margin-left: 0px;
+
+}
+/*end TODO */
+div.button_group {
+	margin-top: 10px;
+}
+a.form_button, a.form_button_disabled {
+	display: block;
+	float: left;
+	margin-right: 4px;
+	border: 1px solid #cbcbcb;
+	color: #666;
+	background: white url('/image/box_gradient_normal.png') left bottom repeat-x;
+	height: 18px;
+	line-height: 18px;
+	font-size: 11px;
+	padding: 0 6px;
+}
+a.form_button:hover {
+	background: white url('/image/box_gradient_active.png') left bottom repeat-x;
+	color: #f69;
+	border: 1px solid #fba0bb;
+}
+a.form_button_disabled, a.form_button_disabled:hover {
+	background: white url('/image/box_gradient_disabled.png') left bottom repeat-x;
+	color: #959595;
+	border: 1px solid #e0e0e0;
+}
+
+
+/**************** OLDER STUFF ********************/
+
+table.list_view {
+	width: 100%;
+	border-collapse: collapse;
+	float: left;
+	border-top: 1px solid #aaa;
+}
+table.list_view tr {
+	vertical-align: middle;
+	height: 10px;
+}
+table.list_view tr:hover {
+	background: #e0e0e0;
+}
+.selected_row {
+	background: #f89cb5;
+}
+table.list_view th {
+	line-height: 1.5em;
+	background: #e0e0e0;
+	padding: 4px;
+	text-align: center;
+}
+table.list_view td {
+	padding: 4px;
+	text-align: center;
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	background: inherit;
+}
+table.list_view td.active_table_column {
+	font-weight: bold;
+}
+div.resizable_spinner {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	background: white url('/image/spinner.gif') center center no-repeat;
+}
+/****************************** TOP BAR **************************************/
+div#top_bar {
+	margin: 10px 0px;
+	height: 56px;
+	min-height: 56px;
+	border-color: blue;
+}
+div#top_bar input.text {
+	width: 150px;
+	margin-right: 4px;
+	float: right;
+}
+div#top_bar a.form_button {
+	float: right;
+}
+
+/****************************** USER BAR **************************************/
+div#user_bar {
+	float: left;
+	max-width: 660px;
+}
+#top_links {
+	white-space:pre;
+}
+span.sub_links {
+	color: #989898;
+}
+div#user_bar .main {
+	font-weight: bold;
+	font-size: 22px;
+	letter-spacing: -1px;
+	color: #989898;
+	text-transform: lowercase; 
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+}
+.infostrip, div#user_bar .sub {
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	letter-spacing: 0px;
+	font-weight: normal;	
+	color: #989898;
+}
+.infostrip{
+	height:20px;
+}
+div#user_bar img {
+	float: left;
+	margin-right: 4px;
+	border: 3px solid #dadada;
+}
+div#user_bar a:hover {
+	text-decoration: none;
+}
+
+
+
+div#modal_info div#meta_holder {
+	position:relative;
+	width:280px;
+	overflow:hidden;
+	margin: 7px 0px;
+	float:left;
+}
+
+
+
+/* holds the paginator select boxes etc */
+
+div#modal_info {
+	border: 1px solid #c2c2c2;
+	background: white;
+	text-align: left;
+	z-index: 25;
+}
+.modal_content{
+	margin:15px 15px 20px 20px;
+}
+div#img_holder {
+	width: 500px;
+	height: 500px;
+	background: white url('/image/spinner.gif') center center no-repeat;
+	float: left;
+	border: 1px solid #c2c2c2;
+	position: relative;
+	display: table;
+/*	overflow: hidden;*/
+}
+div#img_holder div {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	text-align: center;
+}
+div#img_holder div[id] {
+	position: static;
+	position: expression('relative') !important; /* @#$%! hack for IE7 */
+	display: table-cell;
+	vertical-align: middle;
+}
+div#img_holder a {
+	display:block;
+	position: relative;
+	top: -50%;
+}
+div#img_holder a[href] {
+
+	position: static;
+	position: expression('relative') !important; /* @#$%! hack for IE7 */
+}
+div#img_holder .main_image {
+	border: 0;
+}
+
+div#owner_holder {
+	position: absolute;
+	top: 30px;
+	left: 18px;
+}
+div#modal_info .info_box {
+	background: white;
+	float: right;
+/*	margin-top: 32px;*/
+	margin-top: 47px;
+	margin-right: 10px;
+	width: 270px;
+	padding: 0px 6px;
+	border: 1px solid red;
+}
+div.modal_top_button_holder {
+	width: 150px;
+	font-size: 14px;
+	position: absolute;
+	right: 10px;
+	top: 10px;
+	text-align: left;
+}
+/****************** EPAPER ****************************/
+a.e_paper {
+	color: #666;
+	cursor:text;
+}
+a.e_paper_default {
+	color: #989898;
+}
+a.e_paper:hover {background: #fbffbc;}
+a.e_paper_dafualt:hover {background: #fbffbc;}
+
+.epaper_textarea {
+	border: 1px solid #c2c2c2;
+	margin-bottom: 4px;
+	width: 300px;
+	height: 100px;
+}
+div#title_epaper  {
+	margin-bottom: 10px;
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-size: 22px;
+	letter-spacing: -1px;
+	cursor:text;
+	font-weight:bold;
+}
+div#title_epaper *{
+	font-weight:normal;
+}
+div#title_epaper a.e_paper{
+	font-weight:bold;
+}
+div#title_epaper span {
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	letter-spacing: -1px;
+	color: #666;
+}
+div#title_epaper .epaper_input_box {
+	border: 1px solid #c2c2c2;
+/*	font-size: 11px;*/
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-size: 22px;
+	font-weight:bold;
+	letter-spacing: -1px;
+	margin-bottom: 4px;
+	width: 220px;
+	color: #666;
+}
+div#description_epaper {
+	margin-bottom: 10px;
+}
+div#description_epaper a.e_paper {
+	cursor:text;
+}
+div#description_epaper .epaper_textarea {
+	width: 270px;
+}
+/****************** AUTO-COMPLETE FORM ****************/
+div.look_ahead_holder {
+	display: none;
+	position: absolute;
+	border-right: 1px solid #c2c2c2;
+	border-left: 1px solid #c2c2c2;
+	border-bottom: 1px solid #c2c2c2;
+	background: #f9f9f9;
+	padding: 0;
+}
+div.look_ahead_holder ul, li {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+div.look_ahead_holder ul li a {
+	display: block;
+	padding: 2px;
+	text-decoration: none;
+	font-size: 9pt;
+	color: #222;
+}
+div.look_ahead_holder a.highlighted {
+	color: white;
+	background: pink;
+}
+ul.tag_list {
+	list-style: none;
+	margin: 0px 0px;
+	padding: 0;
+}
+ul.tag_list li {
+	display: inline;
+	margin: 0;
+	padding: 0px;
+}
+ul.tag_list a.global {
+	color: green;
+}
+ul.tag_list a.local {}
+ul.tag_list a.remove {
+	color:red;
+}
+form#tag_lookahead_form {
+	height:20px;   /* *HACK*: for Safari.  You have to tell it the height or it doesn't size. */
+	margin-top: 5px;
+}
+form#tag_lookahead_form input.lookahead {
+	width: 230px;
+	margin-right: 4px;
+}
+form#tag_lookahead_form label {
+	font-size: 22px;
+	font-style: normal;
+	padding: 0px;
+	margin: 0px;
+	font-weight: bold;
+	font-family: "Nimbus Sans L", Helvetica, Arial, sans-serif;
+	margin-right: 8px;
+}
+
+ul.tag_list a.remove {
+	font-size: 16px;
+	font-weight: bold;
+	color: #f69;
+}
+
+ul.tag_list a.local {
+}
+/******************* EXIF TABLE *************************/
+table.exif td {
+	background: #edebed;
+}
+
+/***************** NEW SELECT BOX ******************/
+div.select_box {
+	padding: 0;
+	margin: 0;
+	display: table;
+	/*
+	 * This float is not a display formatting thing.  IE requires this to properly render
+	 * the containing box for the link.  Without it, the link stretches the width of the
+	 * screen.  I think this is because of M$'s propietary hasLayout attribute, but I'm 
+	 * not certain.  We'll just have to work around it.  Also, you can't put margin
+	 * on this element, because FF screws up calculating the width, and it throws the whole
+	 * thing off.  If you really need margin, put it in a container that has it.
+	 *
+	 * V
+	 */
+	float: left;
+	overflow: hidden;
+	font-size: 11px;
+}
+div.select_box a {
+	margin: 0px;
+	color: #666;
+}
+/* IE7 hack */
+*:first-child+html div.select_box {
+	/*
+	display: block;
+	*/
+}
+/* IE6 hack */
+* html div.select_box {
+	/*
+	display: block;
+	*/
+}
+div.select_box a.main_link {
+	display: block;
+	border: 1px solid #c2c2c2;
+	background: white url('/image/dropdown_bg_grey.png') right center no-repeat;
+	line-height: 18px;
+	margin: 0;
+	padding: 0 4px;
+}
+div.select_box a.main_link:hover {
+	background: white url('/image/dropdown_bg_pink.png') right center no-repeat;
+	border: 1px solid #f89cb5;
+}
+div.select_box ul {
+	overflow: hidden;
+	display: block;
+	padding: 0px;
+	margin: 0;
+	z-index: 40;
+	list-style: none;
+	background: white;
+}
+div.select_box ul.inactive {
+	height: 0px;
+	border-right: 1px solid blue;
+	border-left: 1px solid white;
+}
+/* IE7 hack */
+*:first-child+html div.select_box ul.inactive {
+	float: left;
+}
+/* IE6 hack */
+* html div.select_box ul.inactive {
+ 	float: left;
+}
+div.select_box ul.active {
+	/*height: auto;*/
+	position: absolute;
+	border-top: 1px dotted #d2d2d2;
+	border-bottom: 1px solid #c2c2c2;
+	border-left: 1px solid #c2c2c2;
+	border-right: 1px solid #c2c2c2;
+}
+div.select_box li {
+	margin: 0px;
+}
+div.select_box li a {
+	display: block;
+	margin: 0px;
+	border-left: 5px solid white;
+	padding: 2px;
+	padding-right: 20px;
+}
+div.select_box ul li a:hover {
+	border-left: 5px solid #f89cb5;
+	background: #f8f8f8;
+}
+div.select_box li a.placeholder, div.select_box li a.placeholder:hover { 
+	margin-top: 8px;
+	border-bottom: 1px solid #666;
+	font-weight: bold;
+	background: white;
+}
+
+/******************* SELECT BOXES ***********************/
+/*
+a.select_box_main {
+	color: #666;
+	border: 1px solid #c2c2c2;
+	background: white url('/image/dropdown_bg_grey.png') right center no-repeat;
+	font-size: 9px;
+	line-height: 18px;
+	padding-left: 4px;
+	margin: 0;
+	margin-right: 4px;
+	height: 18px;
+}
+a.select_box_main:hover {
+	background: white url('/image/dropdown_bg_pink.png') right center no-repeat;
+	border: 1px solid #f89cb5;
+}
+ul.select_box {
+	position: absolute;
+	overflow: hidden;
+	margin: 0;
+	padding: 0;
+	border: 1px solid #c2c2c2;
+	border-top: 1px dotted #d2d2d2;
+	background: white;
+	z-index: 40;
+}
+ul.select_box li {
+	font-size: 9px;
+	margin: 0;
+	list-style: none;
+}
+ul.select_box li a {
+	color: #666;
+	display: block;
+	padding: 2px;
+	border-left: 5px solid white;
+	background: white;
+}
+ul.select_box li a:hover {
+	border-left: 5px solid #f89cb5;
+	background: #f8f8f8;
+}
+ul.select_box li a.placeholder, ul.select_box li a.placeholder:hover { 
+	padding: 2px;
+	margin-top: 8px;
+	border-bottom: 1px solid #666;
+	color: #666;
+	font-weight: bold;
+	background: white;
+}
+*/
+/*********************** GLOBBER STUFF *******************************/
+img.loaded_image {
+	/*border: 2px solid #e0e0e0;*/
+	border: 2px solid white;
+}
+img.selected_image {
+	border: 2px solid #fc0;
+}
+.text_over_edit_buttons {
+	color:#989898;
+	
+	margin-bottom: 9px;
+	width:753px;
+	padding:1px;
+}
+.text_over_edit_buttons .edit_instr{
+	background-color:#fbfdbb;
+}
+div.minimal_item {
+	padding: 0px;
+	display: block;
+	float: left;
+	text-align: center;
+	margin:0px 1px 1px 0px;
+	height:79px;
+	width:79px;
+}
+
+div.small_thumb_item {
+	padding: 0;
+	float: left;
+	width: 100px;
+	height: 140px;
+	_height: 150px;
+	text-align: center;
+	margin-right: 6px;
+}
+
+div.small_thumb_item span { /* info under thumbnails */
+	color: #b8b8b8;
+	font-size: 10px;
+	margin-top: 4px;
+}
+div.small_thumb_item div { /* info under thumbnails */
+	color: #b8b8b8;
+	font-size: 10px;
+	margin-top: 4px;
+}
+div.small_thumb_item img.loaded_image {
+	display: block;
+	margin: auto;
+}
+
+div.big_thumb_item {
+	padding: 0;
+	width: 240px;
+	height: 280px;
+	float: left;
+	text-align: center;
+	margin-right: 8px;
+}
+div.big_thumb_item div { /* info under thumbnails */
+	color: #b8b8b8;
+	font-size: 12px;
+	margin-top: 4px;
+}
+/*********************** CALENDAR STYLE ******************************/
+table.calendar_page {
+	text-align: center;
+}
+table.calendar_page th {
+	width: 25px;
+}
+table.calendar_page tr {
+	height: 15px;
+}
+table.calendar_page td {
+	width: 25px;
+}
+table.calendar_page td.active {
+	background: #e0e0e0;
+}
+table.calendar_page td.current {
+	background: #b8b8b8;
+	color: white;
+}
+
+/********************** PERMISSIONS TABLE *******************************/
+table.permissions {
+	width: 100%;
+	border-collapse: collapse;
+	border: 1px solid #c2c2c2;
+}
+table.permissions th {
+	text-align: center;
+	border-bottom: 1px solid #c2c2c2;
+}
+table.permissions th.narrow {
+	text-align: center;
+	width: 50px;
+}
+table.permissions td {
+	padding: 2px;
+}
+table.permissions td.name {
+	padding-left: 4px;
+}
+table.permissions td.toggle_holder {
+}
+/************************** SIMPLE TOGGLE ***************************/
+a.simple_toggle_checked, a.simple_toggle_unchecked, a.simple_toggle_NULL {
+	display: block;
+	width: 15px;
+	height: 15px;
+	border: 1px solid #c2c2c2;
+}
+a.simple_toggle_checked {background: #f89cb5;}
+a.simple_toggle_unchecked {background: #e0e0e0;}
+a.simple_toggle_NULL {background: #FFFFAA;} /* used for unknown states */
+
+
+
+/************************** NEW GLOBBER STUFF ***************************/
+
+.invisible {
+	display: none !important;
+}
+.glob_view_header{
+	margin-bottom:200px;
+	color:#989898;
+}
+
+/************************** MENU BOX STUFF ***************************/
+
+.zoto_menu {
+	text-align:left;
+}
+.zoto_menu .pos_span { /* damn safari and its ilk for making me do this ... and Opera too */
+	position:absolute;
+	z-index:20;
+	width:100%;
+}
+.zoto_menu a.disabled_menu{
+	color:#c2c2c2;
+}
+
+.zoto_menu a.opened_menu{
+	color:#c2c2c2;
+}
+
+/*  dropdown  */
+.zoto_menu div {
+	position:absolute;
+	z-index:20;
+	top:17px;
+	left:-1px;
+	background-color:#fff;
+	border:1px solid #c2c2c2;
+	padding:8px;
+	line-height:1.2em;
+}
+.zoto_menu ul {
+	position:relative;
+	white-space:pre;
+/*	list-style:none;
+*/	margin:0px;
+	padding:0px;
+	display:block;
+}
+
+.zoto_menu .divider{
+	display:block;
+	margin: 8px 0px;
+/*	border-bottom: 1px solid #989898;*/
+}
+
+.zoto_menu li {
+	text-align:left;
+	line-height:1.2em;
+	display:block;
+	margin: 2px 0px;
+}
+
+
+.zoto_menu .widget{
+	line-height:1.2;
+	margin-left: 0;
+	padding-left: 16px;
+	background: white url('/image/bullet_toggle_plus.png') 0px 4px no-repeat;
+}
+.zoto_menu .widget:hover{
+	background: white url('/image/bullet_toggle_plus_hover.png') 0px 4px no-repeat;
+}
+
+
+/************************** LEFT COL LIST STUFF ***************************/
+/* Used by Contacts and Tags pages */
+.item_list {
+	line-height:1.2em;
+	width: 210px;
+	position:relative;
+	overflow:hidden;
+}
+.unstyled_list {
+	list-style:none;
+	margin:0;
+	padding:0;
+}
+
+
+/************************** TRIAL NOTICE STUFF ***************************/
+.days_remaining{
+	
+}
+
+.cancel_modal {
+	line-height:1.2em;
+}
+
+.cancel_modal p{
+	padding:0px;
+	margin:12px 10px 12px 0px;
+	
+}
+.cancel_modal textarea{
+	float:none;
+	height:90px;
+	width:400px;
+}
+
+/************************** DUAL LIST STUFF ***************************/
+.dual_select_list {
+	line-height:1.2em;
+}
+.dual_select_list label {
+	float:left;
+}
+.dual_select_list select{
+	margin:5px 0px;	display:block;
+	border:1px solid #cdcdcd;
+	width:250px;
+	height:280px;
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:12px;
+	color:#989898;
+
+}
+.dual_select_list option{
+	height:16px;
+}
+
+.select_buttons {
+	position:relative;
+	top:110px;
+	float:left;
+	margin: 0px 15px;
+	width:22px;
+}
+
+.dual_select_list .form_button {
+	float:none;
+}
+
+.dual_select_list select.dual_list_disabled{
+	background-color:#ededed;
+}
+
+
+/************************** INFOSTRIP STUFF ***************************/
+
+
+.infostrip{
+	height:16px;
+}
+
+
+/************************** TOOLSTRIP STUFF ***************************/
+.toolstrip{
+	position:relative;
+	top:7px;
+	height:33px;
+	margin-bottom:10px;
+}
+.button_holder {
+	float:left;
+	position:relative;
+	top:-4px;
+}
+.button_holder a {
+	margin-left:4px;
+	clear:right;
+}
+
+#sortbox {
+	padding-right:4px;
+	float:left;
+}
+.toolstrip .button_holder img{
+	height:auto;
+	width:auto;
+}
+/************************** HELP MODAL STUFF ***************************/
+div#platform_list {
+	float:left;
+	width: 350px;
+}
+div#platform_text {
+	float: left;
+	margin-top: 10px;
+	margin-left: 20px;
+	text-align: left;
+}
+div.platform {
+	border-top: 1px solid #ccc;
+	padding-left: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+}
+DIV#apple_platform {
+	background: white url('/image/help/apple.png') 5px center no-repeat;
+}
+DIV#windows_platform {
+	background: white url('/image/help/windows.png') 5px center no-repeat;
+}
+DIV#linux_platform {
+	background: white url('/image/help/linux.png') 5px center no-repeat;
+	border-bottom: 1px solid #ccc;
+}
+
+/************************** HELP MODAL STUFF ***************************/
+.upload_modal {
+	line-height:1.2em;
+}
+.upload_modal h3 {
+	margin-bottom:20px;
+}
+.upload_modal h5 {
+	padding-bottom:10px;
+}
+.upload_modal .bottom_buttons {
+	position:absolute;
+	top:420px;
+	left:520px;
+}
+
+.upload_modal .via_web {
+	margin:20px 0px;
+	padding-right:10px;
+	border-right:1px solid #cdcdcd;
+	width:250px;
+	height:320px;
+	overflow:visible;
+	float:left;
+}
+.upload_modal .error_message {
+	width:220px;
+	height:auto !important;
+}
+.upload_modal .via_app {
+	margin:20px 0px 0px 10px;
+	float:left;
+	width:250px;
+}
+.upload_modal .button_box {
+	float:left;
+	height:30px;
+	width:220px;
+}
+
+.upload_modal .uploader_progress {
+	float:left;
+	margin-top:10px;
+	width:230px;
+}
+
+
+
+/*********************** ALBUM LIGHTBOX MODAL STUFF **********************/
+.album_lightbox {
+	line-height:1.3em;
+}
+.album_lightbox .photo_info {
+	margin-top:10px;
+	font-size:12px;
+}
+
+.album_lightbox .comments {
+	margin-top:3px;
+	float:left;
+	font-size:12px;
+	line-height:16px;
+}
+
+.album_lightbox .top_controls {
+	width:100%;
+	height:30px;
+}
+.album_lightbox .nav_elements {
+	float: right; 
+	margin-right: 3px;
+	line-height: 19px;
+}
+.album_lightbox .nav_elements  {
+	font-family:"Luxi Sans",Helvetica,Arial,sans-serif;
+	font-size:22px;
+	font-weight:bold;
+	letter-spacing:-1px;
+}
+.album_lightbox .loading {
+	position:absolute;
+	height:100%;
+	width:100%;
+	background: white url('/image/spinner.gif') center center no-repeat;
+}
+.album_lightbox .img_holder div {
+	text-align:center;
+}
+
+.album_lightbox .img_holder .main_image {
+	border: 0;
+}
+/* hack for safari */
+.preloader_holder {
+	position:absolute;
+	overflow:hidden;
+	top:1px;
+	left:1px;
+	height:1px;
+	width:1px;
+	visibility:hidden;
+	opacity:0;
+}
+.preloader_holder {
+	position:absolute;
+	visibility:hidden;
+}
+/* end hack for safari */
+
+
+
+/************   STUFF FOR PHOTO_FRAME *************/
+/*****************************************
+	! READ ME !
+	The css right her is VERY brittle so be
+	VERY careful about what you change and 
+	test test test in every browser cos 
+	SOMETHING is bound to break.
+	
+	Having said that, 
+	If you need to set margins do so this way:
+	margin-right, margin-bottom, and
+	margin-top may be applied to 
+	.photo_frame. .clear_holder img
+	
+	margin-left may be applied to .photo_frame
+	
+	If you need to set a border set it on:
+	.photo_frame .photo_frame_border 
+	
+	thx.
+******************************************/
+.photo_frame {
+	cursor:pointer;
+}
+.photo_frame .wrapper {
+	position:relative;
+	line-height:1px;
+	font-size:1px;
+	vertical-align:top; /* fixes top align for opera and ff */
+}
+.photo_frame .outer_pos {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+.photo_frame .inner_pos {
+	display:table;
+	float:left;
+	position:relative;
+/*	overflow:hidden;*/
+	text-align:center;
+/*	height:100px;
+	width:100px;*/ /* height and width must be set according to the image being shown */
+}
+.photo_frame .img_holder {
+	width:100%;
+	top:50%;
+	text-align:center;
+	position:static;
+	position:expression('relative') !important;/*hack for IE7 */
+	display:table-cell;
+	vertical-align:middle;
+}
+.photo_frame .img_holder .anchor {
+	cursor:pointer;
+	display:block;
+	top:-50%;
+	position:static;
+	position: expression('relative') !important; /*hack for ie7 */
+}
+
+.photo_frame, .photo_box *{
+	line-height:1px !important;
+	font-size:1px !important;
+}
+.photo_frame .clear_holder img {
+/*	height:100px;
+	width:100px;*/ /* height and width must be set according to the image being shown */
+/*	margin-right:50px; 
+	margin-bottom:50px;*/ /* margin must be set for appropriate spacing */
+
+	margin-bottom:10px;
+}
+.photo_frame .clear_holder {
+	line-height:1px;
+	font-size:1px;
+	vertical-align:text-bottom;
+}
+.photo_frame .photo_frame_border {
+/*	border:3px solid white;*/ /* borders should only be set here */
+}
+
+#ie_nag {
+	margin:0px;
+	padding:0px;
+	position:relative;
+	float:left;
+	width:100%;
+}
+#ie_nag div {
+	float:left;
+}
+#ie_nag .msg{
+	position:relative;
+	background-color:#ffffe0;
+	margin:0px;
+	padding:1px 5px;
+	border-bottom:2px solid #1c1c1c;
+}
+#ie_nag div img{
+	position:relative;
+	float:left;
+	margin:0px 5px 0px 0px;
+}
+#ie_nag .close_link {
+	display: block;
+	background: url('/image/tiny_x1.png') center center no-repeat;
+	height: 9px;
+	width: 9px;
+	float: right;
+}

@@ -1,0 +1,279 @@
+/**************** OVERALL SETTINGS ****************/
+div.settings_content {
+	margin: 10px;
+}
+div.settings_pane {
+	padding: 0px;
+	line-height: 1.2em;
+}
+div.settings_menu_holder {
+	width: 180px;
+	height: 500px;
+	float: left;
+	border-right: 1px solid #ccc;
+}
+div.settings_pane {
+	float: left;
+	margin-left: 10px;
+	width: 550px;
+	padding: 0px;
+}
+div.settings_holder {
+	margin-top: 10px;
+	height: 450px;
+}
+div.settings_pane div.button_holder {
+	float: right;
+	margin: 0px;	
+}
+ul.level0 {
+	margin: 15px;
+	padding: 0px;	
+}
+li.level0 {
+	margin: 0px;
+	font-size: 16px;
+	font-weight: normal;
+	list-style: disc;
+	
+	color:#ccc;
+	padding-top:1px;
+	padding-bottom:0px;
+}
+
+li.level0 a.menu_active {
+	color: #989898;
+	font-weight: normal;
+}
+
+/* Level 1 menus */
+ul.level1 {
+	font-weight: normal;
+	border-top: 1px solid #ccc;
+	
+	
+	border-bottom: 1px solid #ccc;
+	list-style: none;
+	font-size: 14px;
+	margin: 0px;
+	padding: 0px;
+	
+	padding-top:2px;
+	padding-bottom:2px;
+}
+li.level1 {
+font-size:12px;
+	margin-left: 7px;
+	margin-top: 4px;
+	margin-bottom: 4px;
+	list-style: disc;
+	color:#ccc;
+	
+}
+li.level1 a.item_active{
+	color: #989898;
+}
+li.level1 a.item_not_active{
+}
+/* Level 2 menus */
+ul.level2 {
+	font-size: 12px;
+	margin: 0px 0px 0px 4px;
+	padding: 0px;
+}
+
+form div.label_input_holder {
+	display: block;
+	float: left;
+	margin-top: 15px;
+}
+/*************** CHANGE PASSWORD *******************/
+form#change_password_form label {
+	display: block;
+}
+form#change_password_form  input {
+	width: 200px;
+}
+form#change_password_form div.error_message {
+	width: 250px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+form#change_password_form {
+	margin-top: 5px;
+}
+
+div#update_success {
+        background: #fbfdbb;
+        width: 40%;
+        margin-top: 4px;
+        margin-left: 0px;
+        padding-left: 5px;
+}
+
+/***************r EDIT PROFILE *********************/
+form#edit_profile_form {
+}
+form#edit_profile_form input.text {
+	width: 150px;
+}
+form#edit_profile_form input#link1{
+	width: 250px;
+}
+form#edit_profile_form input#link2{
+	width: 250px;
+}
+form#edit_profile_form input#link3{
+	width: 250px;
+}
+form#edit_profile_form label {
+	display: block;
+}
+form#edit_profile_form textarea {
+	width: 250px;
+	height: 150px;
+}
+form#edit_profile_form div.profile_left {
+	padding: 0px;
+	width: 230px;
+	float: left;
+}
+form#edit_profile_form div.profile_right {
+	margin: 0px 0px 0px 15px;
+	width: 250px;
+	float: left;
+}
+
+/****************** PHOTO PERMS ********************/
+div.perms_holder {
+	height: 415px;
+}
+div.perms_holder div.happy_talk1 {
+	font-weight: bold;
+}
+div.perms_holder div.happy_talk2 {
+	font-style: italic;
+	font-weight: normal;
+	margin-top: 10px;
+}
+div.perms_holder span.happy_note {
+	font-weight: bold;
+	font-style: normal;
+}
+div.perms_holder div.select_box_container {
+	margin-top: 5px;
+}
+div.perms_holder form.perms_form {
+	margin-top: 15px;
+}
+div.perms_holder form.perms_form div.checkbox_holder {
+	float: left;
+	font-style: normal;
+}
+div.perms_holder form.perms_form div.checkbox_holder_disabled {
+	color: #cccccc;
+}
+div.perms_holder form.perms_form input.perms_radio {
+	margin-right: 0px;
+}
+div.perms_holder form.perms_form div.checkbox_holder div.perms_radio_holder {
+	margin-bottom: 4px;
+}
+div.perms_holder form.perms_form label {
+	font-style: normal;
+	margin-left: 7px;
+}
+div.perms_holder form.perms_form span {
+	font-style: normal;
+	margin-left: 7px;
+}
+div.perms_holder form.perms_form div.checkbox_holder div.perms_group {
+	padding-left: 40px;
+	margin-top: 5px;
+}
+	
+
+/***************** NEW SELECT BOX ******************/
+/*
+div.select_box {
+	padding: 0px;
+	display: table;
+	overflow: hidden;
+	margin: 0px;
+	font-size: 9px;
+}
+div.select_box a {
+	color: #666;
+}
+
+/* IE7 hack
+*:first-child+html div.select_box {
+	display: block;
+	float: left;
+}
+/* IE6 hack
+* html div.select_box {
+	display: block;
+	float: left;
+}
+div.select_box a.main_link {
+	display: block;
+	border: 1px solid #c2c2c2;
+	background: white url('/image/dropdown_bg_grey.png') right center no-repeat;
+	line-height: 16px;
+	margin: 0px;
+	padding: 0px 4px;
+}
+div.select_box a.main_link:hover {
+	background: white url('/image/dropdown_bg_pink.png') right center no-repeat;
+	border: 1px solid #f89cb5;
+}
+div.select_box ul {
+	display: block;
+	overflow: hidden;
+	padding: 0;
+	margin: 0;
+	z-index: 40;
+	list-style: none;
+	background: white;
+}
+div.select_box ul.inactive {
+	height: 0px;
+}
+/* IE7 hack
+*:first-child+html div.select_box ul.inactive {
+	float: left;
+}
+/* IE6 hack
+* html div.select_box ul.inactive {
+ 	float: left;
+}
+div.select_box ul.active {
+	height: auto;
+	position: absolute;
+	border-top: 1px dotted #d2d2d2;
+	border-bottom: 1px solid #c2c2c2;
+	border-left: 1px solid #c2c2c2;
+	border-right: 1px solid #c2c2c2;
+}
+div.select_box li {
+	margin: 0px;
+}
+div.select_box li a {
+	display: block;
+	padding: 2px;
+	margin: 0px;
+	border-left: 5px solid white;
+	padding-right: 20px;
+}
+div.select_box ul li a:hover {
+	border-left: 5px solid #f89cb5;
+	background: #f8f8f8;
+}
+div.select_box li a.placeholder, div.select_box li a.placeholder:hover { 
+	margin-top: 8px;
+	border-bottom: 1px solid #666;
+	font-weight: bold;
+	background: white;
+}
+*/

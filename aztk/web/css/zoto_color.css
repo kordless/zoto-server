@@ -1,0 +1,1187 @@
+/*********************************************************
+	zoto_layout.css
+
+	Index:
+		Globals
+		Assets
+			calendar
+			contact popup
+			detail image
+			duallist
+			edit bars
+			epaper
+			errormessage
+			helperbuddies
+			ie nag
+			infostrip
+			lookahead
+			menuboxes
+			pagination
+			select boxes
+			spinners
+			tab bar
+			user bar
+			
+		Pages
+			all pages
+			albums
+			community spy
+			contacts
+			features
+			404
+			globber
+			image detail
+			main homepage
+			messages
+			quickstart
+			reset password
+			signup/upgrade
+			tags
+			user homepage
+			
+		Modals
+			all modals
+			album edit sets
+			album create album
+			album template
+			album edit sets table
+			authinator
+			contact modals
+			contact edit
+			contact invite
+			edit date
+			messages: new message
+			messages: read/reply
+			permissions
+			settings
+			upload 
+			
+			
+*********************************************************/
+/******************************************************************************************************************
+					G L O B A L S
+******************************************************************************************************************/
+
+/**
+	background images set via css go in color
+*/
+
+.light_grey{
+	color: #989898;
+}
+.current_page {
+	font-weight:bold;
+}
+a {
+	color: #f69;
+}
+
+a:hover {
+	color: #cbcbcb;
+}
+h3.empty_widget {
+	color: #989898;
+}
+
+a.form_button, a.form_button_disabled {
+	color: #666;
+	background: #fff url('/image/box_gradient_normal.png') left bottom repeat-x;
+	border: 1px solid #cbcbcb;
+}
+a.form_button:hover {
+	background: #fff url('/image/box_gradient_active.png') left bottom repeat-x;
+	color: #f69;
+	border: 1px solid #fba0bb;
+}
+a.form_button_disabled, a.form_button_disabled:hover {
+	background: #fff url('/image/box_gradient_disabled.png') left bottom repeat-x;
+	color: #959595;
+	border: 1px solid #e0e0e0;
+}
+/*input.submit, button.submit {
+	border: 1px solid #a9a9a9;
+	background: #fff;
+	color: #a9a9a9;
+}*/
+input.text, textarea{
+	border: 1px solid #c2c2c2;
+	color: #666;
+}
+input.text:focus {
+	border: 1px solid #989898;
+}
+
+
+/******************************************************************************************************************
+														A S S E T S
+******************************************************************************************************************/
+/*********************************************************
+					C A L E N D A R
+*********************************************************/
+table.calendar_page td.active {
+	background: #e0e0e0;
+}
+table.calendar_page td.current {
+	background: #b8b8b8;
+	color: #fff;
+}
+
+/*********************************************************
+				C O N T A C T  P O P U P
+*********************************************************/
+.contact_popup {
+	border:1px solid #cdcdcd;
+	background-color:#fff;
+	color:#989898;
+}
+
+/*********************************************************
+					D E T A I L  I M A G E
+*********************************************************/
+div#img_holder {
+	background: #fff url('/image/spinner.gif') center center no-repeat;
+	border: 1px solid #c2c2c2;
+
+}
+
+/*********************************************************
+					D U A L L I S T
+*********************************************************/
+.dual_select_list select{
+	border:1px solid #cdcdcd;
+	color:#989898;
+}
+
+.dual_select_list select.dual_list_disabled{
+	background-color:#ededed;
+}
+
+/*********************************************************
+					E D I T  B A R S
+*********************************************************/
+div#editing_bar {
+	color: #989898;
+}
+a#edit_icon_album {
+	background:url('/image/edit_bar_icons/add_edit_albums_off.png') center center no-repeat;
+}
+a#edit_icon_album:hover{
+	background:url('/image/edit_bar_icons/add_edit_albums_on.png') center center no-repeat;
+}
+
+a#edit_icon_group{
+	background:url('/image/edit_bar_icons/add_edit_groups_off.png') center center no-repeat;
+}
+a#edit_icon_group:hover{
+	background:url('/image/edit_bar_icons/add_edit_groups_on.png') center center no-repeat;
+}
+
+a#edit_icon_tag{
+	background:url('/image/edit_bar_icons/edit_tags_off.png') center center no-repeat;
+}
+a#edit_icon_tag:hover{
+	background:url('/image/edit_bar_icons/edit_tags_on.png') center center no-repeat;
+}
+
+a#edit_icon_text{
+	background:url('/image/edit_bar_icons/edit_text_off.png') center center no-repeat;
+}
+a#edit_icon_text:hover{
+	background:url('/image/edit_bar_icons/edit_text_on.png') center center no-repeat;
+}
+
+a#edit_icon_date{
+	background:url('/image/edit_bar_icons/edit_date_off.png') center center no-repeat;
+}
+a#edit_icon_date:hover{
+	background:url('/image/edit_bar_icons/edit_date_on.png') center center no-repeat;
+}
+
+a#edit_icon_geotag{
+	background:url('/image/edit_bar_icons/geo_tags_off.png') center center no-repeat;
+}
+a#edit_icon_geotag:hover{
+	background:url('/image/edit_bar_icons/geo_tags_on.png') center center no-repeat;
+}
+
+a#edit_icon_publish{
+	background:url('/image/edit_bar_icons/publish_photos_off.png') center center no-repeat;
+}
+a#edit_icon_publish:hover{
+	background:url('/image/edit_bar_icons/publish_photos_on.png') center center no-repeat;
+}
+
+a#edit_icon_email{
+	background:url('/image/edit_bar_icons/email_off.png') center center no-repeat;
+}
+a#edit_icon_email:hover{
+	background:url('/image/edit_bar_icons/email_on.png') center center no-repeat;
+}
+
+a#edit_icon_print{
+	background:url('/image/edit_bar_icons/order_prints_off.png') center center no-repeat;
+}
+a#edit_icon_print:hover{
+	background:url('/image/edit_bar_icons/order_prints_on.png') center center no-repeat;
+}
+
+a#edit_icon_privacy{
+	background:url('/image/edit_bar_icons/privacy_settings_off.png') center center no-repeat;
+}
+a#edit_icon_privacy:hover{
+	background:url('/image/edit_bar_icons/privacy_settings_on.png') center center no-repeat;
+}
+
+a#edit_icon_delete{
+	background:url('/image/edit_bar_icons/delete_off.png') center center no-repeat;
+}
+a#edit_icon_delete:hover{
+	background:url('/image/edit_bar_icons/delete_on.png') center center no-repeat;
+}
+a#edit_icon_add_to_set{
+	background: url('/image/edit_bar_icons/addtoset_off.png') center center no-repeat;
+}
+a#edit_icon_add_to_set:hover{
+	background: url('/image/edit_bar_icons/addtoset_on.png') center center no-repeat;
+}
+
+a#edit_icon_licensing{
+	background: url('/image/edit_bar_icons/licensing.png') center center no-repeat;
+}
+a#edit_icon_licensing:hover{
+	background: url('/image/edit_bar_icons/licensing.png') center center no-repeat;
+}
+
+/*********************************************************
+					E P A P E R
+*********************************************************/
+a.e_paper {
+	color: #666;
+}
+a.e_paper_default {
+	color: #989898;
+}
+a.e_paper:hover {background: #fbffbc;}
+a.e_paper_dafualt:hover {background: #fbffbc;}
+
+.epaper_textarea {
+	border: 1px solid #c2c2c2;
+}
+div#title_epaper span {
+/*	color: #666;*/
+}
+div#title_epaper .epaper_input_box {
+	border: 1px solid #c2c2c2;
+/*	color: #666;*/
+}
+
+/*********************************************************
+				E R R O R M E S S A G E
+*********************************************************/
+div.error_message {
+	background: #fbfdbb url('/image/icon_error.gif') 4px 4px no-repeat;
+	color: #6e6e6e;
+}
+
+/*********************************************************
+				H E L P E R  B U D D I E S
+*********************************************************/
+div#helper_buddy_box {
+	/* the little '?' links that popup a help box */
+	background: #F6FBFF url('/image/icon_help.png') 5px 5px no-repeat;
+	border: 1px solid #DADBDD;
+}
+
+/*********************************************************
+						I E  N A G
+*********************************************************/
+#ie_nag .msg{
+	background-color:#ffffe0;
+	border-bottom:2px solid #1c1c1c;
+}
+#ie_nag .close_link {
+	background: url('/image/tiny_x1.png') center center no-repeat;
+}
+
+
+/*********************************************************
+					I N F O S T R I P
+*********************************************************/
+.infostrip {
+	color: #989898;
+}
+
+/*********************************************************
+				L O O K A H E A D
+*********************************************************/
+div.look_ahead_holder {
+	border: 1px solid #c2c2c2;
+	border-top: 1px solid #fff;
+	background: #f9f9f9;
+}
+div.look_ahead_holder ul li a {
+	color: #222;
+}
+div.look_ahead_holder a.highlighted {
+	color: #fff;
+	background: #f69;
+}
+ul.tag_list a.remove {
+/*	color: #f69;*/
+}
+
+/*********************************************************
+					M E N U B O X E S
+*********************************************************/
+
+.zoto_menu a.disabled_menu{
+	color:#c2c2c2;
+}
+.zoto_menu a.opened_menu{
+	color:#c2c2c2;
+}
+
+.zoto_menu div {
+	background-color:#fff;
+	border:1px solid #c2c2c2;
+}
+.zoto_menu .widget{
+	background: #fff url('/image/bullet_toggle_plus.png') 0px 4px no-repeat;
+}
+.zoto_menu .widget:hover{
+	background: #fff url('/image/bullet_toggle_plus_hover.png') 0px 4px no-repeat;
+}
+
+/*********************************************************
+					P A G I N A T I O N
+*********************************************************/
+input.page_box {
+	border: 1px solid #c0c0c0;
+	color:#666;
+}
+a.page {
+	border: 1px solid #c0c0c0;
+	background: #fff;
+}
+
+a.page:hover {
+	background: #f69;
+	color: #fff;
+}
+a.selected {
+	background: #ccc;
+	color: #fff;
+}
+a.selected:hover {
+	background: #ccc;
+	color: #fff;
+}
+a.disabled {
+	background: #fff;
+}
+a.disabled:hover {
+	background: #fff;
+	color: #eb195c;
+}
+
+/*********************************************************
+					S E L E C T B O X E S
+*********************************************************/
+div.select_box a {
+	color: #666;
+}
+
+div.select_box a.main_link {
+	border: 1px solid #c2c2c2;
+	background: #fff url('/image/dropdown_bg_grey.png') right center no-repeat;
+}
+div.select_box a.main_link:hover {
+	background: #fff url('/image/dropdown_bg_pink.png') right center no-repeat;
+	border: 1px solid #f89cb5;
+}
+div.select_box ul {
+	background: #fff;
+}
+
+div.select_box ul.active {
+	border:1px solid #c2c2c2;
+	border-top: 1px dotted #d2d2d2;
+}
+div.select_box li a {
+	border-left: 5px solid #fff;
+}
+div.select_box ul li a:hover {
+	border-left: 5px solid #f89cb5;
+	background: #f8f8f8;
+}
+div.select_box li a.placeholder, div.select_box li a.placeholder:hover { 
+	border-bottom: 1px solid #666;
+	background: #fff;
+}
+
+/*********************************************************
+						S P I N N E R S
+*********************************************************/
+div#global_spinner {
+	background: #fff url('/image/spinner.gif') 4px 4px no-repeat;
+	color: #989898;
+}
+
+div.resizable_spinner {
+	background: #fff url('/image/spinner.gif') center center no-repeat;
+}
+
+/*********************************************************
+					T A B B A R
+*********************************************************/
+
+ul.tab_bar li a div.tab_center {
+	color: #666;
+}	
+ul.tab_bar li.tab_active {
+	border-bottom: 1px solid #fff;
+}
+ul.tab_bar li.tab_active a {
+	background: #fff url(/image/top_tab_active_left.png) left top no-repeat;
+}
+ul.tab_bar li.tab_active a div.tab_right_corner {
+	background: url(/image/top_tab_active_right.png) right top no-repeat;
+}
+ul.tab_bar li.tab_active a div.tab_center {
+	background: url(/image/top_tab_active.png) top left repeat;
+}
+
+ul.tab_bar li.tab_inactive {
+	border-bottom: 1px solid #ccc;
+}
+ul.tab_bar li.tab_inactive a {
+	background: #e0e0e0 url(/image/top_tab_inactive_left_light.png) left top no-repeat;
+}
+ul.tab_bar li.tab_inactive a div.tab_right_corner {
+	background: url(/image/top_tab_inactive_right_light.png) right top no-repeat;
+}
+ul.tab_bar li.tab_inactive a div.tab_center {
+	background: url(/image/top_tab_inactive_light.png) top left repeat;
+}
+
+ul.tab_bar li.tab_inactive a:hover {
+	background: #e0e0e0 url(/image/top_tab_inactive_left.png) left top no-repeat;
+}
+ul.tab_bar li.tab_inactive a:hover div.tab_right_corner {
+	background: url(/image/top_tab_inactive_right.png) right top no-repeat;
+}
+ul.tab_bar li.tab_inactive a:hover div.tab_center {
+	background: url(/image/top_tab_inactive.png) top left repeat;
+	color: #989898;
+}
+
+/*********************************************************
+						U S E R B A R
+*********************************************************/
+div#user_bar /*.sub {
+	color: #989898;
+}
+
+div#user_bar .main */{
+	color: #989898;
+}
+
+div#user_bar img {
+	border: 3px solid #dadada;
+}
+
+/******************************************************************************************************************
+														P A G E S
+******************************************************************************************************************/
+/*********************************************************
+					A L L  P A G E S
+*********************************************************/
+body {
+	background: #fff;
+	color:#666;
+}
+div#header_bar { /* encapsulates the entire top of the page */
+	color: #989898;
+	background: url('/image/header_bg.gif') top left repeat;
+}
+
+a#logo {
+	background: url('/image/main_logo.jpg') center center no-repeat;
+}
+
+
+.footer_bar {
+	color: #989898;
+}
+.boilerplate {
+	color: #989898;
+}
+
+a.organizer {
+	background: url('/image/organizerbtn_off.png') center center no-repeat;
+}
+a.organizer:hover {
+	background:url('/image/organizerbtn_on.png') center center no-repeat;
+}
+
+/*********************************************************
+					A L B U M S
+*********************************************************/
+.album_edit_bar .instr {
+	background-color:#fbfdbb;
+}
+.album_frame {
+	background:url(/image/albumframe.png) no-repeat;
+}
+.set_frame {
+	background:url(/image/set_frame.png) no-repeat;
+}
+.album_selected .album_icon{
+	border: 2px solid #fc0;
+}
+
+a#icon_edit_set{
+	background: url('/image/editsets_normal.png') center center no-repeat;
+}
+a#icon_edit_set:hover{
+	background: url('/image/editsets_hover.png') center center no-repeat;
+}
+a#icon_new{
+	background: url('/image/newalbum_normal.png') center center no-repeat;
+}
+a#icon_new:hover{
+	background: url('/image/newalbum_hover.png') center center no-repeat;
+}
+
+/*********************************************************
+				C O M M U N I T Y  S P Y
+*********************************************************/
+div.event_holder {
+	background: #fff;
+}
+div.event_holder td {
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+}
+td.spy_entry_NEW_USER {
+	background: #fff url('/image/community/icon_user.png') right 65px no-repeat;
+}
+td.spy_entry_NEW_TAG {
+	background: #fff url('/image/community/icon_tag.png') right 65px no-repeat;
+}
+td.spy_entry_NEW_COMMENT {
+	background: #fff url('/image/community/icon_comment.png') right 65px no-repeat;
+}
+td.spy_entry_NEW_MEDIA {
+	background: #fff url('/image/community/icon_media.png') right 65px no-repeat;
+}
+
+/*********************************************************
+					C O N T A C T S
+*********************************************************/
+.contact_view H3 {
+	color:#989898;
+}
+.contact_container .contact_body {
+	border-bottom:1px solid #cdcdcd;
+}
+.contact_container .contact_footer {
+	border-top:1px solid #cdcdcd;
+}
+.contact_info h5 span {
+	color: #cdcdcd;
+}
+.contact_avatar img {
+	border: 3px solid #dadada;
+}
+
+a#icon_add_to_my_contacts {
+	background: url('/image/contacts_icons/addtomycontacts_off.png') center center no-repeat;
+}
+a#icon_add_to_my_contacts:hover {
+	background: url('/image/contacts_icons/addtomycontacts_on.png') center center no-repeat;
+}
+
+a#icon_add_contact {
+	background: url('/image/contacts_icons/addcontact_off.png') center center no-repeat;
+}
+a#icon_add_contact:hover {
+	background: url('/image/contacts_icons/addcontact_on.png') center center no-repeat;
+}
+
+a#icon_invite {
+	background: url('/image/contacts_icons/invite_off.png') center center no-repeat;
+}
+a#icon_invite:hover {
+	background: url('/image/contacts_icons/invite_on.png') center center no-repeat;
+}
+
+a#icon_edit_list {
+	background: url('/image/contacts_icons/editlists_off.png') center center no-repeat;
+}
+a#icon_edit_list:hover {
+	background: url('/image/contacts_icons/editlists_on.png') center center no-repeat;
+}
+
+
+/*********************************************************
+					F E A T U R E S
+*********************************************************/
+
+.right_content {
+	background-color:#fff;
+	border: 1px solid #ccc;
+}
+.yellowcontainer {
+	background-color: #ffc;
+}
+
+/*********************************************************
+						4 0 4
+*********************************************************/
+#notfound_header{
+	background: url('/image/icon_error.gif') left center no-repeat;
+	color: #666;
+}
+
+/*********************************************************
+					G L O B B E R
+*********************************************************/
+img.loaded_image {
+	border: 2px solid #fff;/*needed so images don't bounce around when they get a selection box*/
+}
+img.selected_image {
+	border: 2px solid #fc0;
+}
+.text_over_edit_buttons {
+	color:#989898;
+}
+.text_over_edit_buttons .edit_instr{
+	background-color:#fbfdbb;
+}
+
+div.big_thumb_item div, div.small_thumb_item span, div.small_thumb_item div{ /* info under thumbnails */
+	color: #b8b8b8;
+}
+
+table.exif td {
+	background: #edebed;
+}
+
+.glob_view_header{
+	color:#989898;
+}
+
+table.list_view {
+	border-collapse: collapse;
+	border-top: 1px solid #aaa;
+}
+table.list_view tr:hover {
+	background: #e0e0e0;
+}
+.selected_row {
+	background: #f89cb5;
+}
+table.list_view th {
+	background: #e0e0e0;
+}
+table.list_view td {
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	background: inherit;
+}
+
+a#small_thumb_view_toggle {
+	background:url('/image/user_globber_icons/glob_view_small_thumbs_off.png') top left no-repeat;
+}
+a#small_thumb_view_toggle.selected_view_selector, a#small_thumb_view_toggle:hover {
+	background:url('/image/user_globber_icons/glob_view_small_thumbs_on.png') top left no-repeat;
+}
+a#big_thumb_view_toggle {
+	background:url('/image/user_globber_icons/glob_view_big_thumbs_off.png') top left no-repeat;
+}
+a#big_thumb_view_toggle.selected_view_selector, a#big_thumb_view_toggle:hover {
+	background:url('/image/user_globber_icons/glob_view_big_thumbs_on.png') top left no-repeat;
+}
+a#list_view_toggle {
+	background:url('/image/user_globber_icons/glob_view_list_off.png') top left no-repeat;
+}
+a#list_view_toggle.selected_view_selector, a#list_view_toggle:hover {
+	background:url('/image/user_globber_icons/glob_view_list_on.png') top left no-repeat;
+}
+a#minimal_view_toggle {
+	background:url('/image/user_globber_icons/glob_view_minimal_off.png') top left no-repeat;
+}
+a#minimal_view_toggle.selected_view_selector, a#minimal_view_toggle:hover {
+	background:url('/image/user_globber_icons/glob_view_minimal_on.png') top left no-repeat;
+}
+/*
+.modal_text_input {
+	width: 560px;
+}
+.modal_textarea {
+	border: 1px solid #c2c2c2;
+}
+*/
+.advanced_search_option {
+	border-bottom: 1px solid #989898;
+}
+
+/*********************************************************
+				I M A G E  D E T A I L
+*
+* Author: Josh Williams
+* Date Added: Wed Aug 30 11:12:00 CDT 2006
+*
+* General style for the standalone detail page.
+*********************************************************/
+/************** LEFT HAND ELEMENTS *************/
+div#big_detail_image div.holder {
+	border: 1px #d0d0d0 solid;
+	background: #fff url('/image/spinner.gif') center center no-repeat;
+}
+
+div#big_detail_image .loaded {
+	border: 1px #d0d0d0 solid;
+}
+/*div.comment img {
+	border: none;
+}*/
+div.new_comment_holder textarea {
+	border: 1px solid #c2c2c2;
+}
+/************* RIGHT HAND ELEMENTS **************/
+div#nav_holder {
+	border-top: 1px #d0d0d0 solid;
+	border-bottom: 1px #d0d0d0 solid;
+}
+div.thumb_holder div.stub {
+	background: #fff url('/image/spinner.gif') center center no-repeat; 
+}
+div#prev_next div.holder_unloaded {
+	background: #fff url('/image/spinner.gif') center center no-repeat;
+}
+div#prev_next div.holder_loaded {
+	background: none;
+}
+div#prev_next div.holder_no_img {
+	border: 1px solid #d0d0d0;
+}
+
+/*********************************************************
+					M A I N  H O M E P A G E
+*********************************************************/
+div#main_photo_container {
+	background: #fff url('/image/homepage_stack_background.png') left top no-repeat;	
+}
+div#stack_content img{
+	border: 1px solid #c2c2c2;
+}
+a#giant_signup_button {
+	background: #fff url('/image/tryitnow_normal.gif') left top no-repeat;
+}
+a#giant_signup_button:hover {
+	background: #fff url('/image/tryitnow_hover.gif') left top no-repeat;
+}
+a#explore_link {
+	background: url('/image/explore_normal.png') left top no-repeat;
+}
+a#explore_link:hover {
+ 	background: url('/image/explore_hover.png') left top no-repeat;
+}
+div#main_page_container div#header_bar {
+	background: #fff;
+}
+div#main_happy_talk .mp_bullet_list {
+	background:url('/image/bullet_list.gif') top center no-repeat;
+}
+/*********************************************************
+					M E S S A G E S
+*********************************************************/
+.messages_tbl td{
+	background-color:#ededed;
+}
+
+/*********************************************************
+					Q U I C K S T A R T
+*********************************************************/
+div.platform {
+	border-top: 1px solid #ccc;
+}
+h5 { /*conflict */
+	color: #666;
+}
+DIV#apple_platform {
+	background: #fff url('/image/apple.png') 5px center no-repeat;
+	color: #989898;
+}
+DIV#windows_platform {
+	background: #fff url('/image/windows.png') 5px center no-repeat;
+	color: #989898;
+}
+DIV#linux_platform {
+	background: #fff url('/image/linux.png') 5px center no-repeat;
+	color: #989898;
+	border-bottom: 1px solid #ccc;
+}
+
+/*********************************************************
+				R E S E T  P A S S W O R D
+*********************************************************/
+a#giant_login_button {
+	background: #fff url('/image/login_button_normal.png') left top no-repeat;
+}
+
+/*********************************************************
+				S I G N U P  /   U P G R A D E
+*********************************************************/
+div.form_divider {
+	border-top: 1px solid #c2c2c2;
+}
+a#giant_upload_button {
+	background: #fff url('/image/upload_button_normal.png') left top no-repeat;
+}
+a#giant_upload_button:hover {
+	background: #fff url('/image/upload_button_active.png') left top no-repeat;
+}
+
+/*********************************************************
+						T A G S
+*********************************************************/
+/* tag epaper */
+.tag_view .edit_mode a{
+	color:#989898;
+}
+.tag_view .edit_mode a:hover {
+	background: #fbffbc;
+}
+/*.tag_view .edit_mode a.remove:hover {
+	background-color: transparent;
+}*/
+.tag_view .edit_mode a.remove {
+	color: #f69;
+	background-color:#fff;
+}
+.tag_view .tag_epaper input{
+	border: 1px solid #c2c2c2;
+	color:#989898;
+}
+a#tag_organizer {
+	background: url('/image/edit_tags_normal.png') center center no-repeat;
+}
+a#tag_organizer:hover {
+	background:url('/image/edit_tags_over.png') center center no-repeat;
+}
+a#cloud_icon {
+	background: url('/image/cloudview_grey.png') center center no-repeat;
+}
+a#cloud_icon.selected_view_selector, a#cloud_icon:hover {
+	background:url('/image/cloudview_color.png') center center no-repeat;
+}
+a#flat_icon {
+	background: url('/image/flatview_grey.png') center center no-repeat;
+}
+a#flat_icon.selected_view_selector, a#flat_icon:hover {
+	background:url('/image/flatview_color.png') center center no-repeat;
+}
+
+/*********************************************************
+				U S E R  H O M E P A G E
+*********************************************************/
+div#drop_separator {
+	background: lightyellow;
+	color: #ccc;
+}
+div.column {
+	border: 2px solid #fff;
+	background: transparent;
+}
+div.drag_handle, div.drag_handle_fake {
+	background-color: transparent;
+	border-top: 1px solid #c0c0c0;
+	border-bottom: 1px solid #c0c0c0;
+}
+ul#widget_list li {
+	background: #fff url('/image/bullet_toggle_plus.png') 0px 6px no-repeat;
+}
+ul#widget_list li:hover {
+	background: #fff url('/image/bullet_toggle_plus_hover.png') 0px 6px no-repeat;
+}
+
+div.widget {
+	background: #fff;
+}
+
+/******************************************************************************************************************
+														M O D A L S
+******************************************************************************************************************/
+/*********************************************************
+					A L L  M O D A L S
+*********************************************************/
+a.close_x_link {
+	background: url('/image/close_x.png') center center no-repeat;
+}
+div#modal_info {
+	border: 1px solid #c2c2c2;
+	background: #fff;
+}
+/*#overlay img{ 
+	border: none; 
+}*/
+#overlay {
+	background-image: url('/image/overlay.png'); 
+}
+* html #overlay {
+/*	background-color: #EEE;*/
+	background-color: transparent;
+	background-image: url('/image/clear.gif');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/image/overlay.png", sizingMethod="scale");
+}
+/*div.modal_form_padding input {
+	color: #666;
+}
+*/
+/*********************************************************
+			A L B U M  E D I T  S E T S  
+*********************************************************/
+.edit_set_modal .epaper_input_box {
+	border:1px solid #cdcdcd;
+}
+
+/*********************************************************
+			A L B U M  C R E A T E  A L B U M
+*********************************************************/
+.create_album_modal .epaper_input_box {
+	border:1px solid #cdcdcd;
+}
+
+/*********************************************************
+				A L B U M  T E M P L A T E
+*********************************************************/
+.album_template_modal .swatch {
+	border:1px solid #cdcdcd;
+	background-color:#fff;
+}
+.album_template_modal .left_col input {
+	border:1px solid #cdcdcd;
+}
+.album_template_modal .img_box {
+	border:1px solid #cdcdcd;
+}
+.album_template_modal select {
+	border:1px solid #cdcdcd;
+}
+
+/*********************************************************
+		A L B U M  E D I T  S E T S  T A B L E
+*********************************************************/
+.album_table {
+	background: #fff;
+}
+.album_table td {
+	border-top: 1px solid #cdcdcd;
+	border-bottom: 1px solid #cdcdcd;
+	background: inherit;
+}
+
+.album_table .epaper_input_box{
+	border:1px solid #cdcdcd;
+}
+
+/*********************************************************
+				A U T H I N A T O R
+*********************************************************/
+div#authinator_form_container {
+	border: 1px solid #c2c2c2;
+	background: #fff;
+}
+div#authinator_form_container div.message_box {
+	background: #ffc url('/image/error.png') 5px 15px no-repeat;
+}
+
+/*********************************************************
+				C O L O R  S W I T C H E R
+*********************************************************/
+div#color_switcher {
+	background-color: #fff;
+	border:1px solid #ccc;
+}
+div#color_switcher .dual_swatch{
+	border:2px solid #fff;
+}
+div#color_switcher .selected{
+	border:2px solid #fc0;
+}
+
+/*********************************************************
+				C O N T A C T  M O D A L S
+*********************************************************/
+
+.contact_tbl {
+	background: #fff;
+}
+.selected_row {
+	background: #f89cb5;
+}
+.contact_tbl td {
+	border-top: 1px solid #cdcdcd;
+	border-bottom: 1px solid #cdcdcd;
+	background: inherit;
+}
+
+/*********************************************************
+				C O N T A C T  A D D
+*********************************************************/
+
+.add_modal .results {
+	color:#989898;
+}
+
+/*********************************************************
+				C O N T A C T  E D I T
+*********************************************************/
+.edit_modal input {
+	border: 1px solid #C2C2C2;
+	color:#989898;
+}
+.e_wrapper a.e_paper {
+	color: #666;
+}
+.e_wrapper a.e_paper:hover {
+	background: #fbffbc;
+}
+.e_wrapper .epaper_input_box {
+	border: 1px solid #c2c2c2;
+	color: #666;
+}
+
+/*********************************************************
+				C O N T A C T  I N V I T E
+*********************************************************/
+.invite_modal input {
+	border: 1px solid #C2C2C2;
+	color:#989898;
+}
+.invite_modal .parenthetical {
+	color:#989898;
+}
+.invite_modal blockquote {
+	color:#989898;
+}
+
+/*********************************************************
+					E D I T  D A T E
+*********************************************************/
+.date_picker .calendar_page a{
+	color:#989898;
+}
+.date_picker .calendar_page .today a{
+	background-color:#989898;
+	color:#fff;
+}
+.date_picker .calendar_page .otherday a:hover{
+	background:#cdcdcd;
+}
+
+/*********************************************************
+					H E L P  M O D A L
+*********************************************************/
+.settings_holder DIV#apple_platform {
+	background: #fff url('/image/help/apple.png') 5px center no-repeat;
+}
+.settings_holder DIV#windows_platform {
+	background: #fff url('/image/help/windows.png') 5px center no-repeat;
+}
+.settings_holder DIV#linux_platform {
+	background: #fff url('/image/help/linux.png') 5px center no-repeat;
+}
+
+/*********************************************************
+			M E S S A G E S : N E W  M E S S A G E
+*********************************************************/
+.modal_new input {
+	border: 1px solid #C2C2C2;
+	color:#989898;
+}
+.modal_new .parenthetical {
+	color:#989898;
+}
+
+/*********************************************************
+			M E S S A G E S : R E A D / R E P L Y
+*********************************************************/
+.modal_read_reply .top_buttons{
+	color:#989898;
+}
+.modal_read_reply .avatar img{
+	border:2px solid #cdcdcd;
+}
+
+.modal_read_reply .msgbody{
+	border:1px solid #cdcdcd;
+}
+.modal_read_reply .textarea {
+	border: 1px solid #cdcdcd;
+	color:#989898;
+}
+
+/*********************************************************
+				P E R M I S S I O N S
+*********************************************************/
+table.perms {
+	border: 1px solid #c2c2c2;
+}
+table.perms td {
+	border: 1px solid #c2c2c2;
+}
+table.perms td.center {
+	text-align: center;
+}
+div#big_error_box {
+	background: #ffffd3 url('/image/error.png') 4px 3px no-repeat;
+}
+
+/*********************************************************
+				S E T T I N G S
+*********************************************************/
+/**************** OVERALL SETTINGS ****************/
+div.settings_menu_holder {
+	border-right: 1px solid #ccc;
+}
+li.level0 {
+	color:#ccc;
+}
+
+li.level0 a.menu_active {
+	color: #989898;
+}
+
+/* Level 1 menus */
+ul.level1 {
+	border-top: 1px solid #ccc;	
+	border-bottom: 1px solid #ccc;
+}
+li.level1 {
+	color:#ccc;
+}
+li.level1 a.item_active{
+	color: #989898;
+}
+/* Level 2 menus */
+
+/*************** CHANGE PASSWORD *******************/
+div#update_success {
+        background: #fbfdbb;
+}
+
+/****************** PHOTO PERMS ********************/
+div.perms_holder form.perms_form div.checkbox_holder_disabled {
+	color: #ccc;
+}
+
+/*********************************************************
+				U P L O A D
+*********************************************************/
+.upload_modal .via_web {
+	border-right:1px solid #cdcdcd;
+}

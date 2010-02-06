@@ -1,0 +1,10 @@
+<body>
+	<div class="album_container invisible">
+		<div id="flashDiv">
+			<h2 id="album_title">Adobe Flash needed</h2>
+			<h5 id="album_description">This album requires Adobe Flash Player 9 to be viewed. 
+				<a target="_blank" href="http://www.adobe.com/go/getflashplayer">Get the Flash Player</a>.
+			</h5>
+		</div>
+	</div>
+</body>

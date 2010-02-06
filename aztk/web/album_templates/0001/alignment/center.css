@@ -1,0 +1,9 @@
+.album_container {
+	text-align:center;
+}
+.photo_frame {
+	margin-left:5px;
+}
+.photo_frame .clear_holder img {
+	margin-right:5px;
+}

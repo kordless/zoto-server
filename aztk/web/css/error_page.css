@@ -1,0 +1,18 @@
+a { /* remove annoying dashed border that browsers apply to links */
+        outline: none;
+        text-decoration: none;
+        color: #eb195c;
+}
+
+h3 {
+	text-align: center;
+}
+	
+.errors {
+	width: 80%;
+	text-align: left;
+	margin-left: 150px;
+	margin-right: 150px;
+	margin-top: 50px;
+	margin-bottom: 50px;
+}

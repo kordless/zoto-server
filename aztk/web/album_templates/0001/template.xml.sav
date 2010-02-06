@@ -1,0 +1,14 @@
+<body xmlns:z="http://nevow.com/ns/nevow/0.1">
+	<param z:data="image_count" z:render="image_count">12</param>
+	<div id="header">
+		<h1 class="album_title" z:render="album_title"></h1>
+	</div>
+	<div id="album_holder" z:data="images" z:render="sequence">
+		<div class="image_holder" z:pattern="item"><z:attr name="id">image_holder<z:invisible z:render="string"/></z:attr>
+			<img class="album_image" src="" alt=""/><br />
+			<span class="album_image_title"></span><br />
+			<span class="album_image_date"></span><br style="clear: left"/>
+		</div>
+
+	</div>
+</body>

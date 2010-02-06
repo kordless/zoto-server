@@ -1,0 +1,74 @@
+<Target>
+  <Subdomain>www</Subdomain>
+  <TargetURLpath>http://www.zoto.org/publish/beta-blogger/auth-response/</TargetURLpath>
+  <X509> Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            a1:b6:40:08:fd:45:e7:a2
+        Signature Algorithm: sha1WithRSAEncryption
+        Issuer: C=US, ST=Oklahoma, O=Zoto Inc, CN=Kord Campbell/emailAddress=kord@zoto.com
+        Validity
+            Not Before: Feb 27 16:00:35 2007 GMT
+            Not After : Feb 27 16:00:35 2008 GMT
+        Subject: C=US, ST=Oklahoma, L=Oklahoma City, O=Zoto Inc., CN=Kord Campbell/emailAddress=kord@zoto.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+            RSA Public Key: (1024 bit)
+                Modulus (1024 bit):
+                    00:d8:87:53:1e:f8:e7:61:57:4d:e1:19:d2:2c:35:
+                    05:9f:a5:7f:96:6e:0e:c2:02:ee:fc:22:cf:21:b0:
+                    1e:d6:ac:c1:a7:f6:4d:ad:57:ce:fa:e1:a9:da:e4:
+                    c2:a7:a8:76:5f:b8:d8:55:e6:2c:b4:98:52:5a:dc:
+                    47:61:14:cb:1b:9d:cf:12:03:a9:3f:ec:9d:22:48:
+                    fe:14:08:40:f6:e0:5a:e0:e4:e0:9a:e8:0f:53:17:
+                    28:a5:d2:9a:44:9d:9a:1f:a0:e2:ef:5b:e2:c5:35:
+                    48:05:ec:b2:5e:55:2c:25:cf:64:a8:ff:fd:12:c3:
+                    a0:bd:f7:19:3e:b5:08:e1:a1
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier: 
+                4F:67:29:77:E6:A2:4E:4F:4D:AF:F2:F7:00:41:E6:A5:34:4E:29:4E
+            X509v3 Authority Key Identifier: 
+                keyid:8C:9D:55:31:0A:09:27:26:69:EF:23:00:17:D6:83:39:51:BF:95:59
+
+    Signature Algorithm: sha1WithRSAEncryption
+        3d:63:8b:32:5b:e7:82:93:a0:55:a6:1e:ff:b3:20:8c:e8:2b:
+        71:b0:85:3c:67:61:a3:ee:4d:a9:22:84:fc:9b:3e:9c:cf:74:
+        af:3b:d7:dc:e2:ef:d8:11:f0:3e:6d:ec:9b:db:d6:71:46:48:
+        42:82:a9:8d:4e:48:53:b7:3c:e7:95:f4:c7:34:c6:4b:bb:af:
+        e5:14:8f:7b:d3:b6:d7:73:19:54:1f:17:eb:9e:21:63:3d:9c:
+        c0:4e:7d:0d:93:45:93:87:9f:f3:b1:88:cf:b1:7f:5a:66:63:
+        b3:71:74:0b:27:01:07:6b:4c:34:12:e7:5b:01:29:7d:eb:36:
+        97:83
+-----BEGIN CERTIFICATE-----
+MIIC5TCCAk6gAwIBAgIJAKG2QAj9ReeiMA0GCSqGSIb3DQEBBQUAMGkxCzAJBgNV
+BAYTAlVTMREwDwYDVQQIEwhPa2xhaG9tYTERMA8GA1UEChMIWm90byBJbmMxFjAU
+BgNVBAMTDUtvcmQgQ2FtcGJlbGwxHDAaBgkqhkiG9w0BCQEWDWtvcmRAem90by5j
+b20wHhcNMDcwMjI3MTYwMDM1WhcNMDgwMjI3MTYwMDM1WjCBgjELMAkGA1UEBhMC
+VVMxETAPBgNVBAgTCE9rbGFob21hMRYwFAYDVQQHEw1Pa2xhaG9tYSBDaXR5MRIw
+EAYDVQQKEwlab3RvIEluYy4xFjAUBgNVBAMTDUtvcmQgQ2FtcGJlbGwxHDAaBgkq
+hkiG9w0BCQEWDWtvcmRAem90by5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJ
+AoGBANiHUx7452FXTeEZ0iw1BZ+lf5ZuDsIC7vwizyGwHtaswaf2Ta1Xzvrhqdrk
+wqeodl+42FXmLLSYUlrcR2EUyxudzxIDqT/snSJI/hQIQPbgWuDk4JroD1MXKKXS
+mkSdmh+g4u9b4sU1SAXssl5VLCXPZKj//RLDoL33GT61COGhAgMBAAGjezB5MAkG
+A1UdEwQCMAAwLAYJYIZIAYb4QgENBB8WHU9wZW5TU0wgR2VuZXJhdGVkIENlcnRp
+ZmljYXRlMB0GA1UdDgQWBBRPZyl35qJOT02v8vcAQealNE4pTjAfBgNVHSMEGDAW
+gBSMnVUxCgknJmnvIwAX1oM5Ub+VWTANBgkqhkiG9w0BAQUFAAOBgQA9Y4syW+eC
+k6BVph7/syCM6CtxsIU8Z2Gj7k2pIoT8mz6cz3SvO9fc4u/YEfA+beyb29ZxRkhC
+gqmNTkhTtzznlfTHNMZLu6/lFI9707bXcxlUHxfrniFjPZzATn0Nk0WTh5/zsYjP
+sX9aZmOzcXQLJwEHa0w0EudbASl96zaXgw==
+-----END CERTIFICATE-----</X509>
+  <DefaultLanguage>en</DefaultLanguage>
+  <Language>
+    <ISO-639-1>en</ISO-639-1>
+    <Name>English</Name>
+    <Country>US</Country>
+    <Description>Zoto, Inc.</Description>
+    <Logo>http://www.zoto.org/image/main_logo.png</Logo>
+  </Language>
+</Target>

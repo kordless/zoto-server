@@ -1,0 +1,6 @@
+.album_container, .album_color, #album_description {
+	color:#fff !important;
+}
+.album_container #pagination{
+	border-bottom:1px solid #fff;
+}

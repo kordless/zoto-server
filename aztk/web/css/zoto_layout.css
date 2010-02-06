@@ -1,0 +1,3194 @@
+/*********************************************************
+	zoto_layout.css
+	
+	Notes:
+
+	Index:
+		Globals
+		Assets
+			calendar
+			contact popup
+			detail image
+			duallist
+			edit bars
+			epaper
+			errormessage
+			globber
+			helperbuddies
+			ie nag
+			infostrip
+			item list
+			lookahead
+			main search form
+			menuboxes
+			pagination
+			photoframe
+			select boxes
+			spinners
+			tab bar
+			tags
+			toolstrip
+			top bar
+			user bar
+			widgets
+			
+		Pages
+			all pages
+			advanced search
+			albums
+			contacts
+			community spy
+			features
+			404
+			globber
+			image detail
+			other sizes
+			main homepage
+			messages
+			quickstart
+			reset password
+			signup/upgrade
+			site down
+			tags
+			user homepage
+			
+		Modals
+			all modals
+			album edit sets
+			album create album
+			album add photos
+			album template
+			album add edit 
+			album edit sets for album
+			album edit sets table
+			album arrainge photos
+			album image detail
+			api request
+			authinator
+			cancel
+			contact modals
+			contact add as
+			contact add
+			contact edit
+			contact invite
+			contact us
+			edit contact widget
+			edit date
+			edit featured photo widget
+			edit photo widget
+			image detail
+			messages: new message
+			messages: read/reply
+			permissions
+			settings 
+			upload
+
+			
+*********************************************************/
+/******************************************************************************************************************
+					G L O B A L S
+******************************************************************************************************************/
+.invisible {
+	display: none !important;
+}
+
+.float_left {
+	float:left;
+}
+a { /* remove annoying dashed border that browsers apply to links */
+	outline: none;
+}
+
+h1,h2,h3 {
+	margin-top: 0px;
+	margin-bottom: 2px;
+}
+h4,h5 {
+	margin-top: 0px;
+	margin-bottom: 2px;
+}
+.unstyled_list {
+	list-style:none;
+	margin:0px;
+	padding:0px;
+}
+form div.container {
+	padding: 4px;
+	margin-bottom: 4px;
+}
+form {
+	padding: 0px;
+	margin: 0px;
+}
+fieldset {
+	border: 0;
+	padding: 0px;
+	margin: 0px;
+}
+input.text, textarea{
+	float: left;
+	width: 300px;
+	padding: 1px;
+	padding-bottom: 0px;	
+}
+input.text {
+	height:16px;
+}
+
+div.button_group {
+/*	margin-top: 10px;*/
+}
+a.form_button, a.form_button_disabled {
+	display: block;
+	float: left;
+	margin-right: 4px;
+	height: 18px;
+	line-height: 18px;/* layout */
+	padding: 0px 6px;
+	white-space:nowrap;
+}
+
+/******************************************************************************************************************
+														A S S E T S
+******************************************************************************************************************/
+/*********************************************************
+					C A L E N D A R
+*********************************************************/
+table.calendar_page {
+	text-align: center;
+}
+table.calendar_page th, table.calendar_page td {
+	width: 25px;
+}
+table.calendar_page tr {
+	height: 15px;
+}
+
+/*********************************************************
+					D E T A I L  I M A G E
+*********************************************************/
+div#img_holder {
+	width: 500px;
+	height: 500px;
+	float: left;
+	position: relative;
+	display: table;
+}
+div#img_holder div {
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	text-align: center;
+}
+div#img_holder div[id] {
+	position: static;
+	position: expression('relative') !important; /* @#$%! hack for IE7 */
+	display: table-cell;
+	vertical-align: middle;
+}
+div#img_holder a {
+	display:block;
+	position: relative;
+	top: -50%;
+}
+div#img_holder a[href] {
+	position: static;
+	position: expression('relative') !important; /* @#$%! hack for IE7 */
+}
+div#img_holder .main_image {
+	border: 0;
+}
+div#owner_holder {
+	position: absolute;
+	top: 30px;
+	left: 18px;
+}
+
+/*********************************************************
+					D U A L L I S T
+*********************************************************/
+.dual_select_list label {
+	float:left;
+	margin-left: 0px !important;
+}
+.dual_select_list select{
+	margin:5px 0px;	
+	display:block;
+	width:250px;
+	height:280px;
+}
+.dual_select_list option{
+	height:16px;
+}
+.dual_select_list .select_buttons {
+	position:relative;
+	top:110px;
+	float:left;
+	margin: 0px 15px !important;
+	width:22px;
+}
+.dual_select_list .form_button {
+	float:none !important;
+}
+
+.dual_select_list_perm select{
+	width:200px;
+	height:100px;
+}
+.dual_select_list_perm .select_buttons {
+	top:40px;
+}
+.share_modal .dual_select_list_perm select {
+	height:200px;
+}
+.share_modal .dual_select_list_perm .select_buttons {
+	top:80px;
+}
+
+/*********************************************************
+					E D I T  B A R S
+*********************************************************/
+div#editing_bar {
+	padding: 0; 
+	margin: 0;
+	margin-bottom: 6px;
+}
+div#editing_bar td {
+	padding: 0;
+}
+a#edit_icon_album {
+	width:71px;
+	height:28px;
+}
+a#edit_icon_group{
+	height:28px;
+	width:72px;
+}
+a#edit_icon_text, a#edit_icon_date {
+	height:28px;
+	width:50px;
+}
+a#edit_icon_geotag, a#edit_icon_email, a#edit_icon_tag{
+	height:28px;
+	width:53px;
+}
+a#edit_icon_publish{
+	width:67px;
+	height:28px;
+}
+a#edit_icon_print{
+	width:57px;
+	height:28px;
+}
+a#edit_icon_privacy{
+	width:66px;
+	height:28px;
+}
+a#edit_icon_delete{
+	width:73px;
+	height:28px;
+}
+a#edit_icon_add_to_set{
+	width:62px;
+	height:28px;
+}
+a#edit_icon_add_to_list{
+	width:59px;
+	height:28px;
+}
+a#edit_icon_undo{
+	width:38px;
+	height:20px;
+}
+a#edit_icon_other_sizes {
+	height:20px;
+	width:55px;
+}
+a#edit_icon_del{
+	height:20px;
+	width:72px;
+}
+a#edit_icon_rotate_cw{
+	width:56px;
+	height:20px;
+}
+a#edit_icon_rotate_ccw{
+	width:56px;
+	height:20px;
+}
+a#edit_icon_edit{
+	width:66px;
+	height:20px;
+}
+a#edit_icon_perm{
+	width:66px;
+	height:20px;
+}
+a#edit_icon_email_nobdr{
+	width:56px;
+	height:20px;
+}
+a#edit_icon_licensing{
+	width:64px;
+	height:28px;
+}
+a#edit_icon_limit_downloads{
+	width:64px;
+	height:20px;
+}
+a#edit_icon_download_limit{
+	width:64px;
+	height:28px;
+}
+a#edit_icon_download{
+	width:78px;
+	height: 28px;
+}
+
+/*********************************************************
+					E P A P E R
+*********************************************************/
+a.e_paper {
+	cursor:text;
+}
+.epaper_textarea {
+	margin-bottom: 4px;
+	width: 300px;
+	height: 100px;
+}
+div#title_epaper  {
+	margin-bottom: 10px;
+	cursor:text;
+}
+div#title_epaper .epaper_input_box {
+	margin-bottom: 4px;
+	width: 220px;
+}
+div#description_epaper {
+	margin-bottom: 10px;
+}
+div#description_epaper a.e_paper {
+	cursor:text;
+}
+div#description_epaper .epaper_textarea {
+	width: 270px;
+}
+
+/*********************************************************
+				E R R O R M E S S A G E
+*********************************************************/
+div.error_message {
+	float: left;
+	margin: -2px 0px 0px 4px;
+	width: 400px;
+	padding: 4px 4px 4px 25px;
+}
+
+/*********************************************************
+					G L O B B E R
+*********************************************************/
+.globber_shell {
+	display: block;
+}
+.globber_base {
+	overflow: hidden;
+	float: left;
+	width: 100%;
+}
+
+/*********************************************************
+				H E L P E R  B U D D I E S
+*********************************************************/
+div#helper_buddy_box {
+	/* the little '?' links that popup a help box */
+	padding: 6px;
+	position: absolute;
+	width: 380px;
+}
+div#helper_buddy_box span.title {
+	margin-left: 20px;
+}
+div#helper_buddy_box div.body {
+	margin-left: 20px;
+}
+
+/*********************************************************
+						I E  N A G
+*********************************************************/
+#ie_nag {
+	margin:0px;
+	padding:0px;
+	position:relative;
+	float:left;
+	width:100%;
+	height:22px;
+}
+#ie_nag .msg{
+	position:absolute;
+	left:0px;
+	top:0px;
+	padding:1px 5px 1px 30px;
+	overflow:hidden;
+	height:18px;
+}
+#ie_nag div img{
+	position:absolute;
+	left:5px;
+	top:0px;
+}
+#ie_nag .close_link {
+	display: block;
+	height: 9px;
+	width: 9px;
+	float: right;
+}
+
+/*********************************************************
+					I N F O S T R I P
+*********************************************************/
+.infostrip{
+	height:16px;
+}
+
+/*********************************************************
+					I T E M L I S T
+*********************************************************/
+.item_list {
+	line-height:1.2em; /*layout*/
+	width: 210px;
+	position:relative;
+	overflow:hidden;
+}
+
+/*********************************************************
+				L O O K A H E A D
+*********************************************************/
+div.look_ahead_holder {
+	position: absolute;
+	padding: 0;
+}
+div.look_ahead_holder ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+div.look_ahead_holder ul li a {
+	display: block;
+	padding: 2px;
+}
+
+form#tag_lookahead_form {
+	height:20px;   /* *HACK*: for Safari.  You have to tell it the height or it doesn't size. */
+	margin-top: 5px;
+}
+form#tag_lookahead_form input.lookahead {
+	width: 230px;
+	margin-right: 4px;
+}
+form#tag_lookahead_form label {
+	padding: 0px;
+	margin: 0px 8px 0px 0px;
+}
+
+/*********************************************************
+				M A I N  S E A R C H  F O R M
+*********************************************************/
+div#main_search_box {
+	float: right;
+	width: 320px;
+}
+div#main_search_box form {
+	display: inline;
+}
+div#main_search_box input {
+	display: inline;
+}
+
+/*********************************************************
+					M E N U B O X E S
+*********************************************************/
+.zoto_menu {
+	text-align:left;
+}
+.zoto_menu .pos_span { /* damn safari and its ilk for making me do this ... and Opera too */
+	position:absolute;
+	z-index:20;
+	width:100%;
+}
+/*  dropdown  */
+.zoto_menu div {
+	position:absolute;
+	z-index:20;
+	top:17px;
+	left:-1px;
+	padding:8px;
+	line-height:1.2em;/* used for layout */
+}
+.zoto_menu ul {
+	position:relative;
+	white-space:pre;
+	margin:0px;
+	padding:0px;
+	display:block;
+}
+.zoto_menu .divider{
+	display:block;
+	margin: 8px 0px;
+}
+.zoto_menu li {
+	text-align:left;
+	line-height:1.2em;/* used for layout */
+	display:block;
+	margin: 2px 0px;
+}
+.zoto_menu .widget{
+	padding-left: 16px;
+}
+
+/*********************************************************
+					P A G I N A T I O N
+*********************************************************/
+div.go_to_page_holder {
+	float: left;
+}
+div.go_to_page_holder form {
+	_width: 72px;
+}
+input.page_box {
+	float: left;
+	width: 30px;
+	margin-right: 4px;
+	height: 16px;
+}
+div.page_holder {
+	float: left;
+	height: 18px;
+}
+a.page {
+	display: block;
+	float: left;
+	padding: 0 4px;
+	height: 18px;
+	line-height: 16px;/* layout */
+	margin-right: 2px;
+	text-align:center;
+}
+
+/*********************************************************
+					P H O T O F R A M E
+	! READ ME !
+	The css right her is VERY brittle so be
+	VERY careful about what you change and 
+	test test test in every browser cos 
+	SOMETHING is bound to break.
+	
+	Having said that, 
+	If you need to set margins do so this way:
+	margin-right, margin-bottom, and
+	margin-top may be applied to 
+	.photo_frame. .clear_holder img
+	
+	margin-left may be applied to .photo_frame
+	
+	If you need to set a border set it on:
+	.photo_frame .photo_frame_border 
+	
+	thx.
+*********************************************************/
+.photo_frame {
+	cursor:pointer;
+}
+.photo_frame .wrapper {
+	position:relative;
+	line-height:1px; /*layout*/
+	font-size:1px; /*layout*/
+	vertical-align:top; /* fixes top align for opera and ff */
+}
+.photo_frame .outer_pos {
+	position:absolute;
+	top:0px;
+	left:0px;
+}
+.photo_frame .inner_pos {
+	display:table;
+	float:left;
+	position:relative;
+	text-align:center;
+/*	height:100px;
+	width:100px;*/ /* height and width must be set according to the image being shown */
+}
+.photo_frame .img_holder {
+	width:100%;
+	top:50%;
+	text-align:center;
+	position:static;
+	position:expression('relative') !important;/*hack for IE7 */
+	display:table-cell;
+	vertical-align:middle;
+}
+.photo_frame .img_holder .anchor {
+	cursor:pointer;
+	display:block;
+	top:-50%;
+	position:static;
+	position: expression('relative') !important; /*hack for ie7 */
+}
+.photo_frame .clear_holder img {
+/*	height:100px;
+	width:100px;*/ /* height and width must be set according to the image being shown */
+/*	margin-right:50px; 
+	margin-bottom:50px;*/ /* margin must be set for appropriate spacing */
+	margin-bottom:10px;
+}
+.photo_frame .clear_holder {
+	line-height:1px;/* layout */
+	font-size:1px; /* layout */
+	vertical-align:text-bottom;
+}
+.photo_frame .photo_frame_border {
+/*	border:3px solid #fff;*/ /* borders should only be set here */
+}
+
+/*********************************************************
+					S E L E C T B O X E S
+*********************************************************/
+div.select_box {
+	padding: 0;
+	margin: 0;
+	display: table;
+	/*
+	 * This float is not a display formatting thing.  IE requires this to properly render
+	 * the containing box for the link.  Without it, the link stretches the width of the
+	 * screen.  I think this is because of M$'s propietary hasLayout attribute, but I'm 
+	 * not certain.  We'll just have to work around it.  Also, you can't put margin
+	 * on this element, because FF screws up calculating the width, and it throws the whole
+	 * thing off.  If you really need margin, put it in a container that has it.
+	 *
+	 * V
+	 */
+	float: left;
+	overflow: hidden;
+}
+div.select_box a {
+	margin: 0px;
+}
+
+div.select_box a.main_link {
+	display: block;
+	line-height: 18px; /* used for layout */
+	margin: 0;
+	padding: 0px 4px;
+}
+
+div.select_box ul {
+	overflow: hidden;
+	display: block;
+	padding: 0px;
+	margin: 0;
+	z-index: 40;
+	list-style: none;
+}
+div.select_box ul.inactive {
+	height: 0px;
+	border-right: 1px solid #fff; /* this is a layout thing according to josh */
+	border-left: 1px solid #fff; /* this is a layout thing according to josh */
+}
+/* IE7 hack */
+*:first-child+html div.select_box ul.inactive {
+	float: left;
+}
+/* IE6 hack */
+* html div.select_box ul.inactive {
+ 	float: left;
+}
+div.select_box ul.active {
+	position: absolute;
+}
+div.select_box li {
+	margin: 0px;
+}
+div.select_box li a {
+	display: block;
+	margin: 0px;
+	padding: 2px 20px 2px 2px;
+}
+div.select_box li a.placeholder, div.select_box li a.placeholder:hover { 
+	margin-top: 8px;
+}
+
+/*********************************************************
+						S P I N N E R S
+*********************************************************/
+div.resizable_spinner {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+div#global_spinner {
+	position: absolute;
+	top:0px;
+	left: 50%;
+	margin-left: -120px;
+	margin-top: 12px;
+	width: 200px;
+	height: 30px;
+	padding:6px 4px 4px 40px;
+	z-index: 3;
+}
+
+/*********************************************************
+					T A B B A R
+*********************************************************/
+ul.tab_bar {
+	list-style: none;
+	display: block;
+	position: absolute;
+	right: 8px;
+	bottom: 0px;
+	padding: 0px;
+	margin: 0px;
+}
+ul.tab_bar li {
+	float: left;
+	margin-left: 5px;
+}
+ul.tab_bar li a {
+	display: block;
+	padding-left: 7px;
+}
+ul.tab_bar li a div.tab_right_corner {
+	padding-right: 7px;
+}
+div.tab_center {
+	min-height: 25px;
+	padding: 0px 12px;
+	cursor:pointer;
+}
+
+/*********************************************************
+						T A G S
+*********************************************************/
+ul.tag_list {
+	list-style: none;
+	margin: 0px 0px;
+	padding: 0;
+}
+ul.tag_list li {
+	display: inline;
+	margin: 0;
+	padding: 0px;
+}
+
+/*********************************************************
+					T O O L S T R I P
+*********************************************************/
+.toolstrip{
+	position:relative;
+	top:7px;
+	height:33px;
+	margin-bottom:10px;
+}
+.button_holder {
+	float:left;
+	position:relative;
+	top:-4px;
+}
+.button_holder a {
+	margin-left:4px;
+	clear:right;
+}
+
+#sortbox {
+	padding-right:4px;
+	float:left;
+}
+.toolstrip .button_holder img{
+	height:auto;
+	width:auto;
+}
+
+/*********************************************************
+					T O P B A R
+*********************************************************/
+div#top_bar {
+	margin: 10px 0px;
+	height: 56px;
+	min-height: 56px;
+}
+div#top_bar input.text {
+	width: 150px;
+	margin-right: 4px;
+	float: right;
+}
+div#top_bar a.form_button {
+	float: right;
+}
+
+/*********************************************************
+			U P L O A D E R  ( I F R A M E)
+*********************************************************/
+div.iframe_uploader {
+	line-height:1.2em;
+}
+frame, frameset, iframe{
+	border:1px solid #fff;
+}
+
+div.iframe_uploader .spinner{
+	display:block;
+	height:30px;
+	width:100%;
+	background:url('http://www.zoto.com/image/spinner.gif') center center no-repeat;
+}
+
+/*********************************************************
+						U S E R B A R
+*********************************************************/
+div#user_bar {
+	float: left;
+	max-width: 730px;
+}
+div#user_bar img {
+	float: left;
+	margin-right: 4px;
+}
+div#user_bar #top_links {
+	white-space:pre;
+}
+
+/*********************************************************
+					W I D G E T S
+*********************************************************/
+div.user_info_header {
+	padding-bottom: 2px;
+	clear: left;
+}
+.globber_widget .globber_shell{
+	margin:10px 0px 0px 0px;
+}
+
+.tip_upload {
+	float:left;
+	height:249px;
+	width:320px;
+}
+#tip_text {
+	float:left;/* stupid IE 6 */
+}
+
+/******************************************************************************************************************
+														P A G E S
+******************************************************************************************************************/
+/*********************************************************
+					A L L  P A G E S
+*********************************************************/
+html,body {height: 100%;}
+body {
+	margin: 0;
+	text-align: left;
+}
+div#left_col {
+	float: left;
+	width: 210px;
+	overflow:hidden;
+	padding: 0px;
+	min-height: 300px;
+}
+div#left_col h3 {
+	padding-bottom:5px;
+}
+div#right_col {
+	margin: 0px;
+	padding: 0px;
+	margin-left: 230px;
+}
+div#width_constraint {
+	min-width:1008px;
+	width:expression(this.parentNode.offsetWidth<=1008?1008+'px':'auto');
+}
+
+div#header_bar { /* encapsulates the entire top of the page */
+	overflow:hidden;
+	position: relative;
+	margin: 0px;
+	height: 78px;
+	padding: 2px 12px 0px 8px;
+}
+
+div#body_indent { /* encapsulates the entire lower page body */
+	margin: 0px 12px;
+}
+
+a#logo {
+	float: left;
+	display:block;
+	height:76px;
+	width:224px;
+}
+a#logo img {
+	border:0 !important;
+}
+
+div#main_links { /* the top-right links for login/logout etc... */
+	margin-top: 4px;
+	float: right;
+	text-align: right;
+}
+div#main_links .messages_link {
+	position:relative;
+	top:5px;
+}
+.footer_bar {
+	margin-top: 35px;
+}
+img {
+	border:0;
+}
+
+a.organizer {
+	display:block;
+	height:28px;
+	width:92px;
+	float:left;
+}
+
+a.edit_bar_icon{
+	display:block;
+	float:left;
+}
+
+/*********************************************************
+					A D V A N C E D  S E A R C H
+*********************************************************/
+div.as_section {
+	border-top:1px solid #c2c2c2;
+	padding-top:10px;
+	margin:10px 0px;
+	
+}
+div.form_block {
+	float:left;
+	margin-right:20px;
+}
+div.as_title {
+	font-weight:bold;
+	font-size:14px;
+	margin-bottom:5px;
+}
+div.form_block label {
+	padding-right:10px;
+}
+input.as_input {
+	float:none;
+	margin:5px 0px;
+}
+
+input.paired_text {
+	float:none;
+	width:40px;
+}
+div.date_field {
+	padding:0px 5px;
+}
+div.date_field, div.date_field span {
+	float:left;
+}
+div.date_field input.text {
+	width:80px;
+}
+
+
+/*********************************************************
+					A L B U M S
+*********************************************************/
+/****************** ALBUM SETS LIST *******************/
+li#return_to_albums{
+	margin-bottom:10px;
+}
+
+/****************** ALBUM TOOL BAR ***************/
+.album_edit_bar {
+	display:block;
+	float:left;
+	margin-bottom:8px;
+	width:100%;
+}
+.album_edit_bar div {
+	margin-bottom:6px;
+}
+.album_edit_bar span{
+	padding: 2px 0px;
+}
+.album_edit_bar a{
+	margin-right:2px;
+}
+a#icon_edit_set{
+	width:128px;
+	height:28px;
+}
+a#icon_new{
+	width:101px;
+	height:28px;
+}
+a#icon_edit_this_set{
+	width:101px;
+	height:28px;
+}
+a#icon_new_set {
+	width:74px;
+	height:28px;
+}
+
+/****************** ALBUM VIEW *******************/
+.album_view {
+	float:left;
+	min-width:750px;
+}
+
+/****************** ALBUM ITEM *******************/
+.album_item {
+	width:95px; 
+	height:250px;
+	padding:2px;
+	margin:0px 5px 10px 0px; 
+	text-align:center; 
+	float:left;	
+}
+.album_view .album_item h5{
+	display:block;
+	float:none;
+	left:0px;
+	top:0px;
+}
+
+.album_item img {
+	height:75px; 
+	width:75px;
+	overflow:hidden;
+}
+.album_item .album_title {
+	white-space:normal !important;
+	text-align:center !important;
+	display:block;
+	max-height:100px;
+	overflow:hidden;
+}
+.album_item .album_icon {
+	margin:8px 12px 15px 8px;
+	height:75px;
+	width:75px;
+}
+.album_selected .album_icon{
+	margin:6px 10px 13px 6px;
+	border: 2px solid #fc0;
+}
+
+/*********************************************************
+					C O N T A C T S
+*********************************************************/
+.contact_view {
+	float:left;
+}
+.contact_list_view {
+	width:680px;
+	float:left;
+	margin:10px 0px;
+}
+.contact_container{
+	width:280px; 
+	float:left; 
+	padding-right:8px; 
+	padding-bottom:8px;
+	line-height: 1.2em;/*layout*/
+}
+.contact_body {
+	cursor:pointer;
+	float:left;
+	margin:0px;
+}
+.contact_border {
+	float:left;
+	padding:2px;
+}
+.contact_container .contact_footer {
+	clear:left;
+	padding:4px 0px;
+	height:16px;
+}
+.contact_info{
+	float:left;
+	margin:6px 0px;
+	width:200px;
+	overflow:hidden;
+}
+.contact_avatar{
+	float:left;
+	padding:6px 6px 6px 0px;
+}
+.contact_avatar img {
+	height:50px;
+	width:50px;
+}
+a#icon_add_to_my_contacts {
+	height:28px;
+	width:240px;
+}
+a#icon_add_contact {
+	width:101px;
+	height:28px;
+}
+a#icon_invite {
+	width:59px;
+	height:28px;
+}
+a#icon_add_list {
+	width:72px;
+	height:28px;
+}
+
+/*********************************************************
+				C O M M U N I T Y  S P Y
+*********************************************************/
+div#type_form_holder {
+	float: right;
+	text-align: right;
+}
+div#event_column {
+	height: auto;
+}
+div.event_holder {
+	padding: 4px;
+}
+div.event_holder table {
+	width: 100%;
+	border-collapse: collapse;
+}
+div.event_holder tr {
+	vertical-align:top;
+}
+div.event_holder td {
+	padding: 4px;
+}
+a.big_avatar {
+	float:left;
+	height:75px;
+	width:75px;
+}
+
+/*********************************************************
+					F E A T U R E S
+*********************************************************/
+#right_col {
+	min-height:370px;
+}
+.right_content {
+	width: 620px; 
+	float: left;
+	margin-top: 0px;
+}
+.yellowcontainer {
+	width: 580px;
+	padding-left:3px;
+	margin: 10px;
+	text-align:left;
+}
+.yellowtext {
+	padding: 1px 4px 1px 8px;
+}
+.imagecontainer {
+	height: 233px;
+	width: 586px;
+	padding: 3px 0px 10px 10px;
+	text-align:center;
+}
+#signmeup_btn {
+	float:left;
+	display:block;
+/*	width:136px;
+	height:28px;*/
+	width: 151px;
+	height: 56px;
+}
+
+/*********************************************************
+						4 0 4
+*********************************************************/
+#notfound_header{
+	padding-left: 30px;
+	height:30px; 
+	margin:10px 0px;
+	float:left;
+}
+
+/*********************************************************
+					G L O B B E R
+*********************************************************/
+.user_globber_container {
+	clear:both;
+}
+table.list_view {
+	width: 100%;
+	float: left;
+}
+table.list_view tr {
+	vertical-align: middle;
+	height: 10px;
+}
+table.list_view th {
+	line-height: 1.5em; /*used for layout*/
+	padding: 4px;
+	text-align: center;
+}
+table.list_view td {
+	padding: 4px;
+	text-align: center;
+}
+
+.text_over_edit_buttons {
+	margin-bottom: 9px;
+	width:753px;
+	padding:1px;
+}
+
+div.minimal_item {
+	padding: 0px;
+	display: block;
+	float: left;
+	text-align: center;
+	margin:0px 1px 1px 0px;
+	height:79px;
+	width:79px;
+}
+
+div.small_thumb_item {
+	padding: 0;
+	float: left;
+	width: 100px;
+	height: 140px;
+	_height: 150px;
+	text-align: center;
+	margin-right: 6px;
+}
+
+div.big_thumb_item div, div.small_thumb_item span, div.small_thumb_item div{ /* info under thumbnails */
+	margin-top: 4px;
+}
+
+div.small_thumb_item img.loaded_image {
+	display: block;
+	margin: auto;
+}
+
+div.big_thumb_item {
+	padding: 0;
+	width: 240px;
+	height: 280px;
+	float: left;
+	text-align: center;
+	margin-right: 8px;
+}
+
+.glob_view_header{
+	margin-bottom:200px;
+}
+#new_title_input {
+	width: 560px;
+}
+#new_description_input {
+	width: 560px;
+	height: 150px;
+}
+.advanced_search_option {
+	vertical-align: middle;
+}
+a.view_selector {
+	display: block;
+	width: 31px;
+	height: 27px;
+	margin-right: 2px;
+	float:left;
+}
+
+div#edit_switch_holder {
+	margin-left:-2px ;
+}
+
+/*********************************************************
+				I M A G E  D E T A I L
+*
+* Author: Josh Williams
+* Date Added: Wed Aug 30 11:12:00 CDT 2006
+*
+* General style for the standalone detail page.
+*********************************************************/
+ /************** MAIN ELEMENTS ******************/
+div.detail_container  {
+	margin-bottom: 10px;
+}
+
+div.detail_container:after {
+	content: ""; 
+	display: block;
+	height: 0px;
+	clear: both; 
+}
+div#left_box {
+	position: relative;
+	float: left;
+	display: block;
+	width: 604px;
+	padding: 0px;
+}
+div#right_box {
+	padding: 0px;
+	margin: 0px;
+	margin-left: 20px;
+	width: 320px;
+	float:left;
+}
+
+div.detail_container .image_detail_icon {
+	float:right;
+	display:block;
+}
+/************** LEFT HAND ELEMENTS *************/
+div#big_detail_image {
+	text-align: center;
+}
+div#big_detail_image .unloaded {
+	display: none;
+}
+div#big_detail_image .loaded {
+	display: inline;
+}
+div#big_detail_image_flip {
+	text-align: center;
+}
+div#big_detail_image_flip .unloaded {
+	display: none;
+}
+div#big_detail_image_flip .loaded {
+	display: inline;
+}
+div#edit_bar {
+	margin-top: 5px;
+	height:20px;
+}
+
+.comment_wrapper , .comment_body {
+	width:100%;
+}
+.detail_container div#comments {
+	padding-top: 10px;
+}
+.detail_container div.comment {
+	line-height: 18px;
+	float:left;
+}
+.detail_container .comment_body {
+	float:left;
+	width: 515px;
+}
+.comment_modal .comment_body {
+	float:left;
+	width:450px;
+}
+a.new_comment_link {
+	position: relative;
+	left: 100px;
+}
+div.new_comment_holder {
+	float:left;
+	width: 100%;
+}
+div.new_comment_holder textarea {
+	width: 99%;
+}
+div.new_comment_holder input {
+	float: right; 
+}
+
+/************* RIGHT HAND ELEMENTS **************/
+div#nav_holder div#prev_next {
+	float: left; 
+}
+div#prev_next div {
+	float: left;
+	margin: 0px 2px;
+	padding: 0px;
+	width: 75px;
+	height: 75px;
+}
+
+div#prev_next div.holder_unloaded {
+	cursor: default;
+}
+div#prev_next div.holder_unloaded img {
+	display: none;
+}
+div#prev_next div.holder_loaded {
+	cursor: pointer;
+}
+div#prev_next div.holder_loaded img {
+	display: inline;
+}
+div#prev_next div.holder_no_img {
+	width: 73px;
+	height: 73px;
+}
+div#prev_next div.holder_no_img img {
+	display: none;
+}
+div#meta_holder {
+	margin: 7px 0px;
+	float:left;
+}
+span.permission_key {
+	float: left;
+	width: 16px;
+	height: 16px;
+	margin-right: 4px;
+}
+span.cc_graphic {
+	float: left;
+	width: 15px;
+	height: 15px;
+	margin-right: 4px;
+	margin-top: 3px;
+}
+/**************************************** 
+ * OTHER SIZES 
+ * **************************************/
+textarea.anchor_tag{
+	float: left;
+	width: 500px;
+	height: 70px;
+	padding: 1px;
+	margin-top: 10px;
+}
+div#other_size input{
+	width: 500px;
+	margin-top: 10px;
+}
+div#other_size div#avatar{
+	width: 400px;
+	padding-bottom: 10px;
+}
+div#other_size div#avatar div#avatar_links{
+	padding-top: 6px;
+	line-height: 1.2em;
+}
+div#other_size div#avatar img#avatar_img{
+	float: left;
+	margin-right: 4px;
+	border: 1px solid #DDDDDD;
+}
+div#other_size div#table_container td {
+	border-left: 1px solid #C0C0C0;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: center;
+}
+div#other_size div#table_container td#available_sizes {
+	border-left: none;
+}
+div#other_size fieldset#custom_sizes_fieldset {
+	width: 200px;
+	margin-bottom: 10px;
+}
+div#other_size td.selected {
+	background-color: #C0C0C0;
+}
+
+div#other_size {
+	margin-left: 10px;
+	margin-top: 20px;
+}
+div#other_size div#details {
+	border-bottom: 1px solid #C0C0C0;
+	padding-bottom: 10px;
+	margin-bottom: 20px;
+}
+div#other_size div#image_container{
+	border-bottom: 1px solid gray;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	padding-bottom: 20px;
+}
+form#custom_sizes input {
+	width: 100px;
+}
+/* Fix safari weirdness  */
+.lookahead_container {
+	height:23px;
+}
+
+/*********************************************************
+					O T H E R  S I Z E S  (N E W)
+*********************************************************/
+div.sizes_wrapper {
+	padding-bottom:10px;
+}
+div.sizes_wrapper input {
+	margin-top:10px;
+}
+div.form_wrapper input.text {
+	width:500px;
+}
+div.sizes_wrapper ul.size_option {
+	margin:0px;
+	padding:0px;
+	position:relative;
+	height: 40px;
+	margin:10px 0px;
+	list-style:none;
+}
+div.sizes_wrapper li {
+	float:left;
+	height:40px;
+	padding-right:10px;
+	text-align:center;
+}
+div.sizes_wrapper li.size_option {
+	padding:0px 10px;
+}
+div.sizes_wrapper .size_option h3 {
+	display:inline;
+}
+div.image_wrapper  {
+	margin-bottom:10px;
+}
+
+div.sizes_wrapper li {
+	border-right:1px solid #c2c2c2;
+}
+div.sizes_wrapper li.selected {
+	background-color: #c2c2c2;
+}
+
+/*********************************************************
+					M A I N  H O M E P A G E
+*********************************************************/
+div#main_page_style_wrapper {
+	float:left;
+	clear:both;
+	width:100%;
+}
+
+div#main_page_container {
+	width: 845px;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+div#main_photo_container {
+	float: left;
+	width: 481px;
+	height: 422px;
+}
+div#stack_content {
+	width: 437px;
+	margin: 0 auto;
+	padding-top: 20px;
+	margin-left: 19px;
+}
+div#photo_author {
+	margin-top: 6px;
+	margin-bottom: 10px;
+}
+div#main_happy_talk {
+	width: 341px;
+	float: right;
+	padding-top: 2px;
+}
+div#main_page_container div#main_links {
+	margin-top: 45px;
+}
+
+div#main_happy_talk .mp_bullet_list {
+	float:left; 
+	height:120px; 
+	width:197px; 
+}
+
+a#giant_signup_button {
+	display: block;
+	width: 151px;
+	height: 56px;
+	position:relative;
+	left: -4px;
+}
+a#explore_link {
+	margin-top: 5px;
+	width: 160px;
+	height: 50px;
+	display: block;
+	float: right;
+}
+div#main_page_container div#manager_hook {
+	margin-top: 5px;
+	margin-left: 10px;
+}
+div#main_page_container div#header_bar {
+	padding: 0px;
+}
+span#main_homepage_tagline {
+        float: left;
+        width: 326px;
+        height: 65px;
+        margin-bottom: 20px;
+}
+span#features_button {
+	float: left;
+	width: 301px;
+	height: 38px;
+}
+
+/*********************************************************
+					M E S S A G E S
+*********************************************************/
+.messages_view {
+	min-width:750px;
+	clear:right;
+	margin-bottom:20px;
+}
+.messages_view .messages_tbl {
+	width: 100%;
+}
+.messages_tbl td{
+	padding:5px;
+	margin:5px;
+	vertical-align:bottom;
+}
+.messages_tbl .column_1 img {
+	float:left;
+	margin-right:8px;
+}
+.messages_tbl #column_select_all {
+	width:90px !important;
+}
+.messages_tbl #column_status {
+	width:90px !important;
+}
+.messages_tbl #column_date_updated {
+	width:160px !important;
+}
+.messages_tbl #column_user {
+	width:160px !important;
+}
+
+/*********************************************************
+					Q U I C K S T A R T
+*********************************************************/
+div#page_holder {
+	width: 1000px;
+}
+div#col_holder {
+	margin-top: 20px;
+}
+div#platform_list {
+	float:left;
+	width: 350px;
+}
+div#platform_text {
+	float: left;
+	margin-top: 10px;
+	margin-left: 20px;
+	text-align: left;
+}
+div.platform {
+	padding: 10px 0px 10px 100px;
+}
+div#flash_holder {
+	width: 600px;
+	height: 400px;
+	float: left;
+	margin-left: 50px;	
+}
+div#flash_header {
+	float: left;
+	margin-left: 40px;
+}
+
+/*********************************************************
+				R E S E T  P A S S W O R D
+*********************************************************/
+a#giant_login_button {
+	display: block;
+	width: 161px;
+	height: 66px;
+}
+
+/*********************************************************
+				S I G N U P  /   U P G R A D E
+*********************************************************/
+div.form_floater {
+	float: left;
+}
+div.form_divider {
+	width: 800px;
+	margin: 10px 0px;
+}
+div#tab_bar {
+	height: 40px;
+}
+a#giant_upload_button {
+	display: block;
+	width: 257px;
+	height: 57px;
+}
+
+.signup_form h3{
+	margin:5px 0px;
+}
+.signup_form .album_template_form {
+	padding:12px 0px 0px 10px;
+	width:600px;
+	height:230px;
+}
+.signup_form .globber_shell {
+	width:500px;
+	overflow:auto;
+	height:280px;
+	padding:5px;
+}
+.signup_form span#upload_instructions {
+	float: left;
+	width: 477px;
+	height: 262px;
+}
+.signup_form .tag_list {
+	display:block;
+	width:500px;
+}
+.signup_form .error_message {
+	float:none !important;
+	margin:0px 0px 2px 0px !important;
+	width:300px !important;
+}
+.signup_acct_form_inputs {
+	float:left; 
+	width:360px;
+}
+.signup_album_form_inputs {
+	float:left;
+	width:320px;
+}
+.signup_album_form_inputs textarea {
+	height:100px !important;
+}
+.signup_acct_form_fluff {
+	float:left; 
+	margin-top:22px;
+	height:133px; 
+	width:320px; 
+	padding:10px;
+}
+.signup_album_form_fluff {
+	float:left; 
+	margin-top:19px;
+	height:180px; 
+	width:320px; 
+}
+.signup_form .url_text {
+	width:470px;
+	height:22px;
+	margin:10px 0px;
+	float:none !important;
+}
+.signup_form .tos_wrapper{
+	width:300px;
+	height:22px;
+	float:left;
+}
+.signup_form .button_box { /*uploader*/
+	margin:5px 0px;
+}
+.signup_form .upload_instructions {
+	margin:10px 0px 0px 10px;
+}
+
+.signup_form #tag_lookahead_form fieldset {
+	display:inline;
+}
+span#securitycode {
+	float: left;
+	height: 83px;
+	width: 303px;
+}
+
+/*********************************************************
+					S I T E  D O W N
+*********************************************************/
+div#caption {
+	width: 100px;
+	height: 50px;
+	margin-left: 220px;
+	margin-top: 45px;
+}
+
+/*********************************************************
+						T A G S
+*********************************************************/
+div#container{
+	margin-bottom:30px;
+}
+.tag_view {
+	min-height:300px;
+}
+.tag_view a{
+	padding:1px 2px;
+}
+/* tag epaper */
+.tag_view .edit_mode a{
+	cursor:text;
+}
+.tag_view .edit_mode a.remove {
+	cursor:pointer;
+}
+.tag_view .tag_epaper div {
+	display:inline;
+	position:relative;
+	top:3px;
+}
+a#flat_icon, a#cloud_icon{
+	height:21px;
+	width:30px;
+}
+a#tag_organizer {
+	height:28px;
+	width:83px;
+}
+
+/*********************************************************
+				U S E R  H O M E P A G E
+*********************************************************/
+div#place_holder {
+	height: 10px;
+}
+div#drop_separator {
+	text-align: center;
+	margin-bottom: 10px;
+}
+div.drop_target {
+	padding-bottom:200px;
+}
+div.column {
+	width: 32.5%;
+	margin-right: 4px;
+	float: left;
+	min-height: 100px;
+	min-width: 320px;
+	display: inline; /* FIX FOR IE, other browsers ignore... */
+}
+div.widget {
+	overflow:hidden;
+	width: 100%;
+}
+div.real_widget {
+	margin-bottom: 10px;
+}
+div.drag_handle_active {
+	cursor: move;
+}
+div.drag_handle, div.drag_handle_fake {
+	/*text-align: left;*/
+	margin-bottom: 10px;
+	float: left;
+	width: 100%;
+	padding-top: 4px;
+	
+}
+div.widget_top_link_holder {
+	float: right;
+}
+div.widget_top_link_holder span{
+	float:left;
+}
+a.widget_top_link {
+	display:block;
+	float:left;
+}
+ul#widget_list {
+	position: relative;
+	padding: 0;
+	margin: 0;
+}
+ul#widget_list li {
+	margin-left: 0;
+	padding-left: 16px;
+}
+
+.globber_widget em {
+	position:relative; /*IE 6 hack for the homepage weirdness*/
+}
+
+/*********************************************************
+				D E V E L O P E R S
+*
+* Author: Clint Robison
+* Date Added: Thur 6-12-08  11:12:00 CDT 2007
+*
+*********************************************************/
+div.verbage {
+	margin-bottom: 10px;
+	margin-top: 10px;
+}
+div.example_code {
+	padding: 5px 5px 5px;
+	width: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 20px;
+	color: green;
+}
+div.example_code {
+	font: pre;
+}
+div.example_code span.code_comment {
+	color: blue;
+}
+div.example_code span.code_reserved {
+	color: purple;
+}
+div.example_code span.code_string {
+	color: red;
+}
+div.example_code span.code_command {
+	color: orange;
+}
+div.page_hide {
+	display: none;	
+}
+div#developers_page h3 {
+	margin-top: 20px;
+	margin-bottom: 10px;
+}
+/******************************************************************************************************************
+														M O D A L S
+
+******************************************************************************************************************/
+/*********************************************************
+					A L L  M O D A L S
+*********************************************************/
+a.close_x_link {
+	display: block;
+	height: 18px;
+	width: 18px;
+	float: right;
+	margin-right: 5px;
+}
+
+div.modal_form_padding {
+	padding: 20px 16px;
+}
+
+div#modal_info {
+	z-index: 25;
+}
+.modal_content{
+	margin:15px 15px 20px 20px;
+}
+.modal_form {
+	margin:10px 0px;
+}
+
+div.modal_top_button_holder {
+	position:absolute;
+	right:10px;
+	text-align:left;
+	top:16px;
+	width:150px;
+}
+
+/*********************************************************
+				A L B U M  S H A R E
+*********************************************************/
+.share_modal * {
+	float:none;
+}
+.share_modal h3 {
+	margin:0px 0px 10px 0px;
+}
+.share_modal textarea {
+	width:455px;
+	padding:2px;
+}
+.share_modal #to_txt{
+	height:30px;
+}
+.share_modal #msg_txt {
+	height:60px;
+}
+.share_modal input{
+	width:455px;
+	padding:1px;
+}
+.share_modal .parenthetical {
+	padding-left:10px;
+}
+.share_modal label {
+	padding-bottom:3px;
+}
+.share_modal .err_holder {
+	position:relative;
+	height:20px;
+	overflow:hidden;
+}
+.share_modal .form_button {
+	float:right;
+}
+.share_modal .share_form_container {
+	float:left;
+	padding-bottom:15px;
+}
+.share_modal .share_label{
+	display:block;
+	margin:0px 0px 2px 0px;
+}
+/*********************************************************
+			A L B U M  E D I T  S E T S  
+*********************************************************/
+.edit_set_modal .dual_list_holder{
+	clear:both;
+}
+.edit_set_modal .epaper_input_box {
+	width:530px;
+	letter-spacing:-0.05em;
+}
+.edit_set_modal .button_box {
+	position:absolute;
+	top:390px;
+	left:18px;
+}
+.edit_set_modal div.error_message {
+	float:left;
+	width:545px;
+	padding-bottom:5px;
+	margin-bottom:10px;
+	clear:both;
+}
+
+/*********************************************************
+			A L B U M  C R E A T E  A L B U M
+*********************************************************/
+.create_album_modal textarea{
+	width:400px;
+	height:100px;
+	float:left;
+}
+.create_album_modal fieldset {
+	float:left;
+	width:410px;
+}
+.create_album_modal h3 {
+	margin-bottom:15px;
+	float:left;
+}
+.create_album_modal .button_box {
+	float:right;
+	margin-top:10px;
+}
+
+.create_album_modal .epaper_input_box {
+	width:300px;
+}
+.create_album_modal .error_message {
+	width:380px;
+	overflow:hidden;
+	margin-bottom:5px;
+}
+
+/*********************************************************
+			A L B U M  A D D  P H O T O S 
+*********************************************************/
+.album_add_photos_modal .selection_links{
+	position:relative;
+	top:3px;
+}
+.album_add_photos_modal h3{
+	margin-bottom: 12px;
+}
+.album_add_photos_modal .select_box{
+	margin-right:5px;
+}
+.album_add_photos_modal h5 {
+	position:relative;
+	left:-10px;
+	top:2px;
+	float:right;
+	text-align:right;
+	white-space:pre;
+	display:inline;
+}
+.album_add_photos_modal .close_x_link {
+	float:right;
+}
+.album_add_photos_modal fieldset{
+	display:block;
+	width:100%;
+	height:30px;
+	margin-bottom:10px;
+}
+.album_add_photos_modal .bottom_buttons {
+	float:right;
+}
+.album_add_photos_modal .glob_container{
+	width: 808px;
+	height: 420px;
+}
+
+/*********************************************************
+				A L B U M  P R I V A T E
+*********************************************************/
+.priv_album .bottom_buttons {
+	float:right;
+}
+.priv_album .bottom_buttons .form_button{
+	margin-right:0px;
+	margin-left: 4px;
+}
+.priv_album .err_holder{
+	height:20px;
+	position:relative;
+	overflow:hidden;
+}
+.priv_album fieldset .right_btn {
+	margin-left: 4px;
+}
+
+/*********************************************************
+				A L B U M  T E M P L A T E
+*********************************************************/
+.album_template_form .swatch{
+	display:block;
+	float:left;
+	height:18px;
+	width:18px;
+	margin:0px 0px 0px 4px;
+}
+.album_template_form .template_opts div {
+	float:left;
+	margin-bottom:10px;
+}
+.album_template_form .option_container {
+	height:60px;
+	padding-right:10px;
+}
+
+.album_template_form input.text {
+	width:80px;
+	padding:2px;
+}
+
+.album_template_form .setting_box {
+	float:left;
+	width:110px;
+	margin-right:10px;
+}
+.album_template_form .setting_box img{
+	margin:10px 0px 10px 20px;
+}
+.album_template_form .color_picker {
+	width:120px;
+	height:20px;
+}
+.album_template_form .label {
+	margin-bottom:5px;
+	display:block;
+}
+.album_template_form select {
+	width:145px;
+	height:300px;
+}
+
+.album_template_modal .info {
+	margin:10px 0px 15px 0px;
+}
+.album_template_modal .bottom_buttons {
+	position:absolute;
+	top:350px;
+	left:435px;
+}
+.setting_box span#align_left {
+	float: left;
+	height: 34px;
+	width: 73px;
+	margin-top: 8px;
+	margin-left: 20px;
+}
+.setting_box span#align_right {
+	float: left;
+	height: 34px;
+	width: 73px;
+	margin-top: 8px;
+	margin-left: 20px;
+}
+.setting_box span#align_center {
+	float: left;
+	height: 34px;
+	width: 73px;
+	margin-top: 8px;
+	margin-left: 20px;
+}
+/*********************************************************
+				A L B U M  A D D  E D I T  
+*********************************************************/
+.add_edit_album_modal h3{
+	margin-bottom: 12px;
+}
+.add_edit_album_modal .lower_buttons{
+	float:left;
+}
+.add_edit_album_modal .instr{
+	float:left;
+	padding-bottom:12px;
+	width:100%;
+}
+.add_edit_album_modal fieldset div{
+	float:left;
+}
+
+/*********************************************************
+		A L B U M  E D I T  S E T S  F O R  A L B U M
+*********************************************************/
+.sets_for_album_modal h3{
+	margin-bottom: 12px;
+}
+.sets_for_album_modal .input_holder {
+	float:left;
+	margin-bottom:10px;
+}
+.sets_for_album_modal .input_holder .text {
+	margin-right:4px;
+}
+.sets_for_album_modal .lower_buttons {
+	float:right;
+	margin-right:10px;
+	margin-top:10px;
+}
+.sets_for_album_modal div.error_message {
+	float:left;
+	width:545px;
+	padding-bottom:5px;
+	margin-bottom:10px;
+	clear:both;
+}
+
+/*********************************************************
+		A L B U M  E D I T  S E T S  T A B L E
+*********************************************************/
+.edit_set_tbl_modal h3{
+	margin-bottom:10px;
+}
+.edit_set_tbl_modal label{
+	clear:both;
+	display:block;
+	padding:0px;
+}
+.edit_set_tbl_modal fieldset .form_button{
+	margin-left:4px;
+}
+.edit_set_tbl_modal .controls {
+	width:585px;
+	position:absolute;
+	top:385px;
+	left:15px;
+}
+.edit_set_tbl_modal .err_holder {
+	height:20px;
+	position:relative;
+	overflow:hidden;
+}
+.edit_set_tbl_modal .error_message {
+	float:none;
+	margin:0px;
+	width:535px;
+}
+.edit_set_tbl_modal .controls .float_right{
+	float:right;
+	margin-right:20px;
+}
+.album_table {
+	width:100%;
+	border-collapse: collapse;
+	margin:5px 0px 15px 0px;
+}
+.album_table tr {
+	vertical-align: bottom;
+}
+.album_table td {
+	margin:0px;
+	padding:3px 0px;
+	white-space:pre;
+}
+.album_table .span_epaper {
+	display:block;
+	width:300px;
+}
+
+.album_table .span_epaper div {
+	float:left;
+	margin-right:5px;
+}
+
+/*********************************************************
+		A L B U M  A R R A I N G E  P H O T O S
+*********************************************************/
+.album_order_photos_modal h3 {
+	margin-bottom:10px;
+}
+.album_order_photos_modal .sort_box {
+	margin:10px 0px;
+}
+.album_order_photos_modal #sortable_view {
+	margin:10px 0px;
+	float:left;
+	width:818px;
+	height:420px;
+	overflow:auto;
+	position:relative;
+}
+.album_order_photos_modal #sortable_view span{
+	margin:0px 5px 5px 0px;
+	height:75px;
+	width:75px;
+	display:block;
+	float:left;
+}
+.album_order_photos_modal #sortable_view img{
+	height:75px;
+	width:75px;
+}
+.album_order_photos_modal .bottom_buttons {
+	float:right;
+}
+
+/*********************************************************
+			A L B U M  I M A G E  D E T A I L
+*********************************************************/
+.album_lightbox .photo_info {
+	margin-top:10px;
+}
+
+.album_lightbox .comments {
+	margin-top:3px;
+	float:left;
+}
+.album_lightbox .top_controls {
+	width:100%;
+	height:30px;
+}
+.album_lightbox .nav_elements {
+	float: right; 
+	margin-right: 3px;
+	line-height: 19px; /*layout*/
+}
+
+.album_lightbox .img_holder div {
+	text-align:center;
+}
+
+.album_lightbox .img_holder .main_image {
+	border: 0;
+}
+/* hack for safari */
+.preloader_holder {
+	position:absolute;
+	overflow:hidden;
+	top:1px;
+	left:1px;
+	height:1px;
+	width:1px;
+	visibility:hidden;
+	opacity:0;
+}
+.preloader_holder {
+	position:absolute;
+	visibility:hidden;
+}
+/* end hack for safari */
+
+/*********************************************************
+				A P I  R E Q U E S T
+*********************************************************/
+form#zapi_form input {
+	float: left;
+	width: 200px;
+}
+form#zapi_form label {
+	float: left;
+}
+form#zapi_form input.check {
+	float: none;
+	width: 30px;
+}
+form#zapi_form textarea {
+	float: none;
+	width: 500px;
+}
+form#zapi_form div#err {
+	margin-bottom: 10px;
+}
+
+/*********************************************************
+				A U T H I N A T O R
+*********************************************************/
+div#authinator_form_container {
+	position: absolute;
+	/*
+	display: none;
+	*/
+	width: 400px;
+	padding: 10px;
+	z-index: 40;
+}
+div#authinator_form_container div.message_box {
+	text-align: left;
+	padding: 14px 26px;
+	margin: 8px 0;
+}
+div#authinator_form_container fieldset {
+	padding: 8px;
+	padding-top: 0;
+}
+
+/*********************************************************
+				B O O L E A N  C O N F I R M
+*********************************************************/
+.boolean_modal .button_group {
+	position:absolute;
+	top:75px;
+	width:470px;
+}
+.boolean_modal .button_group a.form_button{
+	float:right;
+}
+/*********************************************************
+				B L O G - P U B L I S H
+*********************************************************/
+form#layout_form input {
+	float: left;
+}
+form#layout_form span#layout_top {
+        float:left;
+        width: 48px;
+        height: 78px;
+        vertical-align: text-top;
+}
+form#layout_form span#layout_left {
+        float:left;
+        width: 88px;
+        height: 37px;
+        vertical-align: text-top;
+}
+form#layout_form span#layout_right {
+        float:left;
+        width: 88px;
+        height: 37px;
+        vertical-align: text-top;
+}
+
+/*********************************************************
+				C A N C E L 
+*********************************************************/
+.cancel_modal p{
+	padding:0px;
+	margin:12px 10px 12px 0px;
+}
+.cancel_modal textarea{
+	float:none;
+	height:90px;
+	width:400px;
+}
+
+/*********************************************************
+				C O L O R  S W I T C H E R
+*********************************************************/
+div#color_switcher {
+	position: absolute;
+	width: 400px;
+	height: 210px;
+/*	height: 165px;*/
+	padding: 10px;
+	z-index: 35;
+	top:30px;
+	right:10px;
+}
+div#color_switcher h3 {
+	margin-bottom:10px;
+}
+div#color_switcher p {
+	margin:10px 0px;
+	padding:0px;
+}
+div#color_switcher .dual_swatch{
+	float:left;
+	margin-right:6px;
+	height:27px;
+	width:47px;
+}
+div#color_switcher .dual_swatch img{
+	height:27px;
+	width:47px;
+}
+div#color_switcher .button_holder {
+	float:right;
+	margin-top:15px;
+}
+
+/*********************************************************
+				C O N T A C T  M O D A L S
+*********************************************************/
+.modal_form {
+	margin:10px 0px;
+}
+.contact_modal h3 {
+	margin-bottom:10px;
+}
+.contact_modal .bottom_buttons {
+	float:right;
+}
+.contact_modal .error_message {
+	margin:4px 0px;
+	height:20px;
+	width:90%;
+}
+.contact_modal .err_holder {
+	height:30px;
+	margin-bottom:2px;
+	position:relative;
+	overflow:hidden;
+}
+.contact_tbl {
+	width: 100%;
+	border-collapse: collapse;
+	line-height: 1.4em; /*layout*/
+}
+.contact_tbl tr {
+	vertical-align: bottom;	
+}
+.contact_tbl td {
+	padding: 4px 1px;
+	white-space:pre;
+}
+.cell_align_right{
+	text-align:right;
+}
+.cell_align_right a.form_button {
+	float:right;
+	margin-left:4px;
+	margin-right:0px;
+}
+
+/*********************************************************
+				C O N T A C T  A D D  O T H E R
+*********************************************************/
+.modal_add_other fieldset{
+	padding:8px 6px 10px 6px;
+}
+.modal_add_other .err_holder {
+	height:24px;
+	position:relative;
+	overflow:hidden;
+}
+.modal_add_other .history {
+	height:60px;
+	overflow:auto;
+	margin-bottom:10px;
+}
+.modal_add_other a.form_button {
+	margin-right:0px;
+	margin-left:4px;
+}
+
+/*********************************************************
+				C O N T A C T  A D D
+*********************************************************/
+.add_modal .modal_form a.form_button {
+	margin-left:4px;
+	margin-right:0px;
+}
+.add_modal .results {
+	margin:6px 0px;
+}
+.add_modal h5{
+	display:inline;
+}
+.add_modal .form_wrapper {
+	height: 22px;
+	margin-top: 6px;
+}
+.add_modal .form_wrapper form {
+	margin:0px;
+	padding:0px;
+}
+.add_modal .error_message {
+	width: auto;
+	height: auto;
+	float: right;
+}
+.add_modal .contact_tbl a.form_button{
+	margin-right:0px;
+	float:right;
+}
+
+/*********************************************************
+		C O N T A C T	E D I T   L I S T S
+*********************************************************/
+.edit_lists_contacts fieldset.shaded{
+	padding:8px 6px 10px 6px;
+	margin-right:15px;
+}
+.shaded {
+	clear:both;
+	position:relative;
+	min-height:35px;
+	_height:50px; /* stupid ie */  
+}
+.edit_lists_contacts fieldset a.form_button{
+	margin-right:0px;
+	margin-left:4px;
+}
+.edit_lists_contacts .err_holder {
+	clear:both;
+	float:left;
+	height:20px;
+}
+.edit_lists_contacts .bottom_buttons {
+	float:right;
+}
+.edit_lists_contacts .epaper_input_box {
+	padding:0px;
+	height:22px;
+}
+
+/*********************************************************
+				C O N T A C T  I N V I T E
+*********************************************************/
+.invite_modal * {
+	float:none;
+}
+.invite_modal h5 {
+	margin:6px 0px 6px 0px;
+}
+.invite_modal textarea {
+	width:410px;
+	padding:2px;
+}
+.invite_modal #to_txt{
+	height:30px;
+}
+.invite_modal #msg_txt {
+	height:60px;
+}
+.invite_modal input{
+	width:410px;
+	padding:1px;
+}
+.invite_modal label {
+	display:block;
+	margin:9px 0px;	
+}
+.invite_modal .parenthetical {
+	padding-left:10px;
+}
+.invite_modal blockquote {
+	margin:0px 0px;
+}
+.invite_modal blockquote blockquote{
+	padding:6px 0px;
+}
+.invite_form .err_holder {
+	position:relative;
+	height:20px;
+	overflow:hidden;
+}
+.invite_form .form_button {
+	float:right;
+}
+
+/*********************************************************
+				C O N T A C T  U S  
+*********************************************************/
+form input#contact_email, #contact_subject {
+	width: 400px;
+}
+form textarea#contact_body {
+	width: 400px;
+}
+form div.field_container {
+	margin-top: 10px;
+	display: block;
+	clear: both;
+}
+form#contact_form {
+	margin-top: 10px;
+}
+
+/*********************************************************
+			E D I T  C O N T A C T  W I D G E T
+*********************************************************/
+.edit_contact_widget_modal h3 {
+	float:none;
+	padding-bottom:10px;
+}
+.edit_contact_widget_modal div.error_message {
+	float:none;
+	margin-bottom:8px;
+}
+.edit_contact_widget_modal .sub_head {
+	float:none;
+	clear:both;
+	display:block;
+	margin-bottom: 10px;
+}
+.edit_contact_widget_modal div.container{
+	margin:8px 0px 0px 0px;
+	padding:0px;
+	height:50px;
+}
+.edit_contact_widget_modal label{
+	display:block;
+	margin-bottom:8px;
+	padding:0px;
+	clear:both;
+}
+.edit_contact_widget_modal .button_group{
+	float:none;
+	position:absolute;
+	left:18px;
+	top:335px;
+}
+.edit_contact_widget_modal input.lookahead{
+	float:none;
+}
+
+/*********************************************************
+					E D I T  D A T E
+*********************************************************/
+.date_picker .text {
+	width:85px;
+	margin:8px 0px 12px 0px;
+}
+.date_picker .calendar_page a{
+	padding:1px 3px;
+}
+.date_picker .lbl_date {
+	float:left;
+	margin-right:16px;
+}
+.date_picker .submit_btns {
+	position:absolute; 
+	top:255px; 
+	left:16px;
+}
+
+/*********************************************************
+	E D I T  F E A T U R E D  P H O T O  W I D G E T
+*********************************************************/
+.edit_feature_modal .error_message {
+	float:none !important;
+	display:inline !important;
+}
+.edit_feature_modal .selection_links{
+	position:relative;
+	top:3px;
+}
+.edit_feature_modal .album_item {
+	height:190px
+}
+.edit_feature_modal .album_view, .edit_feature_modal .album_view .globber_base {
+	height: 420px;
+	width: 838px;
+}
+.edit_feature_modal h3{
+	margin-bottom: 12px;
+}
+.edit_feature_modal .select_box{
+	margin-right:5px;
+}
+.edit_feature_modal .top_controls{
+	text-align:right;
+}
+.edit_feature_modal h5 {
+	position:relative;
+	left:-10px;
+	top:2px;
+	float:right;
+	text-align:right;
+	white-space:pre;
+	display:inline;
+}
+.edit_feature_modal .close_x_link {
+	float:right !important;
+}
+.edit_feature_modal fieldset{
+	display:block;
+	width:100%;
+	height:30px;
+	margin-bottom:10px;
+}
+.edit_feature_modal .globber_shell {
+	overflow:hidden;
+}
+.edit_feature_modal .globber_base{
+	height:420px;
+	width:808px;
+}
+
+/*********************************************************
+			E D I T  P H O T O  W I D G E T 
+*********************************************************/
+.edit_photo_widget_modal * {
+	float:none;
+}
+.edit_photo_widget_modal label{
+	display:block;
+	margin-bottom:8px;
+}
+.edit_photo_widget_modal div.container {
+	margin:0px 0px 8px 0px ;
+	padding:0px;
+	height:44px;
+}
+.edit_photo_widget_modal .button_group {
+	position:absolute;
+	left:18px;
+	top:340px;
+}
+
+/*********************************************************
+				I M A G E  D E T A I L
+*********************************************************/
+div#meta_holder {
+	position:relative;
+	width:280px;
+	overflow:hidden;
+	margin: 7px 0px;
+	float:left;
+}
+
+/*********************************************************
+			M E S S A G E S : N E W  M E S S A G E
+*********************************************************/
+.modal_new * {
+	float:none;
+	line-height:1.2;
+}
+.modal_new h5 {
+	margin:6px 0px 6px 0px;
+}
+.modal_new textarea {
+	width:410px;
+	padding:2px;
+}
+.modal_new #to_txt{
+	height:30px;
+}
+.modal_new #msg_txt {
+	height:90px;
+}
+.modal_new input{
+	width:410px;
+	padding:1px;
+}
+.modal_new label {
+	display:block;
+	margin:9px 0px;
+}
+.modal_new .parenthetical {
+	padding-left:10px;
+}
+
+/*********************************************************
+			M E S S A G E S : R E A D / R E P L Y
+*********************************************************/
+.modal_read_reply .top_buttons{
+	float:right;
+ 	margin:2px 10px 0px 0px;
+}
+.modal_read_reply .top_buttons *{
+	display:inline;
+	float:none; 
+}
+.modal_read_reply .avatar {
+	margin:10px 0px 10px 0px;
+	height:60px;
+}
+
+.modal_read_reply .avatar img{
+	float:left;
+	height:50px;
+	width:50px;
+	margin:0px 10px 0px 0px;	
+}
+.modal_read_reply .msgbody{
+	margin:10px 0px 0px 0px;
+	height:200px;
+	padding:2px;
+	overflow:auto;
+}
+.modal_read_reply .shorten{
+	height:100px !important;
+	overflow:auto;
+}
+.modal_read_reply .bottom_buttons {
+	position:absolute;
+	top:365px;
+	left:20px;
+}
+.modal_read_reply .textarea {
+	width: 440px;
+	padding: 1px;
+	padding-bottom: 0;
+}
+
+/*********************************************************
+				P E R M I S S I O N S
+*********************************************************/
+div.perms_left {
+	width: 800px;
+}
+table.perms {
+	border-collapse: collapse;
+	width: 100%;
+}
+table.perms td {
+	padding: 4px;
+}
+table.perms td.center {
+	text-align: center;
+}
+div#big_error_box {
+	width: 800px;
+	display: none;
+	padding: 4px;
+	padding-left: 30px;
+	display: none;
+}
+
+
+/*********************************************************
+				S E T T I N G S
+*********************************************************/
+div#error_email {
+	width: 40%;
+}
+#confirm_email, div#update_success  {
+	width: 40%;
+	margin-top: 4px;
+	margin-left: 0px;
+}
+
+/**************** OVERALL SETTINGS ****************/
+div.settings_content {
+	margin: 10px;
+}
+div.settings_pane {
+	padding: 0px;
+}
+div.settings_menu_holder {
+	width: 180px;
+	height: 500px;
+	float: left;
+}
+div.settings_pane {
+	float: left;
+	margin-left: 10px;
+	width: 550px;
+	padding: 0px;
+}
+div.settings_holder {
+	margin-top: 10px;
+	height: 450px;
+}
+div.settings_pane div.button_holder {
+	float: right;
+	margin: 0px;	
+}
+ul.level0 {
+	margin: 15px;
+	padding: 0px;	
+}
+li.level0 {
+	margin: 0px;
+	list-style: disc;
+	padding-top:1px;
+	padding-bottom:0px;
+}
+
+/* Level 1 menus */
+ul.level1 {
+	list-style: none;
+	margin: 0px;
+	padding: 2px 0px;
+}
+li.level1 {
+	margin:4px 0px 4px 7px;
+	list-style: disc;
+}
+/* Level 2 menus */
+ul.level2 {
+	margin: 0px 0px 0px 4px;
+	padding: 0px;
+}
+
+form div.label_input_holder {
+	display: block;
+	float: left;
+	margin-top: 15px;
+}
+/*************** CHANGE PASSWORD *******************/
+form#change_password_form label {
+	display: block;
+}
+form#change_password_form  input {
+	width: 200px;
+}
+form#change_password_form div.error_message {
+	width: 250px;
+	padding: 4px 0px 4px 20px;
+}
+form#change_password_form {
+	margin-top: 5px;
+}
+
+div#update_success {
+	width: 40%;
+	margin: 4px 0px 0px 0px;
+	padding-left: 5px;
+}
+
+/*************** EDIT PROFILE *********************/
+form#edit_profile_form input.text {
+	width: 150px;
+}
+form#edit_profile_form input#link1{
+	width: 250px;
+}
+form#edit_profile_form input#link2{
+	width: 250px;
+}
+form#edit_profile_form input#link3{
+	width: 250px;
+}
+form#edit_profile_form label {
+	display: block;
+}
+form#edit_profile_form textarea {
+	width: 250px;
+	height: 150px;
+}
+form#edit_profile_form div.profile_left {
+	padding: 0px;
+	width: 230px;
+	float: left;
+}
+form#edit_profile_form div.profile_right {
+	margin: 0px 0px 0px 15px;
+	width: 250px;
+	float: left;
+}
+
+/****************** PHOTO PERMS ********************/
+div.perms_holder {
+/*	height: 370px; */
+}
+div.perms_holder div.happy_talk2 {
+	margin-top: 10px;
+}
+div.perms_holder div.select_box_container {
+	margin-top: 5px;
+}
+div.perms_holder form.perms_form {
+	margin-top: 15px;
+}
+div.perms_holder form.perms_form div.checkbox_holder {
+	float: left;
+}
+div.perms_holder form.perms_form input.perms_radio {
+	margin-right: 0px;
+}
+div.perms_holder form.perms_form div.checkbox_holder div.perms_radio_holder {
+	margin-bottom: 4px;
+}
+div.perms_holder form.perms_form label {
+	margin-left: 7px;
+}
+div.perms_holder form.perms_form span {
+	margin-left: 7px;
+}
+div.perms_holder form.perms_form div.checkbox_holder div.perms_group {
+	padding-left: 40px;
+	margin-top: 5px;
+}
+div.perms_holder fieldset.shaded{
+	margin-right:15px;
+	padding:8px 6px 10px 6px;
+}
+div.perms_holder fieldset.shaded a.form_button{
+	margin-right:0px;
+	margin-left:4px;
+}
+div.perms_holder .err_holder {
+	height:20px;
+	clear:both;
+	position:relative;
+	overflow:hidden;
+}
+
+/****************** PHOTO PERMS ********************/
+div#tag_prefs {
+	margin-top: 20px;
+	margin-bottom: 35px;
+}
+/*********************************************************
+				U P L O A D
+*********************************************************/
+.upload_modal h3 {
+	margin-bottom:20px;
+}
+.upload_modal h5 {
+	padding-bottom:10px;
+}
+.upload_modal .bottom_buttons {
+	position:absolute;
+	top:420px;
+	left:520px;
+}
+
+.upload_modal .via_web {
+	margin:20px 0px;
+	padding-right:10px;
+	width:250px;
+	height:320px;
+	overflow:visible;
+	float:left;
+}
+.upload_modal .error_message {
+	width:220px;
+	height:auto !important;
+}
+.upload_modal .via_app {
+	margin:20px 0px 0px 10px;
+	float:left;
+	width:250px;
+}
+.upload_modal .button_box {
+	float:left;
+	height:30px;
+	width:220px;
+}
+
+.upload_modal .uploader_progress {
+	float:left;
+	margin-top:10px;
+	width:230px;
+}
+.via_app span#uploadergfx {
+	border: 0;
+	float:left;
+	width:220px;
+	height:196px;
+}

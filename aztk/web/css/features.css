@@ -1,0 +1,32 @@
+
+#right_col {
+	min-height:370px;
+}
+
+.right_content {
+	width: 620px; 
+	background-color:#fff;
+	border: 1px solid #ccc;
+	float: left;
+	margin-top: 0px;
+}
+.yellowcontainer {
+	width: 580;
+	background-color: #FFFFCC;
+	
+	padding-left:3px;
+	margin: 10px;
+	
+	text-align:left;
+	font-size:16px;
+}
+
+.yellowtext {
+	padding: 1px 4px 1px 8px;
+}
+
+.imagecontainer {
+	padding-top: 3px;
+	padding-bottom: 10px;
+	text-align:center;
+}

@@ -1,0 +1,32 @@
+div#type_form_holder {
+	float: right;
+	text-align: right;
+}
+form#type_form label {
+	font-style: normal;
+}
+div#event_column {
+	height: auto;
+}
+div.event_holder {
+	display: none;
+	padding: 4px;
+	background: white;
+}
+div.event_holder table {
+	width: 100%;
+	border-collapse: collapse;
+}
+div.event_holder tr {
+	vertical-align:top;
+}
+div.event_holder td {
+	font-size: 12pt;
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+	padding: 4px;
+}
+td.spy_entry_NEW_USER {background: white url('/image/community/icon_user.png') right 65px no-repeat;}
+td.spy_entry_NEW_TAG {background: white url('/image/community/icon_tag.png') right 65px no-repeat;}
+td.spy_entry_NEW_COMMENT {background: white url('/image/community/icon_comment.png') right 65px no-repeat;}
+td.spy_entry_NEW_MEDIA {background: white url('/image/community/icon_media.png') right 65px no-repeat;}

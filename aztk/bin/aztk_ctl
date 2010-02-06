@@ -1,0 +1,379 @@
+#!/usr/bin/env python
+
+import sys
+sys.path += ['/zoto/aztk', '/zoto/aztk/lib']
+import aztk_config, time, socket, pprint, re, traceback
+
+from optparse import OptionParser, OptionGroup
+from SimplePBProxy import SimplePBProxy
+from twisted.internet import reactor, protocol
+from twisted.internet.defer import Deferred, DeferredList
+from twisted.protocols import basic
+from twisted.protocols import policies
+from constants import *
+
+BOLD_ON = chr(27) + '[1m'
+BOLD_OFF = chr(27) + '[22m'
+INVERSE_ON = chr(27) + '[7m'
+INVERSE_OFF = chr(27) + '[27m'
+
+colors = {
+	'default': ('', ''),
+	'error': (chr(27) + '[31m', chr(27) + '[39m'),
+	'warning': (chr(27) + '[33m', chr(27) + '[39m'),
+	'expected': (chr(27) + '[32m', chr(27) + '[39m'),
+	}
+
+def printprofile(profile, msg, error=False, color='default'):
+	if error:
+		msg = 'Error: %s' % msg
+		color = 'error'
+		
+	if '\n' in msg:
+		# Print multi-line action all pretty like
+		print '%s\n%s' % (INVERSE_ON, INVERSE_OFF),
+		print chr(27) + '[1A'
+		print '%s %s %s' % (INVERSE_ON, profile, INVERSE_OFF)
+		print msg
+	else:
+		color_start, color_stop = colors[color]
+		print '%s%15s%s | %s%s%s' % (BOLD_ON, profile, BOLD_OFF, color_start, msg, color_stop)
+
+try:
+	import readline
+	import os
+	histfile = os.path.join(os.environ["HOME"], ".aztk_ctl_history")
+	try:
+		readline.read_history_file(histfile)
+	except IOError:
+		pass
+	import atexit
+	atexit.register(readline.write_history_file, histfile)
+	del os, histfile
+except ImportError:
+	pass
+
+profiles = {}
+for section in aztk_config.setup.sections():
+	if section.startswith('cluster.'):
+		profile = section.split('.', 1)[-1]
+		host = aztk_config.setup.get(section, 'host')
+		port = aztk_config.setup.getint('ports', 'pb_port')
+		role = aztk_config.setup.get(section, 'role')
+		profiles[profile] = {'name': profile, 'host': host, 'pb_port': port, 'role': role}
+
+class NannyClientProtocol(basic.LineReceiver):
+	def connectionMade(self):
+		self.lines_waiting = len(self.factory.profiles)
+		self.sendLine('%s %s' % (self.factory.command, ' '.join(self.factory.profiles)))
+		
+	def connectionLost(self, reason):
+		pass
+	
+	def lineReceived(self, line):
+		self.lines_waiting -= 1
+		if '|' in line:
+			profile, response = line.split('|', 1)
+			profile = profile.strip()
+			response = response.strip()
+			color_sets = {
+				'expected': [C_RUNNING_OK,
+							 C_STARTING,
+							 C_STOP_SUCCESS,
+							 C_DOWN],
+				'warning': [C_ALREADY_DOWN,
+							C_ALREADY_RUNNING,
+							C_RUNNING_NOPB],
+				'error': [C_STOP_FAILURE,
+						  C_START_FAILURE,
+						  C_WTF]
+				}
+			color = 'default'
+			for code_color, code_set in color_sets.items():
+				for code in code_set:
+					if response.startswith(str(code)):
+						color = code_color
+			self.factory.pp.update_status(profile, response, color)
+			print self.factory.pp
+		else:
+			self.factory.pp.update_status(profile, line, 'error')
+			print self.factory.pp
+		if not self.lines_waiting:
+			self.transport.loseConnection()
+
+class NannyFactory(protocol.ClientFactory):
+	protocol = NannyClientProtocol
+	def __init__(self, command, profiles, profile_printer):
+		self.command = command
+		self.profiles = profiles
+		self.pp = profile_printer
+		tasks.append(self)
+	
+	def clientConnectionFailed(self, connector, reason):
+		for profile in self.profiles:
+			self.pp.update_status(profile, reason.getErrorMessage(), 'error')
+			print self.pp
+		self.clientConnectionLost(connector, reason)
+	
+	def clientConnectionLost(self, connector, reason):
+		global tasks
+		tasks.remove(self)
+		if not tasks:
+			try:
+				reactor.stop()
+			except Exception, ex:
+				pass
+
+def eval_profiles(parser):
+	by_host = {}
+	valid_hosts = []
+	for profile in profiles.values():
+		if profile['host'] not in valid_hosts:
+			valid_hosts.append(profile['host'])
+	
+	def add_entry(profile):
+		if not by_host.has_key(profile['host']):
+			by_host[profile['host']] = []
+		if profile not in by_host[profile['host']]:
+			by_host[profile['host']].append(profile['name'])
+	if not parser.rargs:
+		for profile in profiles.values():
+			if profile['host'] == socket.gethostname():
+				add_entry(profile)
+	for req in parser.rargs:
+		if req in profiles:
+			add_entry(profiles[req])
+		elif req == 'node' and profiles.has_key('%s-node' % socket.gethostname()):
+			add_entry(profiles['%s-node' % socket.gethostname()])
+		elif req == 'image' and profiles.has_key('%s-image' % socket.gethostname()):
+			add_entry(profiles['%s-image' % socket.gethostname()])
+		elif req == 'NODES':
+			for profile in profiles.values():
+				if profile['role'] == 'node':
+					add_entry(profile)
+		elif req == 'IMAGES':
+			for profile in profiles.values():
+				if profile['role'] == 'image_server':
+					add_entry(profile)
+		elif req == 'ALL':
+			for profile in profiles.values():
+				add_entry(profile)
+		elif req in valid_hosts:
+			for profile in profiles.values():
+				if profile['host'] == req:
+					add_entry(profile)
+		else:
+			#print >>sys.stderr, "%15s | Invalid server profile" % req
+			pass
+	return by_host
+class profile_printer:
+	def __init__(self, profiles):
+		self.status = {}
+		self.lines = 0
+		self.profiles = profiles
+		for p in self.profiles:
+			self.status[p] = ["connecting...", 'default']
+
+	def update_status(self, profile, msg, color='default'):
+		if profile in self.profiles:
+			self.status[profile] = ["%-60s" % msg, color]
+
+	def __str__(self):
+		o = u'' # output
+		if self.lines:
+			o += (chr(27) + '[%sA' % self.lines)
+		o += '%15s | %s\n' % ('Profile', 'Response')
+		o += '-'*78
+		o += '\n'
+		for profile, (status, color) in self.status.items():
+			if "broker" in profile:
+				o+=self._make_output(profile, status, color)
+		for profile, (status, color) in self.status.items():
+			if "node" in profile:
+				o+=self._make_output(profile, status, color)
+		for profile, (status, color) in self.status.items():
+			if "image" in profile:
+				o+=self._make_output(profile, status, color)
+		o += '-'*78
+		self.lines = len(o.split("\n"))
+		return o
+
+	def _make_output(self, profile, status, color):
+		color_start, color_stop = colors[color]
+		return '%s%15s%s | %s%s%s\n' % (BOLD_ON, profile, BOLD_OFF, color_start, status, color_stop)
+
+
+def nanny_command_op(command, option, opt, value, parser):
+	profiles = []
+	for host, todo in eval_profiles(parser).items():
+		profiles += todo
+	if not profiles:
+		print "ERROR: invalid server profile(s) specified"
+		print "Try something like foo-node or IMAGES or ALL or use -h for help"
+		sys.exit(1)
+	pp = profile_printer(profiles)
+	print pp
+	for host, todo in eval_profiles(parser).items():
+		f = NannyFactory(command, todo, pp)
+		reactor.connectTCP(host, aztk_config.setup.getint('ports', 'nanny'), f)
+	
+
+status_op = lambda o1, o2, v, p: nanny_command_op('status', o1, o2, v, p)
+start_op = lambda o1, o2, v, p: nanny_command_op('start', o1, o2, v, p)
+stop_op = lambda o1, o2, v, p: nanny_command_op('stop', o1, o2, v, p)
+kill_nanny = lambda o1, o2, v, p: nanny_command_op('die', o1, o2, v, p)
+restart_op = lambda o1, o2, v, p: nanny_command_op('restart', o1, o2, v, p)
+kill_op = lambda o1, o2, v, p: nanny_command_op('kill', o1, o2, v, p)
+
+def rebuildphp_op(option, opt, value, parser):
+	print "Rebuilding PHP wrappers"
+	rebuild_profile = None
+	for profile in profiles.values():
+		if profile['host'] == socket.gethostname() and profile['role'] == 'node':
+			rebuild_profile = profile
+	if not rebuild_profile:
+		print >>sys.stderr, 'You have to do this from a node.'
+		# Just use the first node profile we can find
+		for profile in profiles.values():
+			if profile['role'] == 'node':	
+				rebuild_profile = profile
+				break
+			
+	proxy = SimplePBProxy(rebuild_profile['host'], rebuild_profile['pb_port'])
+	d = proxy.callRemote('admin.generate_php_classes')
+	def display(result):
+		print result
+		tasks.remove('rebuild')
+		if not tasks:
+			reactor.stop()
+	tasks.append('rebuild')
+	d.addCallback(display)
+
+def xml_op(option, opt, value, parser):
+	proxies = []
+	servers = []
+	for host, server_list in eval_profiles(parser).items():
+		for server in server_list:
+			proxies.append((server, SimplePBProxy(host, profiles[server]['pb_port'])))
+			servers.append(server)
+	tasks.append('xml')
+	def response(value, profile):
+		total_time = time.time() - profiles[profile]['start_time']
+		printprofile(profiles[profile]['name'], "%s\nexecution time: %0.5fs" % (pprint.pformat(value), total_time))
+	def response_error(failure, profile):
+		printprofile(profiles[profile]['name'], '%s: %s' % (failure.type, failure.getErrorMessage()), error=True)
+	def ask_command(void):
+		try:
+			command = raw_input('PB> ')
+		except EOFError:
+			reactor.stop()
+			return
+		except KeyboardInterrupt:
+			reactor.stop()
+			return
+		if command.lower() in ('quit', 'done', 'exit'):
+			reactor.stop()
+			return
+		if '.' not in command:
+			print 'Format: api.method(...)'
+			ask_command(1)
+			return
+		elif command:
+			deflist = []
+			for profile, proxy in proxies:
+				parts = re.split('\\(', command, 1)
+				method = parts[0]
+				if len(parts) > 1:
+					args = '(' + parts[1]
+					try:
+						args = eval(args, {}, {})
+					except:
+						traceback.print_exc()
+						return ask_command(1)
+				else:
+					args = ()
+				if type(args) is not tuple:
+					args = (args,)
+				profiles[profile]['start_time'] = time.time()
+				d = proxy.callRemote(method, *args)
+				d.addCallback(response, profile)
+				d.addErrback(response_error, profile)
+				deflist.append(d)
+			d2 = DeferredList(deflist)
+			d2.addCallback(ask_command)
+		else:
+			print 'PB Interface for Servers: %s' % ' '.join(servers)
+			ask_command(1)
+	ask_command(1)
+
+def list_op(option, opt, value, parser):
+	print '%15s | %15s | %10s | %s' % ('Profile', 'Host', 'PB Port', 'Role')
+	print '-'*78
+	profile_list = profiles.values()
+	profile_list.sort(lambda a, b: cmp(a['role'], b['role']))
+	for profile in profile_list:
+		print '%15s | %15s | %10s | %s' % \
+			  (profile['name'], profile['host'], profile['pb_port'], profile['role'])
+
+def pb_command(command, args, option, opt, value, parser, text_format=False):
+	proxies = []
+	for host, server_list in eval_profiles(parser).items():
+		for server in server_list:
+			proxies.append((server, SimplePBProxy(host, profiles[server]['pb_port'])))
+	tasks.append('query_op')
+	def response(value, profile):
+		if text_format:
+			printprofile(profiles[profile]['name'], value)
+		else:
+			printprofile(profiles[profile]['name'], pprint.pformat(value))
+	def response_error(failure, profile):
+		printprofile(profiles[profile]['name'], failure.getErrorMessage(), error=True)
+	def done(void):
+		tasks.remove('query_op')
+		reactor.stop()
+	deflist = []
+	for profile, proxy in proxies:
+		d = proxy.callRemote(command, *args)
+		d.addCallback(response, profile)
+		d.addErrback(response_error, profile)
+		deflist.append(d)
+	d2 = DeferredList(deflist)
+	d2.addCallback(done)
+
+get_logs_op = lambda o1, o2, v, p: pb_command('admin.get_log_tail', [], o1, o2, v, p, True)
+
+tasks = []
+def main(args):
+	global done
+
+	parser = OptionParser(usage="usage: %prog [options] [server1 [server2]]")
+
+	group = OptionGroup(parser, "Cluster/Profile Management")
+	group.add_option("-l", "--list",    action="callback", callback=list_op,  help="List Profiles")
+	#group.add_option("-c", "--cluster-status",    action="callback", callback=cluster_status_op,  help="Total Cluster Status")
+	
+	group = OptionGroup(parser, "Server Control Options")
+	group.add_option("-a", "--about",   action="callback", callback=status_op,  help="Get status information")
+	group.add_option("-s", "--start",   action="callback", callback=start_op,   help="Start Specified Servers")
+	group.add_option("-t", "--stop",    action="callback", callback=stop_op,    help="Stop (elegantly) Specified Servers")
+	group.add_option("-r", "--restart", action="callback", callback=restart_op, help="Restart Specified Servers")
+	group.add_option("-k", "--kill",    action="callback", callback=kill_op,    help="Kill (Violently/sig9) Specified Servers")
+	group.add_option("-d", "--die",     action="callback", callback=kill_nanny, help="Stop the specified nanny")
+	parser.add_option_group(group)
+
+	group = OptionGroup(parser, "Server Control Options")
+	group.add_option("-i", "--tail",     action="callback", callback=get_logs_op,   help="Tail system logs")
+	parser.add_option_group(group)
+
+	group = OptionGroup(parser, "Development Tasks")
+	group.add_option("-p", "--rebuild-php", action="callback", callback=rebuildphp_op, help="Rebuild PHP Libraries")
+	group.add_option("-x", "--command", action="callback", callback=xml_op, help="Send an xmlrpc command")
+	parser.add_option_group(group)
+
+	(options, args) = parser.parse_args(args)
+	if tasks:
+		reactor.run()
+	else:
+		sys.stderr.write('aztk_ctl -h for help\n')
+if __name__ == '__main__':
+	main(sys.argv[1:])

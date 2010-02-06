@@ -1,0 +1,57 @@
+div#page_holder {
+	width: 1000px;
+	
+}
+div#col_holder {
+	margin-top: 20px;
+}
+div#platform_list {
+	float:left;
+	width: 350px;
+}
+div#platform_text {
+	float: left;
+	margin-top: 10px;
+	margin-left: 20px;
+	text-align: left;
+}
+div.platform {
+	border-top: 1px solid #ccc;
+	padding-left: 100px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+	line-height:15px;
+}
+
+h5 {
+	color: #666;
+}
+
+DIV#apple_platform {
+	background: white url('/image/apple.png') 5px center no-repeat;
+	color: #989898;
+}
+DIV#windows_platform {
+	background: white url('/image/windows.png') 5px center no-repeat;
+	color: #989898;
+}
+DIV#linux_platform {
+	background: white url('/image/linux.png') 5px center no-repeat;
+	color: #989898;
+	border-bottom: 1px solid #ccc;
+}
+div#flash_holder {
+	width: 600px;
+	height: 400px;
+	float: left;
+	margin-left: 50px;
+	
+}
+div#flash_header {
+	
+	
+	float: left;
+	margin-left: 40px;
+	
+}

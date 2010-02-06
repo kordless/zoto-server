@@ -1,0 +1,27 @@
+[interfaces]
+tiberius = 192.168.5.20
+cato = 192.168.5.21
+invictus = 192.168.5.22
+
+[db_hosts]
+tiberius = 192.168.5.20
+
+[site]
+admin = admin@zoto.org
+environment = development
+domain = zoto.org
+
+[servers]
+mail_server = sonic
+
+[cluster.tiberius-node]
+host = tiberius
+role = node
+
+[cluster.cato-node]
+host = cato
+role = node
+
+[cluster.invictus-node]
+host = invictus
+role = node

@@ -1,0 +1,90 @@
+div#main_page_container {
+        width: 855px;
+        margin: 0 auto;
+        margin-top: 20px;
+}
+div#main_photo_container {
+        float: left;
+        width: 481px;
+        height: 422px;
+        background: white url('/image/site_down.png') left top no-repeat;
+}
+div#stack_content {
+        font-size: 11px;
+        width: 437px;
+        margin: 0 auto;
+        padding-top: 20px;
+        margin-left: 19px;
+}
+div#photo_author {
+        margin-top: 6px;
+        margin-bottom: 10px;
+}
+div#stack_content img{
+        border: 1px solid #c2c2c2;
+}
+div#main_happy_talk {
+        width: 341px;
+        float: right;
+        padding-top: 2px;
+}
+div#main_links {margin-top: 45px;}
+a#click_learn {
+        font-size: 16px;
+        font-style: italic;
+}
+.footer_bar {
+        color: #989898;
+        width: 845px;
+        margin: 0 auto;
+        margin-top: 20px;
+}
+.boilerplate{
+        color: #989898;
+        width: 845px;
+        margin: 0 auto;
+}
+ul {
+        font-size: 16px;
+        padding-left: 14px;
+        margin-bottom: 0;
+}
+li {
+        list-style: disc;
+}
+a#giant_signup_button {
+        background: white url('/image/signup_button_normal.png') left top no-repeat;
+        display: block;
+        width: 159px;
+        height: 66px;
+        position:relative;
+        left: -4px;
+}
+a#giant_signup_button:hover {
+        background: white url('/image/signup_button_active.png') left top no-repeat;
+}
+a#explore_link {
+        margin-top: 5px;
+        background: url('/image/explore_normal.png') left top no-repeat;
+        width: 160px;
+        height: 50px;
+        display: block;
+        float: right;
+}
+a#explore_link:hover {
+        background: url('/image/explore_hover.png') left top no-repeat;
+}
+div#manager_hook {
+        margin-top: 5px;
+        margin-left: 10px;
+}
+div#hook {
+	width: 845px;
+	height: 422px;
+}
+div#caption {
+	width: 100px;
+	height: 50px;
+	margin-left: 220px;
+	margin-top: 45px;
+}

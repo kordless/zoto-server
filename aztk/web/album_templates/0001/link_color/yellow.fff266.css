@@ -1,0 +1,11 @@
+.album_container a, .album_color a {
+	outline: none;
+	text-decoration: none;
+	color:#fff266 !important;
+}
+.album_container a.selected {
+	border:1px solid #fff266 !important;
+}
+.album_container .page {
+	color:#fff266 !important;
+}

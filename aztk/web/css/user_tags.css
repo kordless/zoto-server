@@ -1,0 +1,46 @@
+
+div#container{
+	margin-bottom:30px;
+}
+
+.tag_view {
+	min-height:300px;
+
+}
+.tag_view a{
+	padding:1px 2px;
+}
+
+
+/* tag epaper */
+.edit_mode a{
+	color:#989898;
+	cursor:text;
+
+}
+.edit_mode a:hover {
+	background: #fbffbc;
+}
+.edit_mode a.remove:hover {
+	background: #fff;
+}
+.edit_mode a.remove {
+	cursor:pointer;
+	background-color:#fff;
+}
+
+.tag_epaper div {
+	display:inline;
+	position:relative;
+	top:3px;
+}
+.tag_epaper form {
+	display:inline;
+}
+.tag_epaper fieldset {
+	display:inline;
+}
+.tag_epaper input{
+	border: 1px solid #C2C2C2;
+	color:#989898;
+}

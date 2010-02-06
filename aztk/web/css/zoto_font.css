@@ -1,0 +1,731 @@
+/*********************************************************
+	zoto_font.css
+	
+	Notes:
+	line-height can sometimes be considered layout and should appear in the layout css when that is the case
+	
+	
+	Index:
+		Globals
+		Assets
+			comments
+			contact popup
+			duallist
+			epaper
+			errormessage
+			helperbuddies
+			infostrip
+			lookahead
+			pagination
+			select boxes
+			spinners
+			tab bar
+			user bar
+			widgets
+			
+		Pages
+			all pages
+			albums
+			community spy
+			contacts
+			features
+			404
+			globber
+			image detail
+			main homepage
+			privacy
+			quickstart
+			signup/upgrade
+			terms
+			user homepagea
+			
+		Modals
+			all modals
+			album edit sets
+			album create album
+			album template
+			album edit sets table
+			album image detail
+			authinator
+			cancel
+			contact modals
+			contact edit
+			contact invite
+			edit contact widget
+			edit date
+			edit photo widget
+			messages: new message
+			messages: read/reply
+			settings
+			upload 
+			
+*********************************************************/
+
+/******************************************************************************************************************
+					G L O B A L S
+******************************************************************************************************************/
+.italic {
+	font-style:italic;
+}
+.normal {
+	font-style:normal;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1,h2,h3 {
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	letter-spacing: -1px;
+}
+h4,h5 {
+	font-weight: normal;
+}
+h1 {
+	font-size: 40px;
+	line-height:42px;
+}
+h2 {
+	font-size: 30px;
+	line-height:32px;
+}
+h3 {
+	font-size: 22px;
+	line-height:24px;
+}
+h4 {
+	font-size: 20px;
+	line-height:22px;
+}
+h5 {
+	font-size: 16px;
+	line-height:18px;
+}
+
+label {
+	font-style: normal;
+	color:#666;
+	font-size:12px;
+}
+
+a.form_button, a.form_button_disabled {
+	font-size: 11px;
+}
+
+/*input.submit, button.submit {
+	font-weight: bold;
+	font-size: 11px;
+}*/
+
+input.text, textarea{
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:13px;
+	line-height:15px;
+	font-style:normal;
+}
+
+/******************************************************************************************************************
+														A S S E T S
+******************************************************************************************************************/
+/*********************************************************
+					C O M M E N T S
+*********************************************************/
+div#comments {
+	line-height:1.2em;
+}
+
+/*********************************************************
+					D U A L L I S T
+*********************************************************/
+.dual_select_list {
+	line-height:1.2em;
+}
+
+.dual_select_list select{
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:12px;
+}
+
+/*********************************************************
+					E P A P E R
+*********************************************************/
+div#title_epaper, div#title_epaper .epaper_input_box  {
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-size: 22px;
+	line-height:24px;
+	letter-spacing: -1px;
+	font-weight:bold;
+}
+/*div#title_epaper *{
+	font-weight:normal;
+}
+div#title_epaper a.e_paper{
+	font-weight:bold;
+}*/
+/*div#title_epaper span {
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+	letter-spacing: -1px;
+}*/
+
+/*********************************************************
+				E R R O R M E S S A G E
+*********************************************************/
+div.error_message {
+	font-family: "Trebuchet MS", Trebuchet, Arial, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+/*********************************************************
+				H E L P E R  B U D D I E S
+*********************************************************/
+div#helper_buddy_box {
+	/* the little '?' links that popup a help box */
+	line-height:1.2em;
+}
+div#helper_buddy_box span.title {
+	text-transform: capitalize;
+	font-weight: bold;
+	font-size: 12px;
+}
+div#helper_buddy_box div.body {
+	font-size: 12px;
+}
+
+/*********************************************************
+					I N F O S T R I P
+*********************************************************/
+.infostrip a {
+	font-style:italic;
+}
+
+/*********************************************************
+				L O O K A H E A D
+*********************************************************/
+div.look_ahead_holder ul li a {
+/*	text-decoration: none;*/
+	font-size: 9pt;
+}
+
+form#tag_lookahead_form label {
+	font-size: 22px;
+	font-style: normal;
+	font-weight: bold;
+	font-family: "Nimbus Sans L", Helvetica, Arial, sans-serif;
+}
+
+/*********************************************************
+					P A G I N A T I O N
+*********************************************************/
+input.page_box {
+	font-size: 11px;
+	line-height:15px;
+}
+div.page_holder {
+	font-family: Verdana;
+	font-size: 8px;
+}
+
+/*********************************************************
+					S E L E C T B O X E S
+*********************************************************/
+div.select_box {
+	font-size: 11px;
+}
+div.select_box li a.placeholder, div.select_box li a.placeholder:hover { 
+	font-weight: bold;
+}
+
+/*********************************************************
+						S P I N N E R S
+*********************************************************/
+div#global_spinner {
+	font-weight: normal;
+	font-size: 16px;
+}
+
+/*********************************************************
+					T A B B A R
+*********************************************************/
+/*ul.tab_bar li a {
+	text-decoration: none;
+}*/
+/*ul.tab_bar li a div.tab_center {*/
+div.tab_center {
+	font-size: 14px;
+	line-height: 25px;
+}
+
+/*********************************************************
+						T A G S
+*********************************************************/
+ul.tag_list a.remove {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+/*********************************************************
+						U S E R B A R
+*********************************************************/
+div#user_bar .sub {
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	font-style: italic;
+	letter-spacing: 0px;
+	font-weight: normal;	
+}
+
+div#user_bar .main {
+	font-weight: bold;
+	font-size: 22px;
+	letter-spacing: -1px;
+	text-transform: lowercase; 
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+}
+/*
+div#user_bar a:hover {
+	text-decoration: none;
+}
+*/
+/*********************************************************
+					W I D G E T S
+*********************************************************/
+div.user_info_header {
+	font-size: 16px;
+	font-style: italic;
+}
+div#user_bio_widget_content{
+	line-height:1.4em;
+}
+
+/******************************************************************************************************************
+														P A G E S
+******************************************************************************************************************/
+/*********************************************************
+					A L L  P A G E S
+*********************************************************/
+body {
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:12px;
+/*	line-height:normal;*/
+}
+
+/*a#logo {
+	text-decoration: none;
+}*/
+/*div#main_links { /*   the top-right links for login/logout etc... * /
+	font-size: 12px;
+}*/
+div#language_selection {
+	font-style: italic;
+}
+div#language_selection a {
+	font-style: normal;
+}
+
+/*********************************************************
+					A L B U M S
+*********************************************************/
+/****************** ALBUM ITEM *******************/
+.album_item {
+	line-height:1.2em;
+}
+
+/*********************************************************
+				C O M M U N I T Y  S P Y
+*********************************************************/
+form#type_form label {
+	font-style: normal;
+}
+div.event_holder td {
+	font-size: 12pt;
+}
+
+/*********************************************************
+					C O N T A C T S
+*********************************************************/
+/***** CONTACT VIEW ITEMS ****/
+.contact_info .mutual {
+	font-style:normal;
+	font-size: 12px;
+}
+
+/*********************************************************
+					F E A T U R E S
+*********************************************************/
+.yellowcontainer {
+	font-size:16px;
+}
+
+/*********************************************************
+						4 0 4
+*********************************************************/
+#notfound_header{
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+}
+
+/*********************************************************
+					G L O B B E R
+*********************************************************/
+div.small_thumb_item span, div.small_thumb_item div{ /* info under thumbnails */
+	font-size: 10px;
+}
+
+table.list_view td.active_table_column {
+	font-weight: bold;
+}
+
+div.big_thumb_item div { /* info under thumbnails */
+	font-size: 12px;
+}
+
+/*********************************************************
+				I M A G E  D E T A I L
+*
+* Author: Josh Williams
+* Date Added: Wed Aug 30 11:12:00 CDT 2006
+*
+* General style for the standalone detail page.
+*********************************************************/
+ /************** MAIN ELEMENTS ******************/
+span.comment_date {
+	font-style: italic;
+}
+
+/************* RIGHT HAND ELEMENTS **************/
+div#nav_holder {
+	font-size: 12pt;
+}
+/*
+h1 a {
+	text-decoration: none;
+}
+*/
+a.new_comment_link {
+	line-height: 20px;
+}
+/****************** OTHER SIZES ***********************/
+div.other_size a {
+	text-decoration: underline;
+}
+
+a.big_link {
+	font-size: 22px; 
+	font-weight: bold;
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	letter-spacing: -1px;
+}
+
+/*********************************************************
+					M A I N  H O M E P A G E
+*********************************************************/
+div#stack_content {
+	font-size: 11px;
+}
+
+/*********************************************************
+					P R I V A C Y
+*********************************************************/
+p#privacy_subject {
+	font-size: 16px;
+	font-style: italic;
+}
+div#privacy {
+        font-size: 12px;
+}
+
+/*********************************************************
+					Q U I C K S T A R T
+*********************************************************/
+div.platform {
+	font-size: 12px;
+	line-height:15px;
+}
+
+/*********************************************************
+				S I G N U P  /   U P G R A D E
+*********************************************************/
+div#total_summary {
+	font-weight: bold;
+	font-size: 14px;
+}
+.signup_form .tos_wrapper{
+	line-height:1.2em;
+}
+
+/*********************************************************
+						T E R M S
+*********************************************************/
+p#terms_subject {
+	font-size: 16px;
+	font-style: italic;
+}
+div#terms {
+	font-size: 12px;
+}
+
+/*********************************************************
+				U S E R  H O M E P A G E
+*********************************************************/
+div#drop_separator {
+	font-size: 40pt;
+	font-weight: bold;
+}
+div.drag_handle, div.drag_handle_fake {
+/*	font-size: 10px;*/
+	line-height: 2.9em;
+}
+div.drag_handle h3, div.drag_handle_fake h3 {
+	line-height:1.6em;
+}
+a.widget_top_link {
+	font-family: "Nimbus Sans L", "Trebuchet MS", Trebuchet, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+}
+ul#widget_list {
+	font-size: 12px;
+}
+
+/******************************************************************************************************************
+														M O D A L S
+******************************************************************************************************************/
+/*********************************************************
+					A L L  M O D A L S
+*********************************************************/
+/*div.modal_form_padding label {
+	font-style: italic;
+}*/
+#modal_info {
+	line-height:1.2em;
+}
+div.modal_top_button_holder {
+	font-size:14px;
+}
+
+/*********************************************************
+			A L B U M  E D I T  S E T S  
+*********************************************************/
+.edit_set_modal .epaper_input_box {
+	font-size:22px;
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	letter-spacing:-0.05em;
+}
+
+/*********************************************************
+			A L B U M  C R E A T E  A L B U M
+*********************************************************/
+.create_album_modal textarea{
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:12px;
+}
+.create_album_modal .epaper_input_box {
+	font-size:22px;
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	letter-spacing:-0.05em;
+}
+
+/*********************************************************
+				A L B U M  T E M P L A T E
+*********************************************************/
+/*.album_template_modal {
+	line-height:1.2em;
+}
+*/
+
+/*********************************************************
+		A L B U M  E D I T  S E T S  T A B L E
+*********************************************************/
+.album_table {
+	line-height: 1.4em;
+}
+.album_table .epaper_input_box{
+	font-size:12px;
+	font-weight: normal;
+	letter-spacing:-0.05em;
+}
+
+/*********************************************************
+			A L B U M  I M A G E  D E T A I L
+*********************************************************/
+/*.album_lightbox {
+	line-height:1.2em;
+}*/
+.album_lightbox .photo_info {
+	font-size:12px;
+}
+.album_lightbox .comments {
+	font-size:12px;
+	line-height:16px;
+}
+.album_lightbox .nav_elements  {
+	font-family:"Luxi Sans",Helvetica,Arial,sans-serif;
+	font-size:22px;
+	font-weight:bold;
+	letter-spacing:-1px;
+}
+
+/*********************************************************
+				A U T H I N A T O R
+*********************************************************/
+div#authinator_form_container {
+	line-height:1.2em;
+}
+
+/*********************************************************
+				C A N C E L 
+*********************************************************/
+/*.cancel_modal {
+	line-height:1.2em;
+}*/
+
+/*********************************************************
+				C O L O R  S W I T C H E R
+*********************************************************/
+div#color_switcher {
+	line-height:1.2em;
+}
+
+/*********************************************************
+				C O N T A C T  M O D A L S
+*********************************************************/
+.contact_tbl th {
+	font-weight:normal;
+}
+
+/*********************************************************
+		C O N T A C T	E D I T   L I S T S
+*********************************************************/
+.edit_lists_contacts .epaper_input_box {
+	font-size:22px;
+	letter-spacing:-1px;
+	font-weight:bold;
+	font-family: "Luxi Sans",Helvetica,Arial,sans-serif;
+}
+
+
+/*********************************************************
+				C O N T A C T  I N V I T E
+*********************************************************/
+.invite_modal textarea {
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:12px;
+	line-height:1.1em;
+}
+.invite_modal input{
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:12px;
+}
+.invite_modal .parenthetical {
+	font-style:normal;
+}
+
+/*********************************************************
+			E D I T  C O N T A C T  W I D G E T
+*********************************************************/
+/*.edit_contact_widget_modal {
+	line-height:1.2em;
+}*/
+
+/*********************************************************
+					E D I T  D A T E
+*********************************************************/
+/*.date_picker {
+	line-height:1.2em;
+}*/
+
+/*********************************************************
+			E D I T  P H O T O  W I D G E T 
+*********************************************************/
+/*.edit_photo_widget_modal * {
+	line-height:1.2em;
+}*/
+
+/*********************************************************
+			M E S S A G E S : N E W  M E S S A G E
+*********************************************************/
+/*.modal_new * {
+	line-height:1.2em;
+}*/
+.modal_new textarea {
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:12px;
+	line-height:1.1em;
+}
+.modal_new input{
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:12px;
+}
+.modal_new .parenthetical {
+	font-style:normal;
+}
+
+/*********************************************************
+			M E S S A G E S : R E A D / R E P L Y
+*********************************************************/
+.modal_read_reply .textarea {
+	font-family: "Nimbus Sans L", "Trebuchet MS", Helvetica, Arial, sans-serif;
+	font-size:12px;
+}
+
+/*********************************************************
+				S E T T I N G S
+*********************************************************/
+/**************** OVERALL SETTINGS ****************/
+/*div.settings_pane {
+	line-height: 1.2em;
+}*/
+li.level0 {
+	font-size: 16px;
+	line-height:normal;
+	font-weight: normal;
+}
+
+li.level0 a.menu_active {
+	font-weight: normal;
+}
+
+/* Level 1 menus */
+ul.level1 {
+	font-weight: normal;
+	font-size: 14px;
+}
+li.level1 {
+	font-size:12px;
+}
+/* Level 2 menus */
+ul.level2 {
+	font-size: 12px;
+}
+/****************** PHOTO PERMS ********************/
+div.perms_holder div.happy_talk1 {
+	font-weight: bold;
+}
+div.perms_holder div.happy_talk2 {
+	font-style: italic;
+	font-weight: normal;
+}
+div.perms_holder span.happy_note {
+	font-weight: bold;
+	font-style: normal;
+}
+div.perms_holder form.perms_form div.checkbox_holder {
+	font-style: normal;
+}
+div.perms_holder form.perms_form label {
+	font-style: normal;
+}
+
+/*********************************************************
+				U P L O A D
+*********************************************************/
+/*.upload_modal {
+	line-height:1.2em;
+}*/

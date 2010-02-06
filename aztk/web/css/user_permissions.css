@@ -1,0 +1,24 @@
+div.perms_left {
+	width: 800px;
+}
+
+table.perms {
+	border-collapse: collapse;
+	border: 1px solid #c2c2c2;
+	width: 100%;
+}
+table.perms td {
+	padding: 4px;
+	border: 1px solid #c2c2c2;
+}
+table.perms td.center {
+	text-align: center;
+}
+div#big_error_box {
+	width: 800px;
+	display: none;
+	background: #FFFFD3 url('/image/error.png') 4px 3px no-repeat;
+	padding: 4px;
+	padding-left: 30px;
+	display: none;
+}

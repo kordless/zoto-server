@@ -1,0 +1,9 @@
+#notfound_header{
+	background: url('/image/icon_error.gif') left center no-repeat;
+	font-size: 22px;
+	color: #666666;
+	padding-left: 30px;
+	font-family: "Luxi Sans", Helvetica, Arial, sans-serif;
+	font-size: 22px;
+	font-weight: bold;
+}

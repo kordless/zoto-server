@@ -1,0 +1,363 @@
+#!/usr/bin/env python
+"""
+AZTK Nanny -- Tasty New Version
+
+Ken Kinder
+2005-02-11
+
+Sandbox Hacks by Trey Stout
+2005-10-26
+"""
+
+import sys
+sys.path += ['/zoto/aztk', '/zoto/aztk/lib']
+
+import os, time, aztk_config, socket, signal
+from twisted.internet import reactor
+from twisted.internet.protocol import Factory
+from twisted.internet import threads
+from twisted.internet.defer import Deferred, maybeDeferred
+from SimplePBProxy import SimplePBProxy
+from constants import *
+
+try:
+	import readline
+except ImportError: pass
+from twisted.protocols import basic
+from twisted.protocols import policies
+
+processes = {} # all of the processes that this nanny manages go in here...
+
+class AZTKProcess(object):
+	def __init__(self, profile, host, pb_port):
+		self.aztk_pid = 0
+		self.exit_code = 0
+		self.start_time = None
+		self.stop_time = None
+		self.iter = 0
+		self.error_msg = ''
+		self.profile = profile
+		self.start_command = ['/usr/bin/python', '-u', '/zoto/aztk/bin/main.py', profile]
+		self.proxy = SimplePBProxy(host, pb_port)
+		
+	def run(self):
+		if self.isalive():
+			d = Deferred()
+			d.callback(C_ALREADY_RUNNING)
+			return d
+		
+		def wait():
+			self.iter += 1
+			self.aztk_pid = os.spawnvpe(os.P_NOWAIT, '/usr/bin/python', self.start_command, os.environ)
+			self.start_time = time.time()
+			self.error_msg = ''
+			return os.waitpid(self.aztk_pid, 0)
+		
+		self.aztk_pid = 0 
+		d = threads.deferToThread(wait)
+		def done(status):
+			pid, rcode = status
+			self.stop_time = time.time()
+			self.exit_code = rcode % 255
+			if self.exit_code != 0 and self.exit_code != 1 and self.exit_code != 9 and self.exit_code != 25 and self.exit_code != 35:
+				datetime = time.strftime("%Y/%m/%d %H:%M:%S", time.localtime(self.stop_time))
+				print "%s died at %s with exit code %s. Restarting..." % (self.profile, datetime, self.exit_code)
+				sys.stdout.flush()
+				reactor.callLater(5, self.run)
+
+		def done_err(failure):
+			self.stop_time = time.time()
+			self.exit_code = 255
+			self.error_msg = failure.getErrorMessage()
+			
+		d.addCallback(done)
+		d.addErrback(done_err)
+		
+		def make_sure_start_up():
+			for i in range(40):
+				pid, status = open("/zoto/aztk/var/%s.pid" % self.profile, "r").read().strip().split("-")
+				#print "PID: %s STATUS: %s AZTKPID: %s" %(pid, status, self.aztk_pid)
+				if int(pid) == self.aztk_pid:
+					if os.path.exists('/proc/%s' % self.aztk_pid):
+						if int(status) == 6:
+							return C_STARTING
+					else:
+						return C_START_FAILURE
+				time.sleep(.5)
+			return C_WTF # huh?
+
+		d = threads.deferToThread(make_sure_start_up)
+		return d
+	
+	def isalive(self):
+		if self.aztk_pid and os.path.exists('/proc/%s' % self.aztk_pid):
+			return True
+		else:
+			return False
+
+	def printable_downtime(self):
+		if self.stop_time:
+			delta = int(time.time()) - int(self.stop_time)
+			minutes = delta / 60
+			seconds = delta % 60
+			hours = minutes / 60
+			minutes = minutes % 60
+			return '%02i:%02i:%02i' % (hours, minutes, seconds)
+		else:
+			return '00:00:00'
+	
+	def kill(self):
+		os.kill(self.aztk_pid, signal.SIGKILL)
+		self.aztk_pid = 0
+
+
+
+class NannyProtocol(basic.LineReceiver, policies.TimeoutMixin):
+	TIMEOUT = 60
+	
+	def connectionMade(self):
+		self.setTimeout(self.TIMEOUT)
+	
+	def connectionLost(self, reason):
+		pass
+	
+	def timeoutConnection(self):
+		pass
+	
+	def lineReceived(self, line):
+		line = line.strip()
+		parts = line.split()
+		if not parts:
+			return
+		command = parts[0]
+		# If profile is required for this command, grab it.
+		if command in ('start', 'stop', 'restart', 'kill', 'status'):
+			profiles = parts[1:]
+			if not profiles:
+				profiles = processes.keys()
+			for profile in profiles:
+				if profile not in processes.keys():
+					self.send(C_WTF, 'Invalid server profile: %s' % profile)
+					return
+		
+		if command == 'start':
+			for profile in profiles:
+				self.handle_start(profile)
+		elif command == 'stop':
+			for profile in profiles:
+				self.handle_stop(profile)
+		elif command == 'restart':
+			for profile in profiles:
+				self.handle_restart(profile)
+		elif command == 'kill':
+			for profile in profiles:
+				self.handle_kill(profile)
+		elif command == 'status':
+			for profile in profiles:
+				self.handle_status(profile)
+		elif command == 'die':
+			self.sendLine('Nanny is exiting')
+			self.transport.loseConnection()
+			reactor.stop()
+		elif command == 'list':
+			self.sendLine(' '.join(processes.keys()))
+		elif command == 'done':
+			self.sendLine('Bye!')
+			self.transport.loseConnection()
+			return
+		elif command == 'help':
+			self.transport.write("""AZTK Nanny commands:
+AZTK Nanny handles multiple processes. Each of this commands can work with all
+the processes on a node, or just one of them. If no process is specified, the
+command applies to each of them.
+
+start [processes]    Start AZTK
+stop [processes]     Cleanly stop AZTK
+restart [processes]  Restart AZTK
+kill [processes]     Kill AZTK forcefully
+status [processes]   Get status of AZTK
+
+list                 Gets a list of processes which can be manipulated
+die		     Make this nanny die
+
+done                 Close this session
+""")
+		else:
+			self.send(C_WTF, 'Unknown command: %s (try help)' % command)
+	
+	def send(self, status, line):
+		self.sendLine('%s: %s' % (status, line))
+	
+	def sendprofile(self, profile, status, line):
+		self.sendLine('%15s | %s: %s' % (profile, status, line))
+	
+	#####################
+	## Starting Server ##
+	#####################
+	def handle_start(self, profile, restart=False):
+		d = processes[profile].run()
+		def act(rcode):
+			if rcode == C_ALREADY_RUNNING:
+				d = processes[profile].proxy.callRemote('Admin.uptime')
+				d.addCallback(self.handle_already_running, profile)
+				d.addErrback(self.handle_already_running_nopb, profile)
+			elif rcode == C_STARTING:
+				if restart:
+					self.sendprofile(profile, C_STARTING, 'Restarted with PID [%s]' % processes[profile].aztk_pid)
+				else:
+					self.sendprofile(profile, C_STARTING, 'Started with PID [%s]' % processes[profile].aztk_pid)
+			elif rcode == C_START_FAILURE:
+				reason = AZTK_EXIT_CODES.get(processes[profile].exit_code, '')
+				if reason:
+					self.sendprofile(profile, C_START_FAILURE, 'AZTK Crashed (%s) <%s>' % (reason, processes[profile].exit_code))
+				else:
+					self.sendprofile(profile, C_START_FAILURE, 'AZTK Crashed on Startup with code <%s>' % (processes[profile].exit_code))
+			else:
+				self.sendprofile(profile, C_WTF, 'Unexpected response: %s' % rcode)
+		d.addCallback(act)
+	
+	def handle_already_running(self, uptime, profile):
+		self.sendprofile(profile, C_ALREADY_RUNNING, 'Already Running [%s], uptime is <%s>' % (processes[profile].aztk_pid, uptime))
+	
+	def handle_already_running_nopb(self, failure, profile):
+		self.sendprofile(profile, C_RUNNING_NOPB, 'Already Running [%s], but PB server down' % processes[profile].aztk_pid)
+
+	#####################
+	## Stopping Server ##
+	#####################
+	def handle_stop(self, profile):
+		if processes[profile].isalive():
+			d = processes[profile].proxy.callRemote('Admin.stop_server')
+			d.addCallback(self.handle_stopping, profile)
+			d.addErrback(self.handle_stopping_error, profile)
+		else:
+			self.sendprofile(profile, C_ALREADY_DOWN, 'Already down %s with code <%s>' % (processes[profile].printable_downtime(), processes[profile].exit_code))
+	
+	def handle_stopping(self, response, profile):
+		def go(count):
+			if processes[profile].isalive():
+				if count > 20:
+					self.sendprofile(profile, C_STOP_FAILURE, 'Stop failed -- still running [%s]' % processes[profile].aztk_pid)
+				else:
+					reactor.callLater(1, go, count+1)
+			else:
+				self.sendprofile(profile, C_STOP_SUCCESS, 'Stopped with code <%s>' % (processes[profile].exit_code))
+		reactor.callLater(1, go, 0)
+		
+	def handle_stopping_error(self, failure, profile):
+		self.sendprofile(profile, C_STOP_FAILURE, 'Error trying to stop: %s' % failure.getErrorMessage())
+	
+	####################
+	## Handle Restart ##
+	####################
+	def handle_restart(self, profile):
+		if processes[profile].isalive():
+			old_pid = processes[profile].aztk_pid
+			d = processes[profile].proxy.callRemote('Admin.stop_server')
+			d.addCallback(self.handle_restart_wait, profile, old_pid)
+			d.addErrback(self.handle_restart_error, profile, old_pid)
+		else:
+			self.handle_start(profile)
+#			self.sendprofile(profile, C_ALREADY_DOWN, 'Already down %s with code <%s>' % (processes[profile].printable_downtime(), processes[profile].exit_code))
+	
+	def handle_restart_wait(self, rval, profile, old_pid):
+		def go(count):
+			if not processes[profile].isalive():
+				self.handle_start(profile, restart=True)
+			else:
+				if count > 20:
+					self.sendprofile(profile, C_STOP_FAILURE, 'Restart failed -- still running [%s]' % processes[profile].aztk_pid)
+				else:
+					reactor.callLater(1, go, count+1)
+		reactor.callLater(1, go, 0)
+	
+	def handle_restart_error(self, failure, profile, old_pid):
+		self.sendprofile(profile, C_STOP_FAILURE, 'Error trying to stop: %s' % failure.getErrorMessage())
+	
+	###################
+	## Handle Status ##
+	###################
+	def handle_status(self, profile):
+		if processes[profile].isalive():
+			d = processes[profile].proxy.callRemote('Admin.uptime')
+			d.addCallback(self.handle_running, profile)
+			d.addErrback(self.handle_running_nopb, profile)
+		else:
+			if processes[profile].error_msg:
+				self.sendprofile(profile, C_DOWN, 'Process down %s with exit code <%s>: %s' % (processes[profile].printable_downtime(), processes[profile].exit_code, processes[profile].error_msg))
+			else:
+				self.sendprofile(profile, C_DOWN, 'Process down %s with exit code <%s>' % (processes[profile].printable_downtime(), processes[profile].exit_code))
+
+	def handle_running(self, uptime, profile):
+		self.sendprofile(profile, C_RUNNING_OK, 'Running [%s], uptime is <%s>' % (processes[profile].aztk_pid, uptime))
+	
+	def handle_running_nopb(self, failure, profile):
+		print failure.getErrorMessage()
+		self.sendprofile(profile, C_RUNNING_NOPB, 'Running [%s], but PB server down' % processes[profile].aztk_pid)
+	
+	####################
+	## Handle Killing ##
+	####################
+	def handle_kill(self, profile):
+		if processes[profile].isalive():
+			old_pid = processes[profile].aztk_pid
+			processes[profile].kill()
+			reactor.callLater(1, self.handle_kill_wait, profile, old_pid)
+		else:
+			self.sendprofile(profile, C_ALREADY_DOWN, 'Already down %s with code <%s>' % (processes[profile].printable_downtime(), processes[profile].exit_code))
+	
+	def handle_kill_wait(self, profile, old_pid):
+		if os.path.exists('/proc/%s' % old_pid):
+			self.sendprofile(profile, C_STOP_FAILURE, 'Process did not die: [%s]' % old_pid)
+		else:
+			self.sendprofile(profile, C_STOP_SUCCESS, 'Process killed successfully.')
+
+class NannyFactory(Factory):
+	protocol = NannyProtocol
+
+if __name__ == "__main__":
+	if len(sys.argv) != 2:
+		print 'Use /zoto/aztk/bin/start.sh'
+	else:
+		# see if another nanny is running
+		nanny_port = aztk_config.setup.getint('ports', 'nanny')
+		pin, pout = os.popen4("/bin/fuser %d/tcp" % nanny_port)
+		results = pout.read()
+		pin.close()
+		pout.close()
+		if len(results) > 0:
+			# nanny already running
+			port, pids = results.split(":")
+			print "already running [%s]" % pids.strip()
+			sys.exit(0)
+
+		factory = NannyFactory()
+		# find out if this is a sandbox
+		if aztk_config.setup.get("site", "environment") == "sandbox":
+			# OMG! we *ARE* in a sandbox!
+			# all services in the list are ours to rule
+			for section in aztk_config.setup.sections():
+				if section.startswith('cluster.'):
+					profile = section.split('.', 1)[-1]
+					host = aztk_config.setup.get(section, 'host')
+					port = aztk_config.setup.getint('ports', 'pb_port')
+					processes[profile] = AZTKProcess(profile, host, port)
+					print "adding %s %s:%s" % (profile, host, port)
+		else:
+			# there are going to be nannies on other servers so only register servers on our host
+			for section in aztk_config.setup.sections():
+				if section.startswith('cluster.'):
+					profile = section.split('.', 1)[-1]
+					host = aztk_config.setup.get(section, 'host')
+					port = aztk_config.setup.getint('ports', 'pb_port')
+					if host == socket.gethostname():
+						processes[profile] = AZTKProcess(profile, host, port)
+		try:
+			# nanny listens on every port, gonna have to change this someday. Maybe IP 
+			# as a arg to nanny? For sandboxes this will have to be called once for each IP
+			reactor.listenTCP(aztk_config.setup.getint('ports', 'nanny'), factory)
+		except:
+			print "can't startup another process is already listening on %d" % nanny_port
+			sys.exit()
+		reactor.run()
+		

@@ -1,0 +1,137 @@
+#!/usr/bin/env python
+"""
+AZTK Setup Script
+
+Author: Trey Stout and Josh watched
+Date Added: 2005.11.01
+"""
+
+import sys
+sys.path += ["/zoto/aztk", "/zoto/aztk/lib"]
+import aztk_config
+
+try: import readline
+except ImportError: pass
+
+import os, glob, time
+from ConfigParser import ConfigParser 
+
+def multiplechoice(prompt, options, default):
+	while 1:
+		response = raw_input("%s [%s] => " % (prompt, default))
+		if response in options:
+			return response
+		else:
+			if not response:
+				return default
+			else:
+				print 'Please choose: %s' % ', '.join(options)
+
+class Menu(object):
+	def __init__(self, title, description=''):
+		self.title = title
+		self.description = description
+		self.items = []
+	
+	def add_item(self, title, callback):
+		self.items.append((title, callback))
+	
+	def run(self):
+		def print_menu():
+			print '='*78
+			print self.title
+			print '-'*78
+			if self.description:
+				print self.description
+				print '-'*78
+			for i in range(len(self.items)):
+				print '%i: %s' % (i+1, self.items[i][0])
+			print '-'*78
+		while 1:
+			print_menu()
+			choice = raw_input("Enter selection: ")
+			for i in range(len(self.items)):
+				if str(i+1) == str(choice):
+					return self.items[i][1]()
+
+def ask(prompt, default):
+	while 1:
+		response = raw_input("%s [%s] => " % (prompt, default))
+		if response:
+			return response
+		else:
+			if default:
+				return default
+			else:
+				print "STOP FUCKING AROUND!"
+		
+def build_install_file():
+	cp = ConfigParser()
+	cp.add_section("site")
+	cp.add_section("interfaces")
+	cp.add_section("servers")
+	cp.add_section("db_cluster")
+	cp.add_section("db_search")
+
+	## SITE SECTION
+	domain = ask("What's the domain", "zoto.biz")
+	admin_email = ask("Admin's email address", "admin@%s" % domain)
+	environ = multiplechoice("What type of environment?", ["sandbox", "staging", "production"], "staging")
+	cp.set("site", "domain", domain)
+	cp.set("site", "admin", admin_email)
+	cp.set("site", "environment", environ)
+
+	## SERVERS
+	mail_server = ask("Outbound SMTP server", "sonic")
+	searchd_server = ask("sphinxd server", "spartacus")
+	cp.set("servers", "mail_server", mail_server)
+	cp.set("servers", "searchd_server", searchd_server)
+	cluster_db_server  = ask("Cluster DB Host", "spartacus")
+	cluster_db_name  = ask("Name of cluster db", "zoto_cluster")
+	cp.set("db_cluster", "cluster_db_server", cluster_db_server)
+	cp.set("db_cluster", "cluster_db_name", cluster_db_name)
+	search_db_server  = ask("Search DB Host", "spartacus")
+	search_db_name  = ask("Name of search db", "zoto_search")
+	cp.set("db_search", "search_db_server", search_db_server)
+	cp.set("db_search", "search_db_name", search_db_name)
+
+	# HOSTS
+	broker_host = ask("hostname of broker", "spartacus")
+	broker_ip = ask("ip of broker", "192.168.5.5")
+	
+	cp.set("interfaces", broker_host, broker_ip)
+	cp.add_section("cluster.broker")
+	cp.set("cluster.broker", "role", "broker")
+	cp.set("cluster.broker", "host", broker_host)
+	cp.set("cluster.broker", "pb_port", 5051)
+	cp.set("cluster.broker", "mh_port", 5052)
+	
+	num_nodes = ask("How many nodes", 3)
+	for x in range(int(num_nodes)):
+		name = ask("Hostname for node #%s" % x, "")
+		ip = ask("ip for node #%s" % x, "")
+		cp.set("interfaces", name, ip)
+		cp.add_section("cluster.%s-node" % name)
+		cp.set("cluster.%s-node" % name, "role", "node")
+		cp.set("cluster.%s-node" % name, "host", name)
+		cp.set("cluster.%s-node" % name, "pb_port", 5051)
+		cp.set("cluster.%s-node" % name, "mh_port", 5052 )
+		cp.add_section("cluster.%s-image" % name)
+		cp.set("cluster.%s-image" % name, "role", "image_server")
+		cp.set("cluster.%s-image" % name, "host", name)
+		cp.set("cluster.%s-image" % name, "pb_port", 5061)
+		cp.set("cluster.%s-image" % name, "mh_port", 5062 )
+	
+	f = open("/zoto/aztk/etc/install.cfg.GENERATED", "w")
+	cp.write(f)
+	f.close()
+
+def quit(): sys.exit(0)
+
+main_menu = Menu('AZTK Setup')
+main_menu.add_item('Build install.cfg', build_install_file)
+#main_menu.add_item('Build Cluster Schema (Once For Cluster)', build_cluster_schema)
+#main_menu.add_item('Build Zip Codes Database (Once For Each Cluster))', build_zip_codes)
+main_menu.add_item('Quit', quit)
+while 1:
+	main_menu.run()

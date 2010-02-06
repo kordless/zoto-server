@@ -1,0 +1,15 @@
+<body>
+	<div class="album_container invisible">
+		<h2 id="album_title"></h2>
+		<h5 id="album_description"></h5>
+		<br />
+		<div id="album_images"></div>
+		<br clear="all" />
+		<div id="pagination"></div>
+		<div id="links"></div>
+		<div id="footer"></div>
+		<div id="boilerplate">Want to create online photo albums of your own?
+		Just <a href="http://www.zoto.com/signup/">sign up</a> at Zoto.
+		</div>
+	</div>
+</body>

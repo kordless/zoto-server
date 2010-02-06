@@ -1,0 +1,106 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+
+<head n:render="head_tag">
+<title n:render="title"/>
+
+<n:slot name="css_includes"/>
+<n:slot name="feed_includes"/>
+<link rel="shortcut icon" href="/image/favicon.ico" />
+<script type="text/javascript">
+	var zoto_domain = '<n:invisible n:render="domain_name"/>';
+	var zapi_key = '<n:invisible n:render="js_zapi_key"/>';
+	var browse_username = '<n:invisible n:render="js_browse_username"/>';
+	var zoto_color = '<n:invisible n:render="js_color_option"/>';
+</script>
+<n:slot name="js_includes"/>
+<n:slot name="meta_tags"/>
+</head>
+<body>
+<span id="auth_holder" class="invisible"></span>
+<span id="header_bar" class="invisible"></span>
+<div id="other_size">
+	<div id="details">
+		<div id='avatar'>
+			<a id="avatar_link" href="javascript: void(0);"><img id="avatar_img" src=""/></a>
+			uploaded on <a id="upload_date_link" href="javascript: void(0);"><span id="upload_date"></span></a>
+			<br />
+			by <a id="upload_by" href="javascript: void(0);"></a>
+			<div id="avatar_links">
+				<a id="close_page" href="javascript: void(0);">close this page</a> | <a id="back_to_detail" href="javascript: void(0);">view photo page</a>
+			</div>
+		</div>
+	</div>
+	<div id="table_container">
+	<table cellspacing="0">
+		<tr>
+			<td id="available_sizes"></td>
+			<td id="td_small">
+				<a id="small" href="javascript: void(0);">small</a>
+				<br />
+			</td>
+			<td id="td_med">
+				<a id="med" href="javascript: void(0);">medium</a>
+				<br />
+			</td>
+			<td id="td_large">
+				<a id="large" href="javascript: void(0);">large</a>
+				<br />
+			</td>
+			<td id="td_larger">
+				<a id="larger" href="javascript: void(0);">larger</a>
+				<br />
+			</td>
+			<td id="td_largest">
+				<a id="largest" href="javascript: void(0);">largest</a>
+				<br />
+			</td>
+			<td id="td_original">
+				<a id="original" href="javascript: void(0);">original</a>
+				<br />
+			</td>
+			<td id="td_custom">
+			</td>
+			<td >
+			</td>
+		</tr>
+	</table>
+	</div>
+	<div id="image_container">
+		<img id="the_image" class="unloaded" src=""/>
+		<img id="the_image_thumb" class="unloaded" src=""/>
+	</div>
+	<form id="custom_sizes">
+		<div id="custom_sizes_header">
+		</div>
+		<fieldset id="custom_sizes_fieldset">
+		</fieldset>
+	</form>
+	<span>To link this photo on other websites, copy and paste this HTML into your webpage...</span>
+	<br />
+	<form><fieldset><textarea id="anchor_tag" class="anchor_tag" value=""></textarea></fieldset></form>
+	<form style="clear:left">
+		<br />
+		<span>...or you can copy the image URL and paste it in an e-mail or instant message.</span>
+		<br />
+		<input id="link_tag" value="" class="text"></input>
+	</form>
+	<br />
+	<br />
+	<div class="footer_bar">
+		<a href="/" n:render="i18n">home</a> |
+		<a href="javascript:currentWindow().show_help_modal('HELP_OVERVIEW_TERMS')" n:render="i18n">terms</a> |
+		<a href="javascript:currentWindow().show_help_modal('HELP_OVERVIEW_PRIVACY')" n:render="i18n">privacy</a> |
+		<a href="/downloads/" n:render="i18n">download</a> |
+		<span id="forum_link_hook"></span> 
+		<span id="blog_link_hook"></span> 
+		<a href="javascript:draw_contact_form()">contact</a> |
+		<a href="/developers/" n:render="i18n">developers</a>
+	</div>
+	<div class="boilerplate" n:render="copyright"></div>
+</div>
+<br />
+<br />
+
+</body>
+</html>

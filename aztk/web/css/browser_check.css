@@ -1,0 +1,24 @@
+div#main_page_container {
+ width: 855px;
+ margin: 0 auto;
+ margin-top: 20px;
+}
+.footer_bar {
+ color: #989898;
+ width: 845px;
+ margin: 0 auto;
+ margin-top: 20px;
+}
+.boilerplate{
+ color: #989898;
+ width: 845px;
+ margin: 0 auto;
+}
+ul {
+ font-size: 16px;
+ padding-left: 14px;
+ margin-bottom: 0;
+}
+li {
+ list-style: disc;
+}

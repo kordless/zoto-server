@@ -1,0 +1,201 @@
+div#place_holder {
+	height: 10px;
+}
+div#drop_separator {
+	background: lightyellow;
+	text-align: center;
+	font-size: 40pt;
+	font-weight: bold;
+	color: #ccc;
+	margin-bottom: 10px;
+}
+div.column {
+	width: 32.5%;
+	border: 2px solid white;
+	margin-right: 4px;
+	float: left;
+	min-height: 100px;
+	background: white;
+	min-width: 320px;
+	display: inline; /* FIX FOR IE, other browsers ignore... */
+}
+div.widget {
+	overflow:hidden;
+}
+div.real_widget {
+	margin-bottom: 10px;
+}
+div.drag_handle {
+	cursor: move;
+	text-align: left;
+	font-size: 10px;
+	line-height: 3.5em;
+	margin-bottom: 10px;
+	border-top: 1px solid #c0c0c0;
+	border-bottom: 1px solid #c0c0c0;
+	float: left;
+	width: 100%;
+	padding-top: 4px;
+	
+}
+div.drag_handle_fake {
+	background-color: white;
+	text-align: left;
+	font-size: 10px;
+	line-height: 3.5em;
+	margin-bottom: 10px;
+	border-top: 1px solid #c0c0c0;
+	border-bottom: 1px solid #c0c0c0;
+	float: left;
+	width: 100%;
+	padding-top: 4px;
+	
+}
+div.drag_handle_fake h3, div.drag_handle h3 {
+	line-height:1.6em;
+}
+
+div.user_info_header {
+	font-size: 16px;
+	font-style: italic;
+	padding-bottom: 2px;
+}
+div.widget_top_link_holder {
+	float: right;
+}
+
+a.widget_top_link {
+	font-family: "Nimbus Sans L", "Trebuchet MS", Trebuchet, Helvetica, Arial, sans-serif;
+	font-size: 12px;
+	float: left;
+	display:block;
+}
+
+div#user_bio_widget_content{
+	line-height:1.4em;
+}
+
+
+ul#widget_list {
+	position: relative;
+	font-size: 12px;
+	padding: 0;
+	margin: 0;
+}
+ul#widget_list li {
+	margin-left: 0;
+	padding-left: 16px;
+	background: white url('/image/bullet_toggle_plus.png') 0px 6px no-repeat;
+}
+ul#widget_list li:hover {
+	background: white url('/image/bullet_toggle_plus_hover.png') 0px 6px no-repeat;
+}
+
+
+/* feature photo modal */
+.edit_feature_modal .error_message {
+	float:none !important;
+	display:inline !important;
+}
+.edit_feature_modal .selection_links{
+	position:relative;
+	top:3px;
+}
+.edit_feature_modal .album_item {
+	height:190px
+}
+.edit_feature_modal .album_view {
+	height: 420px;
+	width: 838px;
+}
+.edit_feature_modal h3{
+
+	margin-bottom: 12px;
+}
+.edit_feature_modal .select_box{
+	margin-right:5px;
+}
+.edit_feature_modal .top_controls{
+	text-align:right;
+}
+.edit_feature_modal h5 {
+	position:relative;
+	left:-10px;
+	top:2px;
+	float:right;
+	text-align:right;
+	white-space:pre;
+	display:inline;
+}
+.edit_feature_modal .close_x_link {
+	float:right;
+}
+.edit_feature_modal fieldset{
+	display:block;
+	width:100%;
+	height:30px;
+	margin-bottom:10px;
+}
+
+
+
+/* photo widget */
+.edit_photo_widget_modal * {
+	float:none;
+	line-height:1.2;
+}
+.edit_photo_widget_modal label{
+	display:block;
+	margin-bottom:8px;
+}
+.edit_photo_widget_modal div.container {
+	margin:0px 0px 8px 0px ;
+	padding:0px;
+	height:44px;
+}
+.edit_photo_widget_modal .button_group {
+	position:absolute;
+	left:18px;
+	top:340px;
+}
+
+
+
+/* contact widget */
+.edit_contact_widget_modal {
+	line-height:1.2em;
+}
+.edit_contact_widget_modal h3 {
+	float:none;
+	padding-bottom:10px;
+}
+.edit_contact_widget_modal div.error_message {
+	float:none;
+	margin-bottom:8px;
+}
+.edit_contact_widget_modal .sub_head {
+	float:none;
+	clear:both;
+	display:block;
+	margin-bottom: 10px;
+}
+.edit_contact_widget_modal div.container{
+	margin:8px 0px 0px 0px;
+	padding:0px;
+	height:50px;
+}
+.edit_contact_widget_modal label{
+	display:block;
+	margin-bottom:8px;
+	padding:0px;
+	clear:both;
+}
+.edit_contact_widget_modal .button_group{
+	float:none;
+	position:absolute;
+	left:18px;
+	top:335px;
+}
+.edit_contact_widget_modal input.lookahead{
+	float:none;
+}

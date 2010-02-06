@@ -1,0 +1,19 @@
+#about-page .staff {
+	width:280px;
+	-moz-border-radius:4px;
+	text-align:left;
+	border:1px solid #eee;
+	background-color:white;
+	margin:5px;
+	padding:8px;
+	float: left;
+}
+
+#about-page .staff img {
+	width:280px;
+	border:1px solid silver;
+}
+#about-page h2 {
+	font:bold 15px Verdana,sans-serif;
+	margin-top:12px;
+}

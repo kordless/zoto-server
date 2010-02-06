@@ -1,0 +1,105 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+
+<head n:render="head_tag">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title n:render="title"/>
+
+<n:slot name="css_includes"/>
+<n:slot name="feed_includes"/>
+<link rel="shortcut icon" href="/image/favicon.ico" />
+<script type="text/javascript">
+	var zoto_domain = '<n:invisible n:render="domain_name"/>';
+	var zapi_key = '<n:invisible n:render="js_zapi_key"/>';
+	var browse_username = '<n:invisible n:render="js_browse_username"/>';
+	var zoto_color = '<n:invisible n:render="js_color_option"/>';
+</script>
+<n:slot name="js_includes"/>
+<n:slot name="meta_tags"/>
+<style>
+div#top_bar {
+	min-height: 0px;
+	height: auto;
+}
+</style>
+</head>
+
+<body n:render="content">
+<div id="width_constraint">
+<n:slot name="header_bar"/>
+<div id="body_indent">
+<n:slot name="top_bar"/>
+	<div id="developers_page">
+	<h3>introduction</h3>
+	<div class="verbage">
+	We provide an API for anyone who wants to use Zoto's backend functionality. API is an Application Programming Interface. Zoto's API, ZAPI for short, exposes nearly all of our methods to the public. Anyone can use these methods to develop applications that suit specific needs. You don't have to be logged in or even have an account to use public methods through ZAPI. You only need a key from us and you can request one 
+	<a href="javascript:void(0);" class="api_modal_link"></a>. 
+	When you make something cool, let us know and we'll post it because there's probably someone else that will use, modify, or improve it. Lots of eyes will see it so you'll be famous.
+	</div>
+	<h3>class overview</h3>
+	<div class="verbage">
+	The following ZAPI classes are available. Each class has it's own methods. Click on a class name for details.
+	</div>
+	<ul id="class_list" height="400px">
+	</ul>
+	<h3>making a connection</h3>
+	<div class="verbage">
+	We use
+	<a href="http://en.wikipedia.org/wiki/Python_%28programming_language%29"> Python </a>
+	programming language throughout our examples, but you can use just about any language that has an
+	<a href="http://en.wikipedia.org/wiki/Xmlrpc"> XMLRPC </a>
+	library. Before anything can happen you have to make a XMLRPC connection to our server. Both the API key and zoto_auth are required, but you can use 'anonymous'/'anonymous' in zoto_username/zoto_password for public functions. Connecting anonymously limits access to functionality to public methods. If you DO want to authenticate with your login credentials, replace anonymous with your zoto username and the same with your zoto password (you must have an account to do this)...Don't forget to uncomment the line that hashes your password.
+	</div>
+	<div class="example_code">
+	<span class="code_reserved">import </span> sys, xmlrpclib, md5<br /><br />
+	<span class="code_comment"># If you want to access data that requires you to be logged in<br />
+	# then replace anonymous with your zoto credentials, otherwhise just<br />
+	# leave these variables set to anonymous.</span><br />
+	zoto_username = '<span class="code_string">anonymous</span>'
+	zoto_password = '<span class="code_string">anonymous</span>'<br /><br />
+	<span class="code_comment"># If you used your zoto credentials above, uncomment the following line.<br />
+	# zoto_password = md5.md5('zoto_password').hexdigest()</span><br />
+	zoto_auth = {' <span class="code_string">username':</span> zoto_username, <span class='code_string'> 'password'</span>: zoto_password}<br />
+	api_key = '<span class="code_string">Enter your 32 character api key here</span>'<br /><br />
+	<span class="code_comment"># Establish cummunication with our server</span>
+	<br />
+	zapi_server = xmlrpclib.Server('<span class="code_string">http://www.zoto.com/RPC2/</span>')
+	</div>
+	<h3>calling a method</h3>
+	<div class="verbage">
+	Once a connection is established, the fun begins. The following example is a method call to get a user's basic information (mostly stuff from the user's profile). The first two arguments required for every method call are zapi_key and zoto_auth. They must be present. zapi_key is a 32-character String type that we have assigned to you. zoto_auth is a Python Dictionary type (synonymous to Associative Arrays in other languages) that contains your zoto login information. Both of these were set in the connection example above.
+	</div>
+	<div class="example_code">
+	clints_awesome_info = zapi_server.users.get_info(api_key, zoto_auth, '<span class="code_string">clint</span>')<br />
+	<span class="code_command">print </span>clints_awesome_info
+	</div>
+	<div class="verbage">
+	With rare exception, the structure type returned is a two-element tuple (also known as an Ordered List or a Pair). If the method was successful [0, return_info] is returned, if there was a problem [-1, error_message] is returned. There's usually some pretty helpful information in the error message.
+	</div>
+</div>
+
+	<div id="methods_page">
+		<h3>name</h3><br />
+		<span id="class_name"></span> - <span id="class_summary"></span><br /><br />
+		<h3>ZAPI methods</h3><br />
+		<div id="methods_list">
+		</div>
+	</div>
+<div class="footer_bar">
+	<a href="/" n:render="i18n">home</a> |
+	<a href="javascript:currentWindow().show_help_modal('HELP_OVERVIEW_TERMS')" n:render="i18n">terms</a> |
+	<a href="javascript:currentWindow().show_help_modal('HELP_OVERVIEW_PRIVACY')" n:render="i18n">privacy</a> |
+	<a href="/downloads/" n:render="i18n">download</a> |
+	<span id="forum_link_hook"></span> 
+	<span id="blog_link_hook"></span> 
+	<a href="javascript:draw_contact_form()">contact</a> |
+	<a href="/developers/" n:render="i18n">developers</a>
+</div>
+<div class="boilerplate" n:render="copyright">
+</div>
+</div>
+</div>
+<br />
+<br />
+</body>
+</html>

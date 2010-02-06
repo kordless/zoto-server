@@ -1,0 +1,29 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+
+<head n:render="head_tag">
+<title n:render="title"/>
+
+<n:slot name="css_includes"/>
+<n:slot name="feed_includes"/>
+<link rel="shortcut icon" href="/image/favicon.ico" />
+<script type="text/javascript">
+	var zoto_domain = '<n:invisible n:render="domain_name"/>';
+	var zapi_key = '<n:invisible n:render="js_zapi_key"/>';
+	var browse_username = '<n:invisible n:render="js_browse_username"/>';
+	var zoto_color = '<n:invisible n:render="js_color_option"/>';
+	var bypass_normal_load = true;
+</script>
+<n:slot name="js_includes"/>
+<n:slot name="meta_tags"/>
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<script type="text/javascript">
+	<n:invisible n:render="album_info"/>
+</script>
+<n:invisible n:render="album_style"/>
+<n:invisible n:render="album_script"/>
+</head>
+
+<n:invisible n:render="content"/>
+</html>

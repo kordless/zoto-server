@@ -1,0 +1,23 @@
+<div xmlns:n="http://nevow.com/ns/nevow/0.1">
+<script type="text/javascript">
+if(is_supported_browser() == 'ie6') {
+	window.location="http://notice."+zoto_domain+"/?op=ie6";
+} else if (!is_supported_browser()) {
+	window.location="http://notice."+zoto_domain+"/?op=ub";
+} else {
+	set_cookie("requested_page", window.location);
+	set_cookie("browser_checked", "TRUE", 100);
+	currentWindow().location = "/browser_check/step2/"+currentWindow().location.hash;
+}
+</script>
+<noscript>
+<n:invisible n:render="noscript_meta" />
+</noscript>
+<div id="main_page_container">
+	<div id="header_bar" style="margin: 0;">
+			<a href="/" id="logo"><img src="/image/main_logo.jpg" alt="Zoto Logo" /></a>
+			<br style="clear:both;" />
+	</div>
+	<div id="manager_hook"></div>
+</div>
+</div>

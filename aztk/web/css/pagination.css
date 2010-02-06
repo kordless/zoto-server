@@ -1,0 +1,55 @@
+div.go_to_page_holder {
+	float: left;
+}
+div.go_to_page_holder form {
+	_width: 72px;
+}
+input.page_box {
+	float: left;
+	width: 30px;
+	border: 1px solid #c0c0c0;
+	margin-right: 4px;
+	font-size: 11px;
+	height: 16px;
+}
+div.page_holder {
+	float: left;
+	color: black;
+	font-family: Verdana;
+	font-size: 8px;
+	height: 18px;
+	line-height: 18px;
+}
+a.page {
+	display: block;
+	float: left;
+	border: 1px solid #c0c0c0;
+	background: white;
+	padding: 0 4px;
+
+	height: 18px;
+	line-height: 16px;
+	font-family: Verdana;
+	margin-right: 2px;
+	font-size: 9px;
+	text-align:center;
+}
+a.page:hover {
+	background: #ff6699;
+	color: white;
+}
+a.selected {
+	background: #ccc;
+	color: white;
+}
+a.selected:hover {
+	background: #ccc;
+	color: white;
+}
+a.disabled {
+	background: white;
+}
+a.disabled:hover {
+	background: white;
+	color: #eb195c;
+}

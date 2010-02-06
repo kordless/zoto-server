@@ -1,0 +1,220 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:n="http://nevow.com/ns/nevow/0.1">
+
+<head n:render="head_tag">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<title n:render="title"/>
+<meta name="keywords" content="photography, digital photography, cameraphones, camera, hobby photography, photo, photos, digital camera, compactflash, smartmedia, cameras, canon, nikon, olympus"/>
+<meta name="description" content="Zoto is the best way to share and organize your photos.  Zoto's site works like a desktop photo sharing application, letting you quickly share your favorite photos with friends and family, and making sure they are all securely stored."/>
+<meta name="verify-v1" content="WbVDgDcEMWi8rnyWLeTwD2uLHhlH8Tu4ysIeKjbXBzo=" />
+
+<n:slot name="css_includes"/>
+<n:slot name="feed_includes"/>
+<link rel="shortcut icon" href="/image/favicon.ico" />
+<script type="text/javascript">
+	var zoto_domain = '<n:invisible n:render="domain_name"/>';
+	var zapi_key = '<n:invisible n:render="js_zapi_key"/>';
+	var browse_username = '<n:invisible n:render="js_browse_username"/>';
+	var zoto_color = '<n:invisible n:render="js_color_option"/>';
+</script>
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript"></script>
+<script type="text/javascript">
+_uacct = "UA-232010-1";
+urchinTracker();
+</script>
+<n:slot name="js_includes"/>
+<n:slot name="meta_tags"/>
+<style>
+div#top_bar {
+	min-height: 0px;
+	height: auto;
+}
+</style>
+<script type="text/javascript">
+<!--
+function show_content_div(e) {
+	var idx = e.target().id.replace("opener_", "");
+	hide_all();
+	set_visible(true, $("content_" + idx));
+}
+function hide_all() {
+	for (var i = 0; i < 7; i++) {
+		set_visible(false, $("content_" + i));
+	}
+}
+function page_load() {
+	currentDocument().user_bar = new zoto_user_bar();
+	currentDocument().search_box = new zoto_search_box();
+	var search_holder = DIV({'id': "main_search_box"}, currentDocument().search_box.el);
+	currentDocument().user_bar.set_path([{'name': "home", 'url': "/"}], "features");
+	currentDocument().search_box.initialize();
+	replaceChildNodes($('top_bar'), currentDocument().user_bar.el, search_holder, BR({'clear': "left"}));
+	for (var i = 0; i < 7; i++) {
+		connect($('opener_' + i), 'onmouseover', show_content_div)
+	}
+}
+-->
+</script>
+</head>
+
+<body n:render="content">
+<div id="width_constraint">
+<n:slot name="header_bar"/>
+<div id="body_indent">
+<n:slot name="top_bar"/>
+	<div id="manager_hook">
+		<div>
+			<h3>Ready to share your photos with the world? Take a look at all of the great features that you get when you join Zoto. Only $19.95 for a one year membership? What a great deal! Go to the <a href="/signup/">signup form</a> now and take us for a test drive.</h3>
+			<br clear="all" />
+			<div>
+				<div style="float: left">
+					<h5>>> <a id="opener_0" href="javascript: void(0);">securely store your photos</a></h5>
+					<h5>>> <a id="opener_1" href="javascript: void(0);">share your photos</a></h5>
+					<h5>>> <a id="opener_2" href="javascript: void(0);">publish your photos</a></h5>
+					<h5>>> <a id="opener_3" href="javascript: void(0);">organize your photos</a></h5>
+					<h5>>> <a id="opener_4" href="javascript: void(0);">view your photos</a></h5>
+					<h5>>> <a id="opener_5" href="javascript: void(0);">full feature list</a></h5>
+					<h5>>> <a id="opener_6" href="javascript: void(0);">why pay for Zoto?</a></h5>
+					<br />
+					<a id="signmeup_btn" href="/signup/" title="sign me up now!" />
+				</div>
+				<div id="right_col">
+					<div id="content_0" class="right_content">
+						<div class="yellowcontainer">
+							<div class="yellowtext">
+								<p>
+								- Create a safe <strong> online archive </strong> for your photos<br />
+								- <strong> Unlimited storage </strong> eliminates pesky upload limits<br />
+								- Access your photos from <strong> anywhere in the world </strong><br />
+								- Upload photos any time from any machine<br />
+								- Quickly upload entire folders of photos
+								</p>
+							</div>
+						</div>
+						<div class="imagecontainer" id="landing01">
+						</div>
+					</div>
+					<div id="content_1" class="right_content invisible">
+						<div class="yellowcontainer">
+							<div class="yellowtext">
+								<p>
+								- Create <strong> beautiful, customized albums </strong> for your photos<br />
+								- Control the background color, thumbnail size, alignment, and link color<br />
+								- Explore new templates updates<br />
+								- Post one or multiple photos to your blog<br />
+								- <strong>Email photos and albums </strong>to your family and friends<br />
+								- View an <a href="http://www.zoto.com/kordless/albums/4123">example album</a>
+								</p>
+							</div>
+						</div>
+						<div class="imagecontainer" id="landing04">
+						</div>
+					</div>
+					<div id="content_2" class="right_content invisible">
+						<div class="yellowcontainer">
+							<div class="yellowtext">
+								<p>
+								- Post <strong> one or multiple photos </strong> to your blog<br />
+								- Send pics to your <strong> flickr </strong> account
+								</p>
+							</div>
+						</div>
+						<div class="imagecontainer" id="landing03">
+						</div>
+					</div>
+					<div id="content_3" class="right_content invisible">
+						<div class="yellowcontainer">
+							<div class="yellowtext">
+								<p>
+								- Easy to use <strong> tagging interface </strong> allows for rapid organization<br />
+								- <strong>Bulk editing </strong> provides quick editing of hundreds of photos at a time<br />
+								- <strong>Albums </strong> and <strong> album sets </strong> let you show off your photos<br />
+								- Advanced searching allows you to find that perfect photo
+								</p>
+							</div>
+						</div>
+						<div class="imagecontainer" id="landing02">
+						</div>
+					</div>
+					<div id="content_4" class="right_content invisible">
+						<div class="yellowcontainer">
+							<div class="yellowtext">
+								<p>
+								- Lightbox options allow you to <strong> view photos the way you want</strong><br />
+								- Customizable <strong> homepage widgets </strong> for the content you choose<br />
+								- Explore community sections filled with tons of new photos<br />
+								- View <strong> users and photos as they appear in real time </strong> with the Zoto spy
+								</p>
+							</div>
+						</div>
+						<div class="imagecontainer" id="landing05">
+						</div>
+					</div>
+					<div id="content_5" class="right_content invisible">
+						<div class="yellowcontainer">
+							<div class="yellowtext">
+								<p>
+								- Unlimited <strong>storage &amp; backup</strong><br />
+								- Upload via browser or our software<br />
+								- Tagging and other organization features<br />
+								- Create <strong> unlimited, beautiful custom albums </strong> and share them<br />
+								- Tag photos for easier organization and searching<br />
+								- Make your changes in a snap with the <strong> bulk organizer</strong><br />
+								- Create <strong>Albums </strong> and <strong> album sets</strong><br />
+								- Enjoy your photos <strong>without annoying ads</strong><br />
+								- Add <strong>titles and descriptions </strong> to photos<br />
+								- <strong>Enhance photos online </strong> - no image editing software required<br />
+								- Lightbox options allow you to <strong> view photos the way you want</strong><br />
+								- Customizable <strong> homepage widgets </strong> for the content you choose<br />
+								- Explore community sections filled with tons of new photos<br />
+								- View <strong> users and photos as they appear in real time </strong> with the Zoto spy<br /><br />
+								Coming soon:<br /><br />
+								- Photo widgets for blogs &amp; MySpace pages<br />
+								- More themes and templates for albums<br />
+								- Photo printing
+								</p>
+							</div>
+						</div>
+						<div class="imagecontainer" id="landing06">
+						</div>
+					</div>
+					<div id="content_6" class="right_content invisible">
+						<div class="yellowcontainer">
+							<div class="yellowtext">
+								<p>
+								Paying for an online account ensures that your photos <strong> are always safe and secure</strong><br /><br />
+								The old saying is 100% true.<strong> You get what you pay for.</strong> As a paying customer you can be assured that your issues, concerns, requests and suggestions will always be addressed in a timely manner by our supportive staff.<br /><br />
+								Unlike free sites you will never have to deal with ads that distract from your photos and albums. That's right. <strong> No ads, no spam, and we will never delete your photos.</strong><br /><br />
+								As a pay-for-it service our staff can devote more time to developing rich features and custom templates to enhance your photo sharing experience.
+								</p>
+							</div>
+						</div>
+						<div class="imagecontainer" id="landing07">
+						</div>
+					</div>
+				</div>
+				<br clear="all" />
+			</div>
+		</div>
+	</div>
+<br clear="left" />
+<div class="footer_bar">
+	<a href="/" n:render="i18n">home</a> |
+	<a href="javascript:currentWindow().show_help_modal('HELP_OVERVIEW_TERMS')" n:render="i18n">terms</a> |
+	<a href="javascript:currentWindow().show_help_modal('HELP_OVERVIEW_PRIVACY')" n:render="i18n">privacy</a> |
+	<a href="/downloads/" n:render="i18n">download</a> |
+	<span id="forum_link_hook"></span> 
+	<span id="blog_link_hook"></span> 
+	<a href="javascript:draw_contact_form()">contact</a>
+<!--
+	<br />
+	<div id="language_selection"></div>
+-->
+</div>
+<div class="boilerplate" n:render="copyright"></div>
+<br />
+<br />
+</div>
+</div>
+</body>
+</html>

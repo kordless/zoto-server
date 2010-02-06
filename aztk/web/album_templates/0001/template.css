@@ -1,0 +1,90 @@
+#global_spinner {
+	display:none !important;
+	height:1px !important;
+	width:1px !important;
+}
+.album_container {
+	margin-left:auto;
+	margin-right:auto;
+	padding:30px 30px 0px 30px;
+}
+.album_container #album_title{
+	margin:0px 0px 10px 0px;
+}
+.album_container #album_description{
+	margin:0px 0px 20px 0px;
+	font-style:italic;
+}
+.album_container #links{
+	clear:both;
+	margin:20px 0px 0px 0px;
+}
+.album_container #pagination{
+	height:30px;
+	padding:20px 0px 8px 0px;
+	clear:both;
+	width:100%;
+}
+.album_container #pagination .page_holder {
+	float:none !important;
+	display:inline;
+}
+.album_container #pagination .page_holder .page{
+	float:none !important;
+	display:inline;
+	border:1px solid transparent;
+}
+.album_container #pagination .go_to_page_holder {
+	display:none !important;
+}
+
+.album_container #footer{
+	line-height:1.2em;
+	clear:both;
+}
+
+.album_container #boilerplate{
+	height:30px;
+}
+
+.album_container .page, .album_container .selected {
+	background:none !important;
+}
+
+.album_container .album_image {
+	float:left;
+}
+
+.album_container .image_size_16 {
+	height:75px;
+	width:75px;
+	margin:0px 8px 8px 0px;
+/*	height:115px;
+	width:120px;*/
+}
+.album_container .image_size_23 {
+	height:100px;
+	width:100px;
+	margin:0px 8px 8px 0px;
+/*	height:140px;
+	width:140px;*/
+}
+.album_container .image_size_28 {
+	height:240px;
+	width:240px;
+	margin:0px 12px 12px 0px;
+/*	height:280px;
+	width:295px;*/
+}
+
+.modal_content {
+	margin:20px !important;
+}
+.comment_wrapper {
+	float:left;
+	height:300px;
+	overflow:auto;
+}
+
+
+

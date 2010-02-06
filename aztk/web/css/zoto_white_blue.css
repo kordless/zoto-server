@@ -1,0 +1,1456 @@
+/*********************************************************
+	zoto_layout.css
+	
+	Index:
+		Globals
+		Assets
+			calendar
+			contact popup
+			detail image
+			duallist
+			edit bars
+			epaper
+			errormessage
+			helperbuddies
+			ie nag
+			infostrip
+			lookahead
+			menuboxes
+			pagination
+			select boxes
+			spinners
+			tab bar
+			user bar
+			
+		Pages
+			all pages
+			albums
+			community spy
+			contacts
+			features
+			404
+			globber
+			image detail
+			main homepage
+			messages
+			quickstart
+			reset password
+			signup/upgrade
+			tags
+			user homepage
+			
+		Modals
+			all modals
+			album edit sets
+			album create album
+			album template
+			album edit sets table
+			authinator
+			contact modals
+			contact edit
+			contact invite
+			edit date
+			messages: new message
+			messages: read/reply
+			permissions
+			settings
+			upload 
+			
+			
+*********************************************************/
+/******************************************************************************************************************
+					G L O B A L S
+******************************************************************************************************************/
+
+/**
+	background images set via css go in color
+*/
+
+.light_grey{
+	color: #989898;
+}
+.current_page {
+	font-weight:bold;
+}
+a, .link_color {
+	color: #7fbae6;
+}
+
+a:hover {
+	color: #cbcbcb;
+}
+h3.empty_widget {
+	color: #989898;
+}
+
+a.form_button, a.form_button_disabled {
+	color: #666;
+	background: #fff url('/image/bg_white/box_gradient_normal.png') left bottom repeat-x;
+	border: 1px solid #cbcbcb;
+}
+a.form_button:hover {
+	background: #fff url('/image/bg_white/blue/box_gradient_active.png') left bottom repeat-x;
+	color: #7fbae6;
+/*	border: 1px solid #7fbae6;*/
+}
+a.form_button_disabled, a.form_button_disabled:hover {
+	background: #fff url('/image/bg_white/box_gradient_disabled.png') left bottom repeat-x;
+	color: #959595;
+	border: 1px solid #e0e0e0;
+}
+input.text, textarea{
+	border: 1px solid #c2c2c2;
+	color: #666;
+}
+input.text:focus {
+	border: 1px solid #989898;
+}
+
+/******************************************************************************************************************
+														A S S E T S
+******************************************************************************************************************/
+
+/*********************************************************
+					C A L E N D A R
+*********************************************************/
+table.calendar_page td.active {
+	background: #e0e0e0;
+}
+table.calendar_page td.current {
+	background: #b8b8b8;
+	color: #fff;
+}
+
+/*********************************************************
+					D E T A I L  I M A G E
+*********************************************************/
+div#img_holder {
+	background: #fff url('/image/bg_white/spinner.gif') center center no-repeat;
+	border: 1px solid #c2c2c2;
+}
+span#pink_key {
+        background: url('/image/image_detail/keypink16x16.png') center center no-repeat;
+}
+span#yellow_key {
+        background: url('/image/image_detail/keyyellow16x16.png') center center no-repeat;
+}
+span#grey_key {
+        background: url('/image/image_detail/keygrey16x16.png') center center no-repeat;
+}
+span#cc_attrib {
+        background: url('/image/image_detail/cc_icon_attribution_small.gif') center center no-repeat;
+}
+span#cc_noncomm {
+        background: url('/image/image_detail/cc_icon_noncomm_small.gif') center center no-repeat;
+}
+span#cc_noderivs {
+        background: url('/image/image_detail/cc_icon_nonderivs_small.gif') center center no-repeat;
+}
+span#cc_sharealike {
+        background: url('/image/image_detail/cc_icon_sharealike_small.gif') center center no-repeat;
+}
+
+/*********************************************************
+					D U A L L I S T
+*********************************************************/
+.dual_select_list select{
+	border:1px solid #cdcdcd;
+	color:#989898;
+}
+
+.dual_select_list select.dual_list_disabled{
+	background-color:#ededed;
+}
+
+/*********************************************************
+					E D I T  B A R S
+*********************************************************/
+div#editing_bar {
+	color: #989898;
+}
+a#edit_icon_album {
+	background:url('/image/bg_white/edit_bar_icons/add_edit_albums_off.png') center center no-repeat;
+}
+a#edit_icon_album:hover{
+	background:url('/image/bg_white/blue/edit_bar_icons/add_edit_albums_on.png') center center no-repeat;
+}
+
+a#edit_icon_group{
+	background:url('/image/bg_white/edit_bar_icons/add_edit_groups_off.png') center center no-repeat;
+}
+a#edit_icon_group:hover{
+	background:url('/image/bg_white/blue/edit_bar_icons/add_edit_groups_on.png') center center no-repeat;
+}
+
+a#edit_icon_tag{
+	background:url('/image/bg_white/edit_bar_icons/edit_tags_off.png') center center no-repeat;
+}
+a#edit_icon_tag:hover{
+	background:url('/image/bg_white/blue/edit_bar_icons/edit_tags_on.png') center center no-repeat;
+}
+
+a#edit_icon_text{
+	background:url('/image/bg_white/edit_bar_icons/edit_text_off.png') center center no-repeat;
+}
+a#edit_icon_text:hover{
+	background:url('/image/bg_white/blue/edit_bar_icons/edit_text_on.png') center center no-repeat;
+}
+
+a#edit_icon_date{
+	background:url('/image/bg_white/edit_bar_icons/edit_date_off.png') center center no-repeat;
+}
+a#edit_icon_date:hover{
+	background:url('/image/bg_white/blue/edit_bar_icons/edit_date_on.png') center center no-repeat;
+}
+
+a#edit_icon_geotag{
+	background:url('/image/bg_white/edit_bar_icons/geo_tags_off.png') center center no-repeat;
+}
+a#edit_icon_geotag:hover{
+	background:url('/image/bg_white/blue/edit_bar_icons/geo_tags_on.png') center center no-repeat;
+}
+
+a#edit_icon_publish{
+	background:url('/image/bg_white/edit_bar_icons/publish_photos_off.png') center center no-repeat;
+}
+a#edit_icon_publish:hover{
+	background:url('/image/bg_white/blue/edit_bar_icons/publish_photos_on.png') center center no-repeat;
+}
+
+a#edit_icon_email{
+	background:url('/image/bg_white/edit_bar_icons/email_off.png') center center no-repeat;
+}
+a#edit_icon_email:hover{
+	background:url('/image/bg_white/blue/edit_bar_icons/email_on.png') center center no-repeat;
+}
+
+a#edit_icon_print{
+	background:url('/image/bg_white/edit_bar_icons/order_prints_off.png') center center no-repeat;
+}
+a#edit_icon_print:hover{
+	background:url('/image/bg_white/blue/edit_bar_icons/order_prints_on.png') center center no-repeat;
+}
+
+a#edit_icon_privacy{
+	background:url('/image/bg_white/edit_bar_icons/privacy_settings_off.png') center center no-repeat;
+}
+a#edit_icon_privacy:hover{
+	background:url('/image/bg_white/blue/edit_bar_icons/privacy_settings_on.png') center center no-repeat;
+}
+
+a#edit_icon_delete{
+	background:url('/image/bg_white/edit_bar_icons/delete_off.png') center center no-repeat;
+}
+a#edit_icon_delete:hover{
+	background:url('/image/bg_white/blue/edit_bar_icons/delete_on.png') center center no-repeat;
+}
+a#edit_icon_add_to_set{
+	background: url('/image/bg_white/edit_bar_icons/addtoset_off.png') center center no-repeat;
+}
+a#edit_icon_add_to_set:hover{
+	background: url('/image/bg_white/blue/edit_bar_icons/addtoset_on.png') center center no-repeat;
+}
+
+a#edit_icon_add_to_list{
+	background: url('/image/bg_white/edit_bar_icons/addtolist_off.png') center center no-repeat;
+}
+a#edit_icon_add_to_list:hover{
+	background: url('/image/bg_white/blue/edit_bar_icons/addtolist_on.png') center center no-repeat;
+}
+
+a#edit_icon_other_sizes{
+	background: url('/image/bg_white/image_detail/other_sizes.png') center center no-repeat;
+}
+a#edit_icon_other_sizes:hover{
+	background: url('/image/bg_white/blue/image_detail/other_sizes_over.png') center center no-repeat;
+}
+
+a#edit_icon_del{
+	background: url('/image/bg_white/image_detail/delete_image.png') center center no-repeat;
+}
+a#edit_icon_del:hover{
+	background: url('/image/bg_white/blue/image_detail/delete_image_over.png') center center no-repeat;
+}
+
+a#edit_icon_rotate_cw{
+	background: url('/image/bg_white/image_detail/rotate_image_cw.png') center center no-repeat;
+}
+a#edit_icon_rotate_cw:hover{
+	background: url('/image/bg_white/blue/image_detail/rotate_image_cw_over.png') center center no-repeat;
+}
+
+a#edit_icon_rotate_ccw{
+	background: url('/image/bg_white/image_detail/rotate_image_ccw.png') center center no-repeat;
+}
+a#edit_icon_rotate_ccw:hover{
+	background: url('/image/bg_white/blue/image_detail/rotate_image_ccw_over.png') center center no-repeat;
+}
+
+a#edit_icon_edit{
+	background: url('/image/bg_white/image_detail/edit_image.png') center center no-repeat;
+}
+a#edit_icon_edit:hover{
+	background: url('/image/bg_white/blue/image_detail/edit_image_over.png') center center no-repeat;
+}
+
+a#edit_icon_perm{
+	background: url('/image/bg_white/image_detail/privacy_normal.png') center center no-repeat;
+}
+a#edit_icon_perm:hover{
+	background: url('/image/bg_white/blue/image_detail/privacy_over.png') center center no-repeat;
+}
+
+a#edit_icon_email_nobdr{
+	background: url('/image/bg_white/image_detail/email_off.png') center center no-repeat;
+}
+a#edit_icon_email_nobdr:hover{
+	background: url('/image/bg_white/blue/image_detail/email_on.png') center center no-repeat;
+}
+
+a#edit_icon_undo{
+	background: url('/image/bg_white/image_detail/undo.png') center center no-repeat;
+}
+a#edit_icon_undo:hover{
+	background: url('/image/bg_white/blue/image_detail/undo_over.png') center center no-repeat;
+}
+
+a#edit_icon_licensing{
+	background: url('/image/edit_bar_icons/licensing_off.png') center center no-repeat;
+}
+a#edit_icon_licensing:hover{
+	background: url('/image/bg_white/blue/edit_bar_icons/licensing_on.png') center center no-repeat;
+}
+
+a#edit_icon_download{
+	background: url('/image/bg_white/edit_bar_icons/downloadphotos_off.png') center center no-repeat;
+}
+a#edit_icon_download:hover{
+	background: url('/image/bg_white/blue/edit_bar_icons/downloadphotos_on.png') center center no-repeat;
+}
+
+/*********************************************************
+					E P A P E R
+*********************************************************/
+a.e_paper {
+	color: #666;
+}
+a.e_paper_default {
+	color: #989898;
+}
+a.e_paper:hover {
+	background: #fbffbc;
+}
+a.e_paper_dafualt:hover {
+	background: #fbffbc;
+}
+.epaper_textarea {
+	border: 1px solid #c2c2c2;
+}
+div#title_epaper .epaper_input_box {
+	border: 1px solid #c2c2c2;
+}
+
+/*********************************************************
+				E R R O R M E S S A G E
+*********************************************************/
+div.error_message {
+	background: #fbfdbb url('/image/bg_white/icon_error.gif') 4px 4px no-repeat;
+	color: #6e6e6e;
+}
+
+/*********************************************************
+				H E L P E R  B U D D I E S
+*********************************************************/
+div#helper_buddy_box {
+	/* the little '?' links that popup a help box */
+	background: #F6FBFF url('/image/bg_white/icon_help.png') 5px 5px no-repeat;
+	border: 1px solid #DADBDD;
+}
+
+/*********************************************************
+						I E  N A G
+*********************************************************/
+#ie_nag .msg{
+	background-color:#FBFFBC;
+	border-bottom:2px solid #1c1c1c;
+}
+#ie_nag .close_link {
+	background: url('/image/bg_white/tiny_x1.png') center center no-repeat;
+}
+
+/*********************************************************
+					I N F O S T R I P
+*********************************************************/
+.infostrip {
+	color: #989898;
+}
+
+/*********************************************************
+				L O O K A H E A D
+*********************************************************/
+div.look_ahead_holder {
+	border: 1px solid #c2c2c2;
+	border-top: 1px solid #fff;
+	background: #f9f9f9;
+}
+div.look_ahead_holder ul li a {
+	color: #222;
+}
+div.look_ahead_holder a.highlighted {
+	color: #fff;
+	background: #7fbae6;
+}
+
+/*********************************************************
+					M E N U B O X E S
+*********************************************************/
+.zoto_menu a.disabled_menu{
+	color:#c2c2c2;
+}
+.zoto_menu a.opened_menu{
+	color:#c2c2c2;
+}
+
+.zoto_menu div {
+	background-color:#fff;
+	border:1px solid #c2c2c2;
+}
+.zoto_menu .widget{
+	background: #fff url('/image/bg_white/bullet_toggle_plus.png') 0px 4px no-repeat;
+}
+.zoto_menu .widget:hover{
+	background: #fff url('/image/bg_white/bullet_toggle_plus_hover.png') 0px 4px no-repeat;
+}
+
+/*********************************************************
+					P A G I N A T I O N
+*********************************************************/
+input.page_box {
+	border: 1px solid #c0c0c0;
+	color:#666;
+}
+a.page {
+	border: 1px solid #c0c0c0;
+	background: #fff;
+}
+
+a.page:hover {
+	background: #7fbae6;
+	color: #fff;
+}
+a.selected {
+	background: #ccc;
+	color: #fff;
+}
+a.selected:hover {
+	background: #ccc;
+	color: #fff;
+}
+a.disabled {
+	background: #fff;
+}
+a.disabled:hover {
+	background: #fff;
+	color: #eb195c;
+}
+
+/*********************************************************
+					S E L E C T B O X E S
+*********************************************************/
+div.select_box a {
+	color: #666;
+}
+
+div.select_box a.main_link {
+	border: 1px solid #c2c2c2;
+	background: #fff url('/image/bg_white/dropdown_bg_off.png') right center no-repeat;
+}
+div.select_box a.main_link:hover {
+	background: #fff url('/image/bg_white/blue/dropdown_bg_on.png') right center no-repeat;
+/*	border: 1px solid #7fbae6;*/
+}
+div.select_box ul {
+	background: #fff;
+}
+
+div.select_box ul.active {
+	border:1px solid #c2c2c2;
+	border-top: 1px dotted #d2d2d2;
+}
+div.select_box li a {
+	border-left: 5px solid #fff;
+}
+div.select_box ul li a:hover {
+	border-left: 5px solid #7fbae6;
+	background: #f8f8f8;
+}
+div.select_box li a.placeholder, div.select_box li a.placeholder:hover { 
+	border-bottom: 1px solid #666;
+	background: #fff;
+}
+div.select_box a.select_box_disabled, div.select_box a.select_box_disabled:hover {
+	background: #fff url('/image/bg_white/dropdown_bg_off.png') right center no-repeat;
+	color: #959595;
+	border: 1px solid #e0e0e0;
+}
+
+/*********************************************************
+						S P I N N E R S
+*********************************************************/
+div#global_spinner {
+	background: #fff url('/image/bg_white/spinner.gif') 4px 4px no-repeat;
+	color: #989898;
+}
+
+div.resizable_spinner {
+	background: #fff url('/image/bg_white/spinner.gif') center center no-repeat;
+}
+
+.uploader_spinner {
+	padding:5px 0px 5px 30px; 
+	background:url("/image/bg_white/spinner.gif") center left no-repeat;
+}
+
+/*********************************************************
+						T A G S
+*********************************************************/
+.related {
+	background-color: #fbffbc;
+}
+
+/*********************************************************
+					T A B B A R
+*********************************************************/
+
+ul.tab_bar li a div.tab_center {
+	color: #666;
+}	
+ul.tab_bar li.tab_active {
+	border-bottom: 1px solid #fff;
+}
+ul.tab_bar li.tab_active a {
+	background: #fff url('/image/bg_white/top_tab_active_left.png') left top no-repeat;
+}
+ul.tab_bar li.tab_active a div.tab_right_corner {
+	background: url('/image/bg_white/top_tab_active_right.png') right top no-repeat;
+}
+ul.tab_bar li.tab_active a div.tab_center {
+	background: url('/image/bg_white/top_tab_active.png') top left repeat;
+}
+
+ul.tab_bar li.tab_inactive {
+	border-bottom: 1px solid #ccc;
+}
+ul.tab_bar li.tab_inactive a {
+	background: #e0e0e0 url('/image/bg_white/top_tab_inactive_left_light.png') left top no-repeat;
+}
+ul.tab_bar li.tab_inactive a div.tab_right_corner {
+	background: url('/image/bg_white/top_tab_inactive_right_light.png') right top no-repeat;
+}
+ul.tab_bar li.tab_inactive a div.tab_center {
+	background: url('/image/bg_white/top_tab_inactive_light.png') top left repeat;
+}
+
+ul.tab_bar li.tab_inactive a:hover {
+	background: #e0e0e0 url('/image/bg_white/blue/top_tab_inactive_left.png') left top no-repeat;
+}
+ul.tab_bar li.tab_inactive a:hover div.tab_right_corner {
+	background: url('/image/bg_white/blue/top_tab_inactive_right.png') right top no-repeat;
+}
+ul.tab_bar li.tab_inactive a:hover div.tab_center {
+	background: url('/image/bg_white/blue/top_tab_inactive.png') top left repeat;
+	color: #989898;
+}
+
+/*********************************************************
+			U P L O A D E R  ( I F R A M E)
+*********************************************************/
+div.iframe_uploader .spinner {
+	background:url('http://www.zoto.com/image/spinner.gif') center center no-repeat;
+}
+
+/*********************************************************
+						U S E R B A R
+*********************************************************/
+div#user_bar {
+	color: #989898;
+}
+
+div#user_bar img {
+	border: 3px solid #dadada;
+}
+
+/*********************************************************
+						W I D G E T S
+*********************************************************/
+.tip_upload {
+	background:url('/image/bg_white/tip_graphic.jpg') no-repeat center center;
+}
+#tip_text {
+	color:#989898;
+}
+
+/******************************************************************************************************************
+														P A G E S
+******************************************************************************************************************/
+/*********************************************************
+					A L L  P A G E S
+*********************************************************/
+body {
+	background: #fff;
+	color:#666;
+}
+div#header_bar { /* encapsulates the entire top of the page */
+	color: #989898;
+	background: url('/image/bg_white/header_bg.gif') top left repeat;
+}
+
+a#logo {
+	background: url('/image/bg_white/blue/main_logo.gif') center center no-repeat;
+}
+
+
+.footer_bar {
+	color: #989898;
+}
+.boilerplate {
+	color: #989898;
+}
+
+a.organizer {
+	background: url('/image/bg_white/blue/organizerbtn_off.png') center center no-repeat;
+}
+a.organizer:hover {
+	background:url('/image/bg_white/blue/organizerbtn_on.png') center center no-repeat;
+}
+
+/*********************************************************
+					A L B U M S
+*********************************************************/
+.album_edit_bar .instr {
+	background-color:#fbfdbb;
+	
+}
+.album_frame {
+	background:url(/image/bg_white/albumframe.png) no-repeat;
+}
+.set_frame {
+	background:url(/image/bg_white/set_frame.png) no-repeat;
+}
+.album_selected .album_icon{
+	border: 2px solid #fc0;
+}
+
+a#icon_edit_set{
+	background: url('/image/bg_white/blue/editsets_normal.png') center center no-repeat;
+}
+a#icon_edit_set:hover{
+	background: url('/image/bg_white/blue/editsets_hover.png') center center no-repeat;
+}
+a#icon_new{
+	background: url('/image/bg_white/blue/newalbum_normal.png') center center no-repeat;
+}
+a#icon_new:hover{
+	background: url('/image/bg_white/blue/newalbum_hover.png') center center no-repeat;
+}
+a#icon_edit_this_set{
+	background: url('/image/bg_white/blue/editthisset_normal.png') center center no-repeat;
+}
+a#icon_edit_this_set:hover{
+	background: url('/image/bg_white/blue/editthisset_hover.png') center center no-repeat;
+}
+a#icon_new_set {
+	background: url('/image/bg_white/blue/newset_normal.png') center center no-repeat;
+}
+a#icon_new_set:hover {
+	background: url('/image/bg_white/blue/newset_hover.png') center center no-repeat;
+}
+
+/*********************************************************
+				C O M M U N I T Y  S P Y
+*********************************************************/
+div.event_holder {
+	background: #fff;
+}
+div.event_holder td {
+	border-top: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;
+}
+td.spy_entry_NEW_USER {
+	background: #fff url('/image/bg_white/community/icon_user.png') right 65px no-repeat;
+}
+td.spy_entry_NEW_TAG {
+	background: #fff url('/image/bg_white/community/icon_tag.png') right 65px no-repeat;
+}
+td.spy_entry_NEW_COMMENT {
+	background: #fff url('/image/bg_white/community/icon_comment.png') right 65px no-repeat;
+}
+td.spy_entry_NEW_MEDIA {
+	background: #fff url('/image/bg_white/community/icon_media.png') right 65px no-repeat;
+}
+a.big_avatar {
+	background: url('/image/bg_white/blue/avatar_75_75.jpg');
+}
+
+/*********************************************************
+					C O N T A C T S
+*********************************************************/
+.contact_view H3 {
+	color:#989898;
+}
+.contact_container .contact_body {
+	border-top:1px solid #cdcdcd;
+	border-bottom:1px solid #cdcdcd;
+}
+ .contact_info .mutual {
+	color: #cdcdcd;
+}
+.contact_avatar img {
+	border: 3px solid #dadada;
+}
+.contact_border {
+	border:2px solid #fff;
+}
+.contact_selected .contact_border {
+	border:2px solid #fc0;
+}
+a#icon_add_to_my_contacts {
+	background: url('/image/bg_white/blue/contacts_icons/addtomycontacts_off.png') center center no-repeat;
+}
+a#icon_add_to_my_contacts:hover {
+	background: url('/image/bg_white/blue/contacts_icons/addtomycontacts_on.png') center center no-repeat;
+}
+
+a#icon_add_contact {
+	background: url('/image/bg_white/blue/contacts_icons/newcontact_off.png') center center no-repeat;
+}
+a#icon_add_contact:hover {
+	background: url('/image/bg_white/blue/contacts_icons/newcontact_on.png') center center no-repeat;
+}
+
+a#icon_invite {
+	background: url('/image/bg_white/blue/contacts_icons/invite_off.png') center center no-repeat;
+}
+a#icon_invite:hover {
+	background: url('/image/bg_white/blue/contacts_icons/invite_on.png') center center no-repeat;
+}
+
+a#icon_add_list {
+	background: url('/image/bg_white/blue/newlist_normal.png') center center no-repeat;
+}
+a#icon_add_list:hover {
+	background: url('/image/bg_white/blue/newlist_hover.png') center center no-repeat;
+}
+
+/*********************************************************
+					F E A T U R E S
+*********************************************************/
+.right_content {
+	background-color:#fff;
+	border: 1px solid #ccc;
+}
+.yellowcontainer {
+	background-color: #fbffbc;
+}
+
+a#signmeup_btn {
+	background: url('/image/bg_white/blue/tryitnow_normal.png') center center no-repeat;
+}
+a#signmeup_btn:hover {
+	background: url('/image/bg_white/blue/tryitnow_hover.png') center center no-repeat;
+}
+div#landing01 {
+        background: url('/image/bg_white/landingpage_images/landing01.jpg') center center no-repeat;
+}
+div#landing02 {
+        background: url('/image/bg_white/landingpage_images/landing02.jpg') center center no-repeat;
+}
+div#landing03 {
+        background: url('/image/bg_white/landingpage_images/landing03.jpg') center center no-repeat;
+}
+div#landing04 {
+        background: url('/image/bg_white/landingpage_images/landing04.jpg') center center no-repeat;
+}
+div#landing05 {
+        background: url('/image/bg_white/landingpage_images/landing05.jpg') center center no-repeat;
+}
+div#landing06 {
+        background: url('/image/bg_white/landingpage_images/landing06.jpg') center center no-repeat;
+}
+div#landing07 {
+        background: url('/image/bg_white/landingpage_images/landing07.jpg') center center no-repeat;
+}
+
+/*********************************************************
+						4 0 4
+*********************************************************/
+#notfound_header{
+	background: url('/image/bg_white/icon_error.gif') left center no-repeat;
+	color: #666;
+}
+
+/*********************************************************
+					G L O B B E R
+*********************************************************/
+img.loaded_image {
+	border: 2px solid #fff;/*needed so images don't bounce around when they get a selection box*/
+}
+img.selected_image {
+	border: 2px solid #fc0;
+}
+.text_over_edit_buttons {
+	color:#989898;
+}
+.text_over_edit_buttons .edit_instr{
+	background-color:#fbfdbb;
+}
+
+div.big_thumb_item div, div.small_thumb_item span, div.small_thumb_item div{ /* info under thumbnails */
+	color: #b8b8b8;
+}
+
+table.exif td {
+	background: #edebed;
+}
+
+.glob_view_header{
+	color:#989898;
+}
+
+table.list_view {
+	border-collapse: collapse;
+	border-top: 1px solid #aaa;
+}
+table.list_view tr:hover {
+	background: #e0e0e0;
+}
+.selected_row {
+	background: #7fbae6;
+}
+table.list_view th {
+	background: #e0e0e0;
+}
+table.list_view td {
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+	background: inherit;
+}
+
+a#small_thumb_view_toggle {
+	background:url('/image/bg_white/user_globber_icons/glob_view_small_thumbs_off.png') top left no-repeat;
+}
+a#small_thumb_view_toggle.selected_view_selector, a#small_thumb_view_toggle:hover {
+	background:url('/image/bg_white/user_globber_icons/glob_view_small_thumbs_on.png') top left no-repeat;
+}
+a#big_thumb_view_toggle {
+	background:url('/image/bg_white/user_globber_icons/glob_view_big_thumbs_off.png') top left no-repeat;
+}
+a#big_thumb_view_toggle.selected_view_selector, a#big_thumb_view_toggle:hover {
+	background:url('/image/bg_white/user_globber_icons/glob_view_big_thumbs_on.png') top left no-repeat;
+}
+a#list_view_toggle {
+	background:url('/image/bg_white/user_globber_icons/glob_view_list_off.png') top left no-repeat;
+}
+a#list_view_toggle.selected_view_selector, a#list_view_toggle:hover {
+	background:url('/image/bg_white/user_globber_icons/glob_view_list_on.png') top left no-repeat;
+}
+a#minimal_view_toggle {
+	background:url('/image/bg_white/user_globber_icons/glob_view_minimal_off.png') top left no-repeat;
+}
+a#minimal_view_toggle.selected_view_selector, a#minimal_view_toggle:hover {
+	background:url('/image/bg_white/user_globber_icons/glob_view_minimal_on.png') top left no-repeat;
+}
+.advanced_search_option {
+	border-bottom: 1px solid #989898;
+}
+/*********************************************************
+                                O T H E R  S I Z E S
+*********************************************************/
+div#other_size div#image_container.loading {
+        background: #fff url('/image/bg_white/spinner.gif') center center no-repeat;
+}
+
+/*********************************************************
+				I M A G E  D E T A I L
+*
+* Author: Josh Williams
+* Date Added: Wed Aug 30 11:12:00 CDT 2006
+*
+* General style for the standalone detail page.
+*********************************************************/
+/************** LEFT HAND ELEMENTS *************/
+div#big_detail_image div.holder {
+	border: 1px #d0d0d0 solid;
+	background: #fff url('/image/bg_white/spinner.gif') center center no-repeat;
+}
+
+div#big_detail_image .loaded {
+	border: 1px #d0d0d0 solid;
+}
+
+div.new_comment_holder textarea {
+	border: 1px solid #c2c2c2;
+}
+/************* RIGHT HAND ELEMENTS **************/
+div#nav_holder {
+	border-top: 1px #d0d0d0 solid;
+	border-bottom: 1px #d0d0d0 solid;
+}
+div.thumb_holder div.stub {
+	background: #fff url('/image/bg_white/spinner.gif') center center no-repeat; 
+}
+div#prev_next div.holder_unloaded {
+	background: #fff url('/image/bg_white/spinner.gif') center center no-repeat;
+}
+div#prev_next div.holder_loaded {
+	background: none;
+}
+div#prev_next div.holder_no_img {
+	border: 1px solid #d0d0d0;
+}
+
+/*********************************************************
+					M A I N  H O M E P A G E
+*********************************************************/
+div#main_photo_container {
+	background: #fff url('/image/bg_white/homepage_stack_background.png') left top no-repeat;	
+}
+div#stack_content img{
+	border: 1px solid #c2c2c2;
+}
+a#giant_signup_button {
+	background: #fff url('/image/bg_white/blue/tryitnow_normal.png') left top no-repeat;
+}
+a#giant_signup_button:hover {
+	background: #fff url('/image/bg_white/blue/tryitnow_hover.png') left top no-repeat;
+}
+a#explore_link {
+	background: url('/image/bg_white/explore_normal.png') left top no-repeat;
+}
+a#explore_link:hover {
+ 	background: url('/image/bg_white/blue/explore_hover.png') left top no-repeat;
+}
+div#main_page_container div#header_bar {
+	background: #fff;
+}
+div#main_happy_talk .mp_bullet_list {
+	background:url('/image/bg_white/blue/bullet_list.gif') top center no-repeat;
+}
+span#main_homepage_tagline {
+        background: url('/image/tag_line.gif');
+}
+span#features_button {
+        background: url('/image/features_button.gif');
+}
+
+
+/*********************************************************
+					M E S S A G E S
+*********************************************************/
+.messages_tbl td{
+	background-color:#ededed;
+}
+
+/*********************************************************
+					Q U I C K S T A R T
+*********************************************************/
+div.platform {
+	border-top: 1px solid #ccc;
+}
+h5 { /*conflict */
+	color: #666;
+}
+DIV#apple_platform {
+	background: #fff url('/image/bg_white/apple.png') 5px center no-repeat;
+	color: #989898;
+}
+DIV#windows_platform {
+	background: #fff url('/image/bg_white/windows.png') 5px center no-repeat;
+	color: #989898;
+}
+DIV#linux_platform {
+	background: #fff url('/image/bg_white/linux.png') 5px center no-repeat;
+	color: #989898;
+	border-bottom: 1px solid #ccc;
+}
+
+/*********************************************************
+				R E S E T  P A S S W O R D
+*********************************************************/
+a#giant_login_button {
+	background: #fff url('/image/bg_white/blue/login_button_normal.png') left top no-repeat;
+}
+a#giant_login_button:hover {
+	background: #fff url('/image/bg_white/blue/login_button_active.png') left top no-repeat;
+}
+
+/*********************************************************
+				S I G N U P  /   U P G R A D E
+*********************************************************/
+div.form_divider {
+	border-top: 1px solid #c2c2c2;
+}
+a#giant_upload_button {
+	background: #fff url('/image/bg_white/blue/upload_button_normal.png') left top no-repeat;
+}
+a#giant_upload_button:hover {
+	background: #fff url('/image/bg_white/blue/upload_button_active.png') left top no-repeat;
+}
+.signup_form img.selected_image {
+	border:2px solid #fff !important;
+}
+.signup_form .globber_shell, .signup_form .album_template_form {
+	border:1px solid #ccc;
+}
+span#upload_instructions {
+	background: url('/image/bg_white/instructions.gif') center center no-repeat;
+}
+.signup_acct_form_fluff {
+	border:1px solid #ccc;
+	background: #fbfdbb;
+}
+.signup_album_form_fluff {
+	background: url('/image/bg_white/steptwographic.jpg') top left no-repeat;
+}
+span#securitycode {
+        background: url('/image/bg_white/securitycode.png');
+}
+
+
+/*********************************************************
+						T A G S
+*********************************************************/
+/* tag epaper */
+.tag_view .edit_mode a{
+	color:#989898;
+}
+.tag_view .edit_mode a:hover {
+	background: #fbffbc;
+}
+
+.tag_view .edit_mode a.remove {
+	color: #7fbae6;
+	background-color:#fff;
+}
+.tag_view .tag_epaper input{
+	border: 1px solid #c2c2c2;
+	color:#989898;
+}
+a#tag_organizer {
+	background: url('/image/bg_white/blue/edit_tags_normal.png') center center no-repeat;
+}
+a#tag_organizer:hover {
+	background:url('/image/bg_white/blue/edit_tags_over.png') center center no-repeat;
+}
+a#cloud_icon {
+	background: url('/image/bg_white/cloudview_grey.png') center center no-repeat;
+}
+a#cloud_icon.selected_view_selector, a#cloud_icon:hover {
+	background:url('/image/bg_white/blue/cloudview_color.png') center center no-repeat;
+}
+a#flat_icon {
+	background: url('/image/bg_white/flatview_grey.png') center center no-repeat;
+}
+a#flat_icon.selected_view_selector, a#flat_icon:hover {
+	background:url('/image/bg_white/blue/flatview_color.png') center center no-repeat;
+}
+
+/*********************************************************
+				U S E R  H O M E P A G E
+*********************************************************/
+div#drop_separator {
+	background: lightyellow;
+	color: #ccc;
+}
+div.column {
+	border: 2px solid #fff;
+	background: transparent;
+}
+div.drag_handle, div.drag_handle_fake {
+	background-color: transparent;
+	border-top: 1px solid #c0c0c0;
+	border-bottom: 1px solid #c0c0c0;
+}
+ul#widget_list li {
+	background: #fff url('/image/bg_white/bullet_toggle_plus.png') 0px 6px no-repeat;
+}
+ul#widget_list li:hover {
+	background: #fff url('/image/bg_white/bullet_toggle_plus_hover.png') 0px 6px no-repeat;
+}
+
+div.widget {
+	background: #fff;
+}
+
+/********************************************************
+ *				    D E V E L O P E R S *
+ *******************************************************/
+ div.example_code {
+ 	background: #F3F3F3;
+	border-left: 3px solid #CCCCCC;
+ }
+/******************************************************************************************************************
+														M O D A L S
+******************************************************************************************************************/
+/*********************************************************
+					A L L  M O D A L S
+*********************************************************/
+a.close_x_link {
+	background: url('/image/bg_white/close_x.png') center center no-repeat;
+}
+div#modal_info {
+	border: 1px solid #c2c2c2;
+	background: #fff;
+}
+#overlay {
+	background-image: url('/image/bg_white/overlay.png'); 
+}
+* html #overlay {
+	background-color: transparent;
+	background-image: url('/image/bg_white/clear.gif');
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src="/image/bg_white/overlay.png", sizingMethod="scale");
+}
+
+/*********************************************************
+				A L B U M  S H A R E
+*********************************************************/
+.share_modal input {
+	border: 1px solid #C2C2C2;
+	color:#989898;
+}
+.share_modal .parenthetical {
+	color:#989898;
+}
+.share_modal blockquote {
+	color:#989898;
+}
+
+/*********************************************************
+			A L B U M  E D I T  S E T S  
+*********************************************************/
+.edit_set_modal .epaper_input_box {
+	border:1px solid #cdcdcd;
+}
+
+/*********************************************************
+			A L B U M  C R E A T E  A L B U M
+*********************************************************/
+.create_album_modal .epaper_input_box {
+	border:1px solid #cdcdcd;
+}
+
+/*********************************************************
+				A L B U M  T E M P L A T E
+*********************************************************/
+.album_template_form .swatch {
+	border:1px solid #cdcdcd;
+	background-color:#fff;
+}
+
+.album_template_modal .left_col input {
+	border:1px solid #cdcdcd;
+}
+.album_template_modal .img_box {
+	border:1px solid #cdcdcd;
+}
+.album_template_modal select {
+	border:1px solid #cdcdcd;
+}
+.setting_box span#align_left {
+	background: url('/image/bg_white/left.png') center center no-repeat;
+}
+.setting_box span#align_right {
+	background: url('/image/bg_white/right.png') center center no-repeat;
+}
+.setting_box span#align_center {
+	background: url('/image/bg_white/center.png') center center no-repeat;
+}
+
+/*********************************************************
+		A L B U M  E D I T  S E T S  T A B L E
+*********************************************************/
+.album_table {
+	background: #fff;
+}
+.album_table td {
+	border-top: 1px solid #cdcdcd;
+	border-bottom: 1px solid #cdcdcd;
+	background: inherit;
+}
+
+.album_table .epaper_input_box{
+	border:1px solid #cdcdcd;
+}
+
+/*********************************************************
+				A U T H I N A T O R
+*********************************************************/
+div#authinator_form_container {
+	border: 1px solid #c2c2c2;
+	background: #fff;
+}
+div#authinator_form_container div.message_box {
+	background: #fbffbc url('/image/bg_white/error.png') 5px 15px no-repeat;
+}
+/*********************************************************
+                        B L O G  / P U B L I S H I N G
+*********************************************************/
+SPAN#layout_top {
+        background: url('/image/bg_white/publish/layout_top.png') center center no-repeat;
+}
+SPAN#layout_left {
+        background: url('/image/bg_white/publish/layout_left.png') center center no-repeat;
+}
+SPAN#layout_right {
+        background: url('/image/bg_white/publish/layout_right.png') center center no-repeat;
+}
+
+/*********************************************************
+				C O L O R  S W I T C H E R
+*********************************************************/
+div#color_switcher {
+	background-color: #fff;
+	border:1px solid #ccc;
+}
+div#color_switcher .dual_swatch{
+	border:2px solid #fff;
+}
+div#color_switcher .dual_swatch_selected{
+	border:2px solid #fc0;
+}
+
+div#color_switcher #white_blue {
+	background: url('/image/switcher/color_blue.gif') center center no-repeat;
+}
+div#color_switcher #white_gold {
+	background: url('/image/switcher/color_gold.gif') center center no-repeat;
+}
+div#color_switcher #white_green {
+	background: url('/image/switcher/color_green.gif') center center no-repeat;
+}
+div#color_switcher #white_grey {
+	background: url('/image/switcher/color_grey.gif') center center no-repeat;
+}
+div#color_switcher #white_orange {
+	background: url('/image/switcher/color_orange.gif') center center no-repeat;
+}
+div#color_switcher #white_pink {
+	background: url('/image/switcher/color_pink.gif') center center no-repeat;
+}
+div#color_switcher #white_purple {
+	background: url('/image/switcher/color_purple.gif') center center no-repeat;
+}
+/* black backgrounds */
+div#color_switcher #black_blue {
+	background: url('/image/switcher/color_black_blue.gif') center center no-repeat;
+}
+div#color_switcher #black_gold {
+	background: url('/image/switcher/color_black_gold.gif') center center no-repeat;
+}
+div#color_switcher #black_green {
+	background: url('/image/switcher/color_black_green.gif') center center no-repeat;
+}
+div#color_switcher #black_grey {
+	background: url('/image/switcher/color_black_grey.gif') center center no-repeat;
+}
+div#color_switcher #black_orange {
+	background: url('/image/switcher/color_black_orange.gif') center center no-repeat;
+}
+div#color_switcher #black_pink {
+	background: url('/image/switcher/color_black_pink.gif') center center no-repeat;
+}
+div#color_switcher #black_purple {
+	background: url('/image/switcher/color_black_purple.gif') center center no-repeat;
+}
+
+/*********************************************************
+				C O N T A C T  M O D A L S
+*********************************************************/
+.contact_tbl {
+	background: #fff;
+}
+.selected_row {
+	background: #7fbae6;
+}
+.contact_tbl td {
+	border-top: 1px solid #cdcdcd;
+	border-bottom: 1px solid #cdcdcd;
+	background: inherit;
+}
+
+/*********************************************************
+				C O N T A C T  A D D  O T H E R
+*********************************************************/
+.modal_add_other fieldset{
+	background-color: #eee;
+}
+.modal_add_other .history {
+	border:1px solid #eee;
+}
+
+/*********************************************************
+		C O N T A C T	E D I T   L I S T S
+*********************************************************/
+.edit_lists_contacts fieldset.shaded{
+	background-color: #eee;
+}
+.edit_lists_contacts .epaper_input_box {
+	border:1px solid #c2c2c2;
+	color:#666;
+}
+
+/*********************************************************
+				C O N T A C T  I N V I T E
+*********************************************************/
+.invite_modal input {
+	border: 1px solid #C2C2C2;
+	color:#989898;
+}
+.invite_modal .parenthetical {
+	color:#989898;
+}
+.invite_modal blockquote {
+	color:#989898;
+}
+
+/*********************************************************
+					E D I T  D A T E
+*********************************************************/
+.date_picker .calendar_page a{
+	color:#989898;
+}
+.date_picker .calendar_page .today a{
+	background-color:#989898;
+	color:#fff;
+}
+.date_picker .calendar_page .otherday a:hover{
+	background:#cdcdcd;
+}
+
+/*********************************************************
+					H E L P  M O D A L
+*********************************************************/
+.settings_holder DIV#apple_platform {
+	background: #fff url('/image/bg_white/help/apple.png') 5px center no-repeat;
+}
+.settings_holder DIV#windows_platform {
+	background: #fff url('/image/bg_white/help/windows.png') 5px center no-repeat;
+}
+.settings_holder DIV#linux_platform {
+	background: #fff url('/image/bg_white/help/linux.png') 5px center no-repeat;
+}
+
+/*********************************************************
+			M E S S A G E S : N E W  M E S S A G E
+*********************************************************/
+.modal_new input {
+	border: 1px solid #C2C2C2;
+	color:#989898;
+}
+.modal_new .parenthetical {
+	color:#989898;
+}
+
+/*********************************************************
+			M E S S A G E S : R E A D / R E P L Y
+*********************************************************/
+.modal_read_reply .top_buttons{
+	color:#989898;
+}
+.modal_read_reply .avatar img{
+	border:2px solid #cdcdcd;
+}
+
+.modal_read_reply .msgbody{
+	border:1px solid #cdcdcd;
+}
+.modal_read_reply .textarea {
+	border: 1px solid #cdcdcd;
+	color:#989898;
+}
+
+/*********************************************************
+				P E R M I S S I O N S
+*********************************************************/
+table.perms {
+	border: 1px solid #c2c2c2;
+}
+table.perms td {
+	border: 1px solid #c2c2c2;
+}
+table.perms td.center {
+	text-align: center;
+}
+div#big_error_box {
+	background: #FBFFBC url('/image/bg_white/error.png') 4px 3px no-repeat;
+}
+
+/*********************************************************
+				P R I N T I N G
+*********************************************************/
+ 
+.bigqoopicon {
+float:right;
+padding-right:10px;
+background: url('/image/bg_white/qooplogowhite.gif') no-repeat;
+width:98px;
+height:36px;
+ }
+.bigqoopicon2 {
+float:right;
+padding-right:10px;
+padding-bottom:10px;
+background: url('/image/bg_white/qooplogowhite.gif') no-repeat;
+width:98px;
+height:36px;
+ }
+/*********************************************************
+				S E T T I N G S
+*********************************************************/
+/**************** OVERALL SETTINGS ****************/
+div.settings_menu_holder {
+	border-right: 1px solid #ccc;
+}
+li.level0 {
+	color:#ccc;
+}
+
+li.level0 a.menu_active {
+	color: #989898;
+}
+
+/* Level 1 menus */
+ul.level1 {
+	border-top: 1px solid #ccc;	
+	border-bottom: 1px solid #ccc;
+}
+li.level1 {
+	color:#ccc;
+}
+li.level1 a.item_active{
+	color: #989898;
+}
+/* Level 2 menus */
+
+/*************** CHANGE PASSWORD *******************/
+div#update_success {
+        background: #fbfdbb;
+}
+
+/****************** PHOTO PERMS ********************/
+div.perms_holder form.perms_form div.checkbox_holder_disabled {
+	color: #ccc;
+}
+div.perms_holder fieldset.shaded{
+	background-color:#eee;
+}
+
+/*********************************************************
+				U P L O A D
+*********************************************************/
+.upload_modal .via_web {
+	border-right:1px solid #cdcdcd;
+}
+.via_app span#uploadergfx {
+	background: url('/image/bg_white/220x220uploadergfx.png') center center no-repeat;
+}
